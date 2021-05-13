@@ -251,8 +251,12 @@ Entendemos por flexible que se puede estirar hasta cierto punto.
 
  con extremos fijos.
  Buscamos modelizar la altura que alcanza la cuerda en cierto punto de la
- misma y cierto momento del tiempo concreto, es decir, que buscamos una
- función 
+ misma y cierto momento del tiempo concreto, es decir, que, suponiendo un
+ extremo de la cuerda en el origen y otro en 
+\begin_inset Formula $L$
+\end_inset
+
+, buscamos una función 
 \begin_inset Formula 
 \begin{align*}
 u:\left(0,\infty\right)\times\left(0,L\right) & \to\mathbb{R}\\
@@ -261,7 +265,16 @@ u:\left(0,\infty\right)\times\left(0,L\right) & \to\mathbb{R}\\
 
 \end_inset
 
-que verifique las siguientes hipótesis:
+que modeliza la altura de la cuerda en el punto 
+\begin_inset Formula $x$
+\end_inset
+
+ tras 
+\begin_inset Formula $t$
+\end_inset
+
+ segundos.
+ Introducimos las siguientes hipótesis:
 \end_layout
 
 \begin_layout Enumerate
@@ -273,7 +286,7 @@ La cuerda es tensa de longitud
 \end_layout
 
 \begin_layout Enumerate
-La densidad de la cuerda es cierta constante 
+La densidad de la cuerda es constante con valor 
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -281,7 +294,7 @@ La densidad de la cuerda es cierta constante
 \end_layout
 
 \begin_layout Enumerate
-La tensión de la cuerda es cierta constante 
+La tensión de la cuerda es constante con valor 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -290,7 +303,20 @@ La tensión de la cuerda es cierta constante
 
 \begin_layout Enumerate
 Las vibraciones sólo se producen en el eje vertical (es decir, que no hay
- desplazamientos horizontales).
+ desplazamientos horizontales) y son de muy pequeña amplitud
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Suponemos que la cuerda casi ni se mueve vaya.
+ Esto sirve para luego hacer aproximaciones sospechosas con algún ápice
+ de justificación que nos permiten llegar a una ecuación en derivadas parciales
+ lineal para que no se nos complique mucho la vida.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -304,21 +330,27 @@ al que podamos resolver.
 \begin_inset Formula $P_{1},\dots,P_{N}$
 \end_inset
 
- equidistantes (este método se conoce como 
+ (
 \emph on
-formulación de Laplace
+formulación de Lagrange
 \emph default
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-No he sido capaz de encontrar una referencia a esto.
-\end_layout
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lagrange"
+literal "false"
 
 \end_inset
 
-) y supongamos por ahora 
+) separadas horizontalmente una cantidad 
+\begin_inset Formula $\Delta x\coloneqq L/N$
+\end_inset
+
+ y cada una de masa 
+\begin_inset Formula $\rho\Delta x$
+\end_inset
+
+ y supongamos por ahora 
 \begin_inset Formula $t>0$
 \end_inset
 
@@ -329,9 +361,9 @@ No he sido capaz de encontrar una referencia a esto.
 
 , la fuerza neta (vertical) es 
 \begin_inset Formula 
-\[
-F\!\left(x_{i}\right)=m_{i}a_{i}=\rho\Delta x\frac{\text{d}^{2}}{\text{d}t^{2}}\left(u\!\left(t,x_{i}\right)\right)
-\]
+\begin{equation}
+F\!\left(x_{i}\right)=m_{i}a_{i}=\rho\Delta x\frac{\partial^{2}}{\partial t^{2}}\left(u\!\left(t,x_{i}\right)\right),\label{eq:sex}
+\end{equation}
 
 \end_inset
 
@@ -348,8 +380,7 @@ F\!\left(x_{i}\right)=\left(\vec{T}_{-}\!\left(x_{i}\right)\right)_{vert}+\left(
 \end_layout
 
 \begin_layout Standard
-Ahora bien, aplicando la tercera hipótesis, la tensión es una constante
- 
+Ahora bien, aplicando la tercera hipótesis, la tensión vale
 \begin_inset Formula 
 \begin{align*}
 \vec{T}_{-}\!\left(x_{i}\right) & =\tau\frac{P_{i-1}-P_{i}}{\left\Vert P_{i-1}-P_{i}\right\Vert }, & \vec{T}_{+}\!\left(x_{i}\right) & =\tau\frac{P_{i+1}-P_{i}}{\left\Vert P_{i+1}-P_{i}\right\Vert },
@@ -357,12 +388,7 @@ Ahora bien, aplicando la tercera hipótesis, la tensión es una constante
 
 \end_inset
 
-y como también por hipótesis los desplazamientos son únicamente verticales,
- 
-\begin_inset Formula $\left\Vert P_{i-1}-P_{i}\right\Vert =\left\Vert P_{i+1}-P_{i}\right\Vert \cong\Delta x$
-\end_inset
-
-
+donde usando la controvertida
 \begin_inset Foot
 status open
 
@@ -371,16 +397,26 @@ Notemos que
 \begin_inset Formula $\Delta x$
 \end_inset
 
- depende directamente del número de partículas que hay, a más partículas,
- menos distancia.
+ depende directamente del número de partículas que hay.
+ A más partículas, menos distancia.
+ Esto nos hace desconfiar de lo justo que es despreciar otros valores desde
+ el principio manteniendo este.
 \end_layout
 
 \end_inset
 
-, lo que nos dice que 
+ hipótesis cuatro podemos aproximar
 \begin_inset Formula 
 \[
-\left(\vec{T}_{\pm}\!\left(x_{i}\right)\right)_{vert}\cong\tau\frac{u\!\left(t,x_{i\pm1}\right)-u\!\left(t,x_{i}\right)}{\Delta x}.
+\left\Vert P_{i-1}-P_{i}\right\Vert =\left\Vert P_{i+1}-P_{i}\right\Vert \overset{\text{no desp. horiz.}}{\approx}\sqrt{(\Delta x)^{2}+\left(u\!\left(t,x_{i\pm1}\right)-u\!\left(t,x_{i}\right)\right)^{2}}\overset{\text{pequeño desp. vert.}}{\approx}\Delta x,
+\]
+
+\end_inset
+
+con lo que
+\begin_inset Formula 
+\[
+\left(\vec{T}_{\pm}\!\left(x_{i}\right)\right)_{vert}\approx\tau\frac{u\!\left(t,x_{i\pm1}\right)-u\!\left(t,x_{i}\right)}{\Delta x}\implies F\!\left(x_{i}\right)=\frac{u\!\left(t,x_{i+1}\right)+u\!\left(t,x_{i-1}\right)-2u\!\left(t,x_{i}\right)}{\Delta x}.
 \]
 
 \end_inset
@@ -389,19 +425,29 @@ Notemos que
 \end_layout
 
 \begin_layout Standard
-Así, finalmente llegamos a la expresión (notemos que utilizamos la notación
+Así, despejando en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sex"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, finalmente llegamos a la expresión (notemos que utilizamos la notación
  
 \begin_inset Formula $u_{tt}$
 \end_inset
 
  para referirnos a 
-\begin_inset Formula $\frac{\text{d}^{2}u}{\text{d}t^{2}}$
+\begin_inset Formula $\frac{\partial^{2}u}{\partial t^{2}}$
 \end_inset
 
 )
 \begin_inset Formula 
 \[
-u_{tt}\!\left(t,x_{i}\right)=\frac{\tau}{\rho}\frac{u\!\left(t,x_{i+1}\right)-2u\!\left(t,x_{i}\right)+u\!\left(t,x_{i-1}\right)}{\left(\Delta x\right)^{2}}=\frac{\tau}{\rho}\frac{u\!\left(t,x_{i}+\Delta x\right)-2u\!\left(t,x_{i}\right)+u\!\left(t,x_{i}-\Delta x\right)}{\left(\Delta x\right)^{2}}
+u_{tt}\!\left(t,x_{i}\right)=\frac{\tau}{\rho}\frac{u\!\left(t,x_{i+1}\right)-2u\!\left(t,x_{i}\right)+u\!\left(t,x_{i-1}\right)}{\left(\Delta x\right)^{2}}=\frac{\tau}{\rho}\frac{u\!\left(t,x_{i}+\Delta x\right)-2u\!\left(t,x_{i}\right)+u\!\left(t,x_{i}-\Delta x\right)}{\left(\Delta x\right)^{2}},
 \]
 
 \end_inset
@@ -444,7 +490,11 @@ Basta con desarollar por Taylor o usar L'Hôpital.
 \end_layout
 
 \begin_layout Standard
-Por tanto, llegamos finalmente a la ecuación diferencial 
+Por tanto, tomando límites cuando 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ tiende a cero llegamos finalmente a la ecuación diferencial
 \begin_inset Formula 
 \begin{align*}
 u_{tt}\!\left(t,x\right) & =\frac{\tau}{\rho}u_{xx}\!\left(t,x\right), & \left(t,x\right) & \in\left(0,\infty\right)\times\left(0,L\right)
@@ -465,9 +515,8 @@ donde habitualmente se escribe
 status open
 
 \begin_layout Plain Layout
-Se puede comprobar como ejercicio que las unidades de esta constante son
- 
-\begin_inset Formula $\frac{\text{metros}}{\text{segundos}}$
+Descomponiendo en unidades básicas, 
+\begin_inset Formula $\dfrac{\text{N}}{\text{kg}/\text{m}}=\dfrac{\text{kg}\cdot\text{m}/\text{s}^{2}}{\text{kg}/\text{m}}=\dfrac{\text{m}}{\text{s}}$
 \end_inset
 
 .
@@ -481,20 +530,20 @@ Se puede comprobar como ejercicio que las unidades de esta constante son
 \begin_layout Standard
 Así llegamos finalmente a la 
 \series bold
-ecuación de la cuerda vibrante
+ecuación de la cuerda vibrante 
 \series default
- (también llamada 
+(también llamada 
 \series bold
 ecuación de ondas en una dimensión
 \series default
-) 
+) de extremos fijos 
 \begin_inset Formula 
 \[
 \begin{cases}
 u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right), & \left(t,x\right)\in\left(0,\infty\right)\times\left(0,L\right)\\
 u\!\left(t,0\right)=u\!\left(t,L\right)=0, & t\in\left(0,\infty\right)\\
 u\!\left(0,x\right)=f\!\left(x\right), & x\in\left(0,L\right)\\
-u_{t}\!\left(0,x\right)=g\!\left(x\right), & x\in\left(0,L\right)
+u_{t}\!\left(0,x\right)=g\!\left(x\right), & x\in\left(0,L\right),
 \end{cases}
 \]
 
@@ -4449,6 +4498,24 @@ operador de Sturm-Liouville
 \end_inset
 
 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Lagrange"
+literal "false"
+
+\end_inset
+
+Lagrange, J.
+ L.
+ (1759).
+ 
+\emph on
+Recherches sur la nature et la propagation du son
+\emph default
+.
 \end_layout
 
 \begin_layout Bibliography
