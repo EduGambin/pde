@@ -1,0 +1,3921 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\DeclareMathOperator{\sgn}{sgn}
+\end_preamble
+\use_default_options true
+\begin_modules
+tcolorbox
+theorems-ams
+theorems-chap
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "libertine" "default"
+\font_sans "biolinum" "default"
+\font_typewriter "beramono" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize default
+\spacing other 1.15
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip bigskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Ecuaciones en derivadas parciales
+\end_layout
+
+\begin_layout Author
+Eduardo Gambín Monserrat
+\end_layout
+
+\begin_layout Chapter*
+Introducción
+\end_layout
+
+\begin_layout Standard
+Este documento ha sido redactado blablabla.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Ecuaciones en derivadas parciales
+\end_layout
+
+\begin_layout Chapter
+La ecuación de la cuerda vibrante
+\end_layout
+
+\begin_layout Section
+Formulación física
+\end_layout
+
+\begin_layout Standard
+Este problema fue introducido por el matemático francés 
+\emph on
+Jean le Rond D'Alembert
+\emph default
+ (1717-1783) en sus investigaciones sobre los fenómenos de las cuerdas vibrantes
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "pp. 214-249"
+key "D'Alembert"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Supongamos una cuerda flexible
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Entendemos por flexible que se puede estirar hasta cierto punto.
+\end_layout
+
+\end_inset
+
+ con extremos fijos.
+ Buscamos modelizar la altura que alcanza la cuerda en cierto punto de la
+ misma y cierto momento del tiempo concreto, es decir, que buscamos una
+ función 
+\begin_inset Formula 
+\begin{align*}
+u:\left(0,\infty\right)\times\left(0,L\right) & \to\mathbb{R}\\
+\left(t,x\right) & \mapsto u\!\left(t,x\right)
+\end{align*}
+
+\end_inset
+
+que verifique las siguientes hipótesis:
+\end_layout
+
+\begin_layout Enumerate
+La cuerda es tensa de longitud 
+\begin_inset Formula $L$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+La densidad de la cuerda es cierta constante 
+\begin_inset Formula $\rho$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+La tensión de la cuerda es cierta constante 
+\begin_inset Formula $\tau$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Las vibraciones sólo se producen en el eje vertical (es decir, que no hay
+ desplazamientos horizontales).
+\end_layout
+
+\begin_layout Standard
+Vamos a intentar obtener a partir de este problema físico una ecuación diferenci
+al que podamos resolver.
+ Para ello, nos imaginamos la cuerda como la unión de 
+\begin_inset Formula $N$
+\end_inset
+
+ partículas 
+\begin_inset Formula $P_{1},\dots,P_{N}$
+\end_inset
+
+ equidistantes (este método se conoce como 
+\emph on
+formulación de Laplace
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+No he sido capaz de encontrar una referencia a esto.
+\end_layout
+
+\end_inset
+
+) y supongamos por ahora 
+\begin_inset Formula $t>0$
+\end_inset
+
+ fijo.
+ Para cada 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+, la fuerza neta (vertical) es 
+\begin_inset Formula 
+\[
+F\!\left(x_{i}\right)=m_{i}a_{i}=\rho\Delta x\frac{\text{d}^{2}}{\text{d}t^{2}}\left(u\!\left(t,x_{i}\right)\right)
+\]
+
+\end_inset
+
+pero como la única fuerza a la que está sometida la cuerda es la tensión,
+ tenemos 
+\begin_inset Formula 
+\[
+F\!\left(x_{i}\right)=\left(\vec{T}_{-}\!\left(x_{i}\right)\right)_{vert}+\left(\vec{T}_{+}\!\left(x_{i}\right)\right)_{vert}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora bien, aplicando la tercera hipótesis, la tensión es una constante
+ 
+\begin_inset Formula 
+\begin{align*}
+\vec{T}_{-}\!\left(x_{i}\right) & =\tau\frac{P_{i-1}-P_{i}}{\left\Vert P_{i-1}-P_{i}\right\Vert }, & \vec{T}_{+}\!\left(x_{i}\right) & =\tau\frac{P_{i+1}-P_{i}}{\left\Vert P_{i+1}-P_{i}\right\Vert },
+\end{align*}
+
+\end_inset
+
+y como también por hipótesis los desplazamientos son únicamente verticales,
+ 
+\begin_inset Formula $\left\Vert P_{i-1}-P_{i}\right\Vert =\left\Vert P_{i+1}-P_{i}\right\Vert \cong\Delta x$
+\end_inset
+
+, lo que nos dice que 
+\begin_inset Formula 
+\[
+\left(\vec{T}_{\pm}\!\left(x_{i}\right)\right)_{vert}\cong\tau\frac{u\!\left(t,x_{i\pm1}\right)-u\!\left(t,x_{i}\right)}{\Delta x}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, finalmente llegamos a la expresión (notemos que utilizamos la notación
+ 
+\begin_inset Formula $u_{tt}$
+\end_inset
+
+ para referirnos a 
+\begin_inset Formula $\frac{\text{d}^{2}u}{\text{d}t^{2}}$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+u_{tt}\!\left(t,x_{i}\right)=\frac{\tau}{\rho}\frac{u\!\left(t,x_{i+1}\right)-2u\!\left(t,x_{i}\right)+u\!\left(t,x_{i-1}\right)}{\left(\Delta x\right)^{2}}=\frac{\tau}{\rho}\frac{u\!\left(t,x_{i}+\Delta x\right)-2u\!\left(t,x_{i}\right)+u\!\left(t,x_{i}-\Delta x\right)}{\left(\Delta x\right)^{2}}
+\]
+
+\end_inset
+
+de la que vamos a obtener la ecuación que andamos buscando, pero primero
+ debemos conocer un resultado previo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Si 
+\begin_inset Formula $f\in C^{2}\!\left(\left(a-\delta,a+\delta\right)\right)$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, entonces se verifica que 
+\begin_inset Formula 
+\[
+f''\!\left(x\right)=\lim_{h\to0}\frac{f\!\left(x+h\right)-2f\!\left(x\right)+f\!\left(x-h\right)}{h^{2}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Basta con desarollar por Taylor o usar L'Hôpital.
+\end_layout
+
+\begin_layout Standard
+Por tanto, llegamos finalmente a la ecuación diferencial 
+\begin_inset Formula 
+\begin{align*}
+u_{tt}\!\left(t,x\right) & =\frac{\tau}{\rho}u_{xx}\!\left(t,x\right), & \left(t,x\right) & \in\left(0,\infty\right)\times\left(0,L\right)
+\end{align*}
+
+\end_inset
+
+donde habitualmente se escribe 
+\begin_inset Formula $\frac{\tau}{\rho}=c^{2}$
+\end_inset
+
+ y se le llama a 
+\begin_inset Formula $c$
+\end_inset
+
+ velocidad
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Se puede comprobar como ejercicio que las unidades de esta constante son
+ 
+\begin_inset Formula $\frac{\text{metros}}{\text{segundos}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así llegamos finalmente a la 
+\series bold
+ecuación de la cuerda vibrante
+\series default
+ (también llamada 
+\series bold
+ecuación de ondas en una dimensión
+\series default
+) 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right), & \left(t,x\right)\in\left(0,\infty\right)\times\left(0,L\right)\\
+u\!\left(t,0\right)=u\!\left(t,L\right)=0, & t\in\left(0,\infty\right)\\
+u\!\left(0,x\right)=f\!\left(x\right), & x\in\left(0,L\right)\\
+u_{t}\!\left(0,x\right)=g\!\left(x\right), & x\in\left(0,L\right)
+\end{cases}
+\]
+
+\end_inset
+
+donde la segunda condición nos dice que los extremos de la cuerda son fijos,
+ la tercera nos indica la posición inicial de la cuerda y la cuarta la velocidad
+ inicial.
+\end_layout
+
+\begin_layout Example
+Existen variantes de este problema con ligeras modificaciones 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fletcher-Rossing"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Con rozamiento.
+
+\series default
+ La ecuación en ese caso es 
+\begin_inset Formula $u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right)-\mu u_{t}\!\left(t,x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Con fuerza externa.
+
+\series default
+ La ecuación en ese caso es 
+\begin_inset Formula $u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right)+F\!\left(t,x\right)$
+\end_inset
+
+, que es una ecuación en derivadas parciales no homogénea.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Con densidad no constante.
+
+\series default
+ La ecuación en ese caso es 
+\begin_inset Formula $u_{tt}\!\left(t,x\right)=\frac{\tau}{\rho\!\left(x\right)}u_{xx}\!\left(t,x\right)$
+\end_inset
+
+, que es una ecuación en derivadas parciales lineal con coeficientes variables.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Sin hipótesis 4.
+ 
+\series default
+La ecuación en ese caso es 
+\begin_inset Formula $u_{tt}\!\left(t,x\right)=c^{2}\left(\frac{u_{x}\!\left(t,x\right)}{\sqrt{1+u_{x}\!\left(t,x\right)}}\right)_{x}$
+\end_inset
+
+, que es una ecuación en derivadas parciales no lineal.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Varilla vibrante rígida.
+
+\series default
+ La ecuación en ese caso es 
+\begin_inset Formula $u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right)-M^{2}u_{xxxx}\!\left(t,x\right)$
+\end_inset
+
+, que es una ecuación en derivadas parciales de orden 4 (el último término
+ es la rigidez de la varilla, que resta aceleración).
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Solución general de la ecuación de la cuerda vibrante
+\end_layout
+
+\begin_layout Standard
+Observando el experimento planteado, esperamos soluciones de tipo 
+\begin_inset Quotes eld
+\end_inset
+
+onda viajera
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Consultar 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://laplace.us.es/wiki/index.php?title=Archivo:Onda_viajera_suma.gif&limit=50
+\end_layout
+
+\end_inset
+
+ para ver una representación visual de este tipo de ondas.
+\end_layout
+
+\end_inset
+
+, por lo que se suele escribir 
+\begin_inset Formula $u\!\left(t,x\right)=F\!\left(x-ct\right)$
+\end_inset
+
+ si la onda viaja hacia delante o 
+\begin_inset Formula $u\!\left(t,x\right)=F\!\left(x+ct\right)$
+\end_inset
+
+ si la onda viaja hacia atrás, para cierta función 
+\begin_inset Formula $F:\mathbb{R}\to\mathbb{R}$
+\end_inset
+
+.
+ Llegamos así al siguiente resultado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+lema de D'Alembert
+\end_layout
+
+\end_inset
+
+ En las condiciones anteriores, se verifican:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $F,G\in C^{2}\!\left(\mathbb{R}\right)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $u\!\left(t,x\right)=F\!\left(x-ct\right)+G\!\left(x+ct\right)$
+\end_inset
+
+ verifica la ecuación 
+\begin_inset Formula $u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $u\in C^{2}\!\left(\mathbb{R}\times\mathbb{R}\right)$
+\end_inset
+
+ entonces existen funciones 
+\begin_inset Formula $F,G\in C^{2}\!\left(\mathbb{R}\right)$
+\end_inset
+
+ tales que la ecuación 
+\begin_inset Formula $u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right)$
+\end_inset
+
+ tiene como solución 
+\begin_inset Formula $u\!\left(t,x\right)=F\!\left(x-ct\right)+G\!\left(x+ct\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Veamos cada una.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Es un ejercicio.
+\end_layout
+
+\begin_layout Enumerate
+Nope.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Ahora que hemos descubierto una solución general de esta ecuación diferencial,
+ debemos imponer las condiciones iniciales, es decir, las igualdades 
+\begin_inset Formula 
+\[
+\begin{cases}
+u\!\left(0,x\right)=f\!\left(x\right) & \text{posición inicial}\\
+u_{t}\!\left(0,x\right)=g\!\left(x\right) & \text{velocidad inicial}
+\end{cases}
+\]
+
+\end_inset
+
+que nos llevan (tras algunos cálculos) a la expresión 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\frac{f\!\left(x-ct\right)+f\!\left(x+ct\right)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}g\!\left(s\right)\text{d}s
+\]
+
+\end_inset
+
+que es la llamada 
+\series bold
+fórmula de D'Alembert
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+solución de la ec.
+ de la cuerda vibrante en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ Sean 
+\begin_inset Formula $f\in C^{2}\!\left(\mathbb{R}\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $g\in C^{1}\!\left(\mathbb{R}\right)$
+\end_inset
+
+.
+ Entonces existe una única función 
+\begin_inset Formula $u\in C^{2}\!\left(\mathbb{R}\times\mathbb{R}\right)$
+\end_inset
+
+ verificando las condiciones
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right), & \left(t,x\right)\in\mathbb{R}^{2}\\
+u\!\left(0,x\right)=f\!\left(x\right), & x\in\mathbb{R}\\
+u_{t}\!\left(0,x\right)=g\!\left(x\right), & x\in\mathbb{R}
+\end{cases}
+\]
+
+\end_inset
+
+y esta viene dada por la expresión 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\frac{f\!\left(x-ct\right)+f\!\left(x+ct\right)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}g\!\left(s\right)\text{d}s.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+La cuerda vibrante en un intervalo
+\end_layout
+
+\begin_layout Standard
+En la sección anterior hemos visto que la fórmula de D'Alembert junto a
+ las condiciones iniciales nos proporcionan una solución general para el
+ problema de la cuerda vibrante.
+ Sin embargo, para poder utilizar esta fórmula, las condiciones iniciales
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ deben estar definidas en todo 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y no sólo en 
+\begin_inset Formula $\left[0,L\right]$
+\end_inset
+
+.
+ Vamos a estudiar la extensión de estas funciones.
+\end_layout
+
+\begin_layout Standard
+Vamos a suponer que la cuerda está quieta al principio, es decir, 
+\begin_inset Formula $g\equiv0$
+\end_inset
+
+.
+ Si intentamos imaginar lo que le ocurre a una onda una vez choca contra
+ uno de los extremos de la cuerda, podemos (o no) darnos cuenta de que la
+ onda se refleja al llegar a estos puntos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Aquí verndría de lujo un dibujo.
+\end_layout
+
+\end_inset
+
+.
+ Por tanto, la extensión natural de 
+\begin_inset Formula $f$
+\end_inset
+
+ es una función impar y 
+\begin_inset Formula $2L$
+\end_inset
+
+-periódica.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Dada 
+\begin_inset Formula $f\in C\!\left(\left[0,L\right]\right)$
+\end_inset
+
+, la función 
+\begin_inset Formula 
+\[
+\bar{f}\!\left(x\right)=\begin{cases}
+f\!\left(x\right), & x\in\left[0,L\right]\\
+-f\!\left(-x\right), & x\in\left[-L,0\right]\\
+\bar{f}\!\left(x-L\right), & x\ge L\\
+\bar{f}\!\left(x+L\right), & x\le-L
+\end{cases}
+\]
+
+\end_inset
+
+ es su 
+\series bold
+extensión impar y 
+\begin_inset Formula $\boldsymbol{2L}$
+\end_inset
+
+-periódica
+\series default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así pues, el candidato a solución es la función 
+\begin_inset Formula 
+\begin{align*}
+u\!\left(t,x\right) & =\frac{\bar{f}\!\left(x-ct\right)+\bar{f}\!\left(x+ct\right)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}\bar{g}\!\left(s\right)\,\text{d}s, & \left(t,x\right)\in\left(0,\infty\right)\times\left[0,L\right]
+\end{align*}
+
+\end_inset
+
+que vemos que verifica las condiciones de contorno para extremos fijos.
+ En 
+\begin_inset Formula $x=0$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+u\!\left(t,0\right)=\frac{\bar{f}\!\left(-ct\right)+\bar{f}\!\left(ct\right)}{2}+\cancel{\frac{1}{2c}\int_{-ct}^{ct}\bar{g}\!\left(s\right)\,\text{d}s}=\cancel{\frac{-\bar{f}\!\left(ct\right)+\bar{f}\!\left(ct\right)}{2}}=0
+\]
+
+\end_inset
+
+pues tanto 
+\begin_inset Formula $\bar{f}$
+\end_inset
+
+ como 
+\begin_inset Formula $\bar{g}$
+\end_inset
+
+ son impares, mientras que en 
+\begin_inset Formula $x=L$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+u\!\left(t,L\right)=\frac{\bar{f}\!\left(L-ct\right)+\bar{f}\!\left(L+ct\right)}{2}+\frac{1}{2c}\int_{L-ct}^{L+ct}\bar{g}\!\left(s\right)\,\text{d}s=\cancel{\frac{-\bar{f}\!\left(L+ct\right)+\bar{f}\!\left(L+ct\right)}{2}}+\frac{1}{2c}\int_{L-ct}^{L+ct}\bar{g}\!\left(s\right)\,\text{d}s
+\]
+
+\end_inset
+
+ pero como 
+\begin_inset Formula $\bar{g}$
+\end_inset
+
+ es impar y 
+\begin_inset Formula $2L$
+\end_inset
+
+-periódica, tenemos que 
+\begin_inset Formula 
+\[
+\int_{L-ct}^{L+ct}\bar{g}\!\left(s\right)\,\text{d}s=\int_{L-ct}^{L}\bar{g}\!\left(s\right)\,\text{d}s+\int_{L}^{L+ct}\bar{g}\!\left(s\right)\,\text{d}s=-\int_{L}^{L+ct}\bar{g}\!\left(s\right)\,\text{d}s+\int_{L}^{L+ct}\bar{g}\!\left(s\right)\,\text{d}s=0
+\]
+
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $u\!\left(t,L\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para poder concluir definitivamente que 
+\begin_inset Formula $u\!\left(t,x\right)$
+\end_inset
+
+ es la solución que buscamos, basta dar alguna hipótesis que nos garantice
+ que 
+\begin_inset Formula $\bar{f}$
+\end_inset
+
+ es de clase 
+\begin_inset Formula $C^{2}$
+\end_inset
+
+, que convenientemente es el siguiente resultado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Sea 
+\begin_inset Formula $f\in C^{2}\left(\left[0,L\right]\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $\bar{f}$
+\end_inset
+
+ su extensión impar 
+\begin_inset Formula $2L$
+\end_inset
+
+-periódica.
+ Entonces 
+\begin_inset Formula $\bar{f}\in C^{1}\!\left(\mathbb{R}\right)$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula 
+\[
+f\!\left(0^{+}\right)=f\!\left(L^{-}\right)=0
+\]
+
+\end_inset
+
+ y 
+\begin_inset Formula $\bar{f}\in C^{2}\!\left(\mathbb{R}\right)$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula 
+\[
+f''\!\left(0^{+}\right)=f''\!\left(L^{-}\right)=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Es un ejercicio.
+\end_layout
+
+\begin_layout Standard
+De un modo similar se prueba el siguiente resultado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Sea 
+\begin_inset Formula $g\in C^{1}\left(\left[0,L\right]\right)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $g\!\left(0\right)=g\!\left(L\right)$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\int_{0}^{x}\bar{g}\!\left(s\right)\,\text{d}s\in C^{2}\!\left(\mathbb{R}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Es un ejercicio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+solución a la ec.
+ de la cuerda vibrante en 
+\begin_inset Formula $\left[0,L\right]$
+\end_inset
+
+ con extremos fijos
+\end_layout
+
+\end_inset
+
+ Sean 
+\begin_inset Formula $f\in C^{2}\!\left(\left[0,L\right]\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $g\in C^{1}\!\left(\left[0,L\right]\right)$
+\end_inset
+
+ funciones que verifican 
+\begin_inset Formula $f\!\left(0\right)=f\!\left(L\right)=0$
+\end_inset
+
+, 
+\begin_inset Formula $g\!\left(0\right)=g\!\left(L\right)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $f''\!\left(0\right)=f''\!\left(L\right)=0$
+\end_inset
+
+.
+ Entonces el sistema 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right), & \left(t,x\right)\in\mathbb{R}\times\left[0,L\right]\\
+u\!\left(t,0\right)=u\!\left(t,L\right)=0, & t\in\mathbb{R}\\
+u\!\left(0,x\right)=f\!\left(x\right), & x\in\left[0,L\right]\\
+u_{t}\!\left(0,x\right)=g\!\left(x\right), & x\in\left[0,L\right]
+\end{cases}
+\]
+
+\end_inset
+
+tiene una única solución 
+\begin_inset Formula $u\in C^{2}\left(\mathbb{R}\times\left[0,L\right]\right)$
+\end_inset
+
+, que además viene dada por 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\frac{\bar{f}\!\left(x-ct\right)+\bar{f}\!\left(x+ct\right)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}\bar{g}\!\left(s\right)\,\text{d}s.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sike.
+\end_layout
+
+\begin_layout Standard
+Más adelante veremos otras demostraciones distintas de la unicidad de esta
+ función.
+\end_layout
+
+\begin_layout Section
+Propiedades de las soluciones
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $u:\left(0,\infty\right)\times\left[0,L\right]\to\mathbb{R}$
+\end_inset
+
+ la solución de la ecuación diferencial 
+\begin_inset Formula $u_{tt}\!\left(t,x\right)-c^{2}u_{xx}\!\left(t,x\right)=0$
+\end_inset
+
+.
+ Si se conocen 
+\begin_inset Formula $f,g$
+\end_inset
+
+ tales que 
+\begin_inset Formula $u\!\left(0,x\right)=f\!\left(x\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $u_{t}\!\left(0,x\right)=g\!\left(x\right)$
+\end_inset
+
+, se puede determinar 
+\begin_inset Formula $u\!\left(t,x\right)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t>0$
+\end_inset
+
+, pero también se puede determinar para 
+\begin_inset Formula $t<0$
+\end_inset
+
+ (en este caso se dice que la ecuación diferencial es 
+\series bold
+reversible en el tiempo
+\series default
+).
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+velocidad de propagación
+\series default
+ es finita.
+ Si fijado 
+\begin_inset Formula $t_{0}>0$
+\end_inset
+
+ el soporte de 
+\begin_inset Formula $u\!\left(t_{0},\cdot\right)$
+\end_inset
+
+ está contenido en cierto intervalo 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+, entonces el soporte de 
+\begin_inset Formula $u\!\left(t_{0}+T,\cdot\right)$
+\end_inset
+
+ está contenido en 
+\begin_inset Formula $\left[a-cT,b+cT\right]$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $T>0$
+\end_inset
+
+.
+ De hecho, si 
+\begin_inset Formula $u$
+\end_inset
+
+ es la solución habitual 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\frac{\bar{f}\!\left(x-ct\right)+\bar{f}\!\left(x+ct\right)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}\bar{g}\!\left(s\right)\,\text{d}s,
+\]
+
+\end_inset
+
+entonces, para cierto 
+\begin_inset Formula $x_{0}\in\left[0,L\right]$
+\end_inset
+
+, 
+\begin_inset Formula $f\!\left(x_{0}\right)$
+\end_inset
+
+ sólo influye en 
+\begin_inset Formula $u\!\left(t,x\right)$
+\end_inset
+
+ cuando 
+\begin_inset Formula $x=x_{0}\pm ct$
+\end_inset
+
+, 
+\begin_inset Formula $g\!\left(x_{0}\right)$
+\end_inset
+
+ sólo influye en 
+\begin_inset Formula $u\!\left(t,x\right)$
+\end_inset
+
+ cuando 
+\begin_inset Formula $x\in\left[x_{0}-ct,x_{0}+ct\right]$
+\end_inset
+
+ y 
+\begin_inset Formula $u\!\left(t_{0},x_{0}\right)$
+\end_inset
+
+ sólo se ve influido por 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ en 
+\begin_inset Formula $\left|x-x_{0}\right|\le ct_{0}$
+\end_inset
+
+, para cierto 
+\begin_inset Formula $t_{0}>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+El operador 
+\begin_inset Formula $\square=\partial_{tt}-c^{2}\partial_{xx}$
+\end_inset
+
+ 
+\series bold
+no es regularizante
+\series default
+, es decir, que 
+\begin_inset Formula $\square u=0$
+\end_inset
+
+ no implica que 
+\begin_inset Formula $u$
+\end_inset
+
+ sea de clase 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+.
+ De hecho, la fórmula de D'Alembert exige que existan soluciones de 
+\begin_inset Formula $\square u=0$
+\end_inset
+
+ de clase inferior a 
+\begin_inset Formula $C^{2}$
+\end_inset
+
+.
+ Un estudio completo del operador 
+\begin_inset Formula $\square$
+\end_inset
+
+ necesita el concepto de 
+\begin_inset Quotes eld
+\end_inset
+
+derivada débil
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Conservación de la energía
+\series default
+.
+ En ecuaciones diferenciales se suele llamar 
+\begin_inset Quotes eld
+\end_inset
+
+energía
+\begin_inset Quotes erd
+\end_inset
+
+ a 
+\begin_inset Formula 
+\[
+\int\left(\left|u_{t}\!\left(t,x\right)\right|^{2}+\left|\nabla_{x}\!\left(t,x\right)\right|^{2}\right)\,\text{d}x.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+La ecuación del calor
+\end_layout
+
+\begin_layout Standard
+Sike.
+\end_layout
+
+\begin_layout Chapter
+La ecuación de Laplace
+\end_layout
+
+\begin_layout Standard
+Sike.
+\end_layout
+
+\begin_layout Part
+Teoría de las series de Fourier
+\end_layout
+
+\begin_layout Chapter
+Series de Fourier
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Standard
+El objetivo principal de este tema es, dada una función 
+\begin_inset Formula $f:\left[0,L\right]\to\mathbb{R}\text{ ó }\mathbb{C}$
+\end_inset
+
+, determinar cuándo se tiene que 
+\begin_inset Formula 
+\[
+f\!\left(x\right)=\sum_{n=0}^{\infty}a_{n}\cos\left(\frac{2\pi n}{L}x\right)+b_{n}\sen\left(\frac{2\pi n}{L}x\right)
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $\left(a_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\left(b_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ a determinar.
+ El matemático francés 
+\emph on
+Jean-Baptiste Joseph Fourier
+\emph default
+ afirmó en 1822 que esto es cierto para cualquier función 
+\begin_inset Formula $f$
+\end_inset
+
+, pero no pudo demostrarlo con rigurosidad.
+ Muchas otras grandes figuras de las matemáticas han contribuido desde entonces
+ a la teoría sobre este tipo de desarrollos.
+\end_layout
+
+\begin_layout Standard
+En lo que sigue tomaremos la notación 
+\begin_inset Formula 
+\[
+\mathbb{T}=\bigcup_{k\in\mathbb{Z}}\left[kL,\left(k+1\right)L\right)=\cdots\cup\left[0,L\right)\cup\left[L,2L\right)\cup\cdots
+\]
+
+\end_inset
+
+y cuando digamos que 
+\begin_inset Formula $f:\mathbb{T}\to\mathbb{C}$
+\end_inset
+
+ nos referiremos a 
+\begin_inset Formula $f:\left[0,L\right)\to\mathbb{C}$
+\end_inset
+
+ extendida de forma 
+\begin_inset Formula $L$
+\end_inset
+
+-periódica, es decir, 
+\begin_inset Formula $f\!\left(x+L\right)=f\!\left(x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es una función 
+\begin_inset Formula $L$
+\end_inset
+
+-periódica, entonces 
+\begin_inset Formula 
+\[
+\int_{a}^{a+L}f\!\left(x\right)\,\text{d}x=\int_{0}^{L}f\!\left(x\right)\,\text{d}x
+\]
+
+\end_inset
+
+para todo 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sea 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $nL\le a<\left(n+1\right)L$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula 
+\[
+\int_{a}^{a+L}f\!\left(x\right)\,\text{d}x=\int_{a}^{\left(n+1\right)L}f\!\left(x\right)\,\text{d}x+\int_{\left(n+1\right)L}^{a+L}f\!\left(x\right)\,\text{d}x
+\]
+
+\end_inset
+
+y haciendo los cambios de variable 
+\begin_inset Formula 
+\begin{align*}
+x & =u+nL & x & =u+\left(n+1\right)L\\
+\text{d}x & =\text{d}u & \text{d}x & =\text{d}u
+\end{align*}
+
+\end_inset
+
+respectivamente, llegamos a 
+\begin_inset Formula 
+\[
+\int_{a}^{a+L}f\!\left(x\right)\,\text{d}x=\int_{a-nL}^{L}f\!\left(u+nL\right)\,\text{d}u+\int_{0}^{a-nL}f\!\left(u+\left(n+1\right)L\right)\,\text{d}x=\int_{0}^{L}f\!\left(x\right)\,\text{d}x
+\]
+
+\end_inset
+
+como queríamos ver.
+\end_layout
+
+\begin_layout Section
+Series de Fourier en 
+\begin_inset Formula $L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En adelante utilizaremos siempre 
+\begin_inset Formula $L=1$
+\end_inset
+
+.
+ Recordemos ahora el conjunto 
+\begin_inset Formula 
+\[
+L^{1}\!\left(\mathbb{T}\right)=\left\{ f:\mathbb{T}\to\mathbb{C}:f\text{ es medible y }\int_{\mathbb{T}}\left|f\!\left(x\right)\right|\,\text{d}x<\infty\right\} 
+\]
+
+\end_inset
+
+que tenía estructura de espacio vectorial.
+ Este nos sirve para dar la siguiente definición.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Dada 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+, se define su 
+\series bold
+serie de Fourier (compleja)
+\series default
+ como 
+\begin_inset Formula 
+\[
+\sum_{n=-\infty}^{+\infty}\hat{f}\!\left(n\right)e^{2\pi inx}
+\]
+
+\end_inset
+
+donde para cada 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ se tiene
+\begin_inset Formula 
+\[
+\hat{f}\!\left(n\right)=\int_{\mathbb{T}}f\!\left(y\right)e^{-2\pi iny}\,\text{d}y
+\]
+
+\end_inset
+
+que se denomina 
+\begin_inset Formula $\boldsymbol{n}$
+\end_inset
+
+
+\series bold
+-ésimo cociente
+\series default
+ de Fourier de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La pregunta que nos hacemos entonces es, ¿cuándo se puede escribir con rigor
+ que una función es exactamente igual a su serie de Fourier? La respuesta
+ a esta pregunta la iremos viendo a lo largo del capítulo.
+\end_layout
+
+\begin_layout Standard
+Para poder demostrar el resultado principal de esta sección, el criterio
+ de Dini, debemos introducir primero algunos resultados previos de análisis
+ en varias variables.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Una función 
+\begin_inset Formula $f$
+\end_inset
+
+ se dice 
+\series bold
+simple
+\series default
+ si existen 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+ conjuntos medibles disjuntos y valores 
+\begin_inset Formula $a_{1},\dots,a_{n}$
+\end_inset
+
+ (reales o complejos) tales que 
+\begin_inset Formula 
+\[
+f\!\left(x\right)=\sum_{k=1}^{n}a_{k}\cdot\chi_{A_{k}}\!\left(x\right)
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\chi_{A_{k}}$
+\end_inset
+
+ es la función indicador del conjunto 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta definición nos permite dar el siguiente resultado, que es un lema previo
+ para poder demostrar el Lema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:-riemann-lebesgue"
+
+\end_inset
+
+, que usaremos en la demostración del criterio de Dini.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem: random1"
+
+\end_inset
+
+Si 
+\begin_inset Formula $f\in L^{1}\!\left(\left(0,1\right)\right)$
+\end_inset
+
+ entonces existe una sucesión de funciones simples 
+\begin_inset Formula $\left(s_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ tal que 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}s_{n}\!\left(x\right)=f\!\left(x\right)
+\]
+
+\end_inset
+
+ en casi todo punto de 
+\begin_inset Formula $\left(0,1\right)$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\int_{0}^{1}\left|f\!\left(x\right)-s_{n}\!\left(x\right)\right|\,\text{d}x=0\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Veamos ahora el lema importante.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:-riemann-lebesgue"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Riemann-Lebesgue
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\lim_{\left|n\right|\to\infty}\hat{f}\!\left(n\right)=0\text{.}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Veamos primero qué ocurre si 
+\begin_inset Formula $f\equiv\chi_{\left(a,b\right)}$
+\end_inset
+
+.
+ En ese caso tenemos que 
+\begin_inset Formula 
+\[
+\hat{f}\!\left(n\right)=\int_{a}^{b}e^{-2\pi inx}\,\text{d}x=\left[-\frac{e^{-2\pi inx}}{2\pi in}\right]_{a}^{b}=\frac{e^{-2\pi ina}-e^{-2\pi inb}}{2\pi in}
+\]
+
+\end_inset
+
+y por tanto 
+\begin_inset Formula 
+\[
+\left|\hat{f}\!\left(n\right)\right|\le\frac{1}{\pi\left|n\right|}
+\]
+
+\end_inset
+
+que converge a 
+\begin_inset Formula $0$
+\end_inset
+
+ cuando 
+\begin_inset Formula $\left|n\right|\to0$
+\end_inset
+
+.
+ Notemos que lo mismo ocurre si 
+\begin_inset Formula $f$
+\end_inset
+
+ es una función simple, ya que tendríamos 
+\begin_inset Formula 
+\[
+\hat{f}\!\left(n\right)=\int_{\mathbb{T}}\sum_{k=1}^{m}a_{k}\chi_{A_{k}}\!\left(n\right)e^{-2\pi inx}\,\text{d}x=\sum_{k=1}^{m}a_{k}\int_{A_{k}}e^{-2\pi inx}\,\text{d}x
+\]
+
+\end_inset
+
+que se resuelve de forma similar que lo anterior.
+\end_layout
+
+\begin_layout Proof
+Supongamos ahora que 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+.
+ Fijamos 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $s$
+\end_inset
+
+ una función simple de la forma 
+\begin_inset Formula 
+\[
+s\!\left(x\right)=\sum_{k=1}^{m}c_{k}\chi_{\left(a_{k},b_{k}\right)}\!\left(x\right)
+\]
+
+\end_inset
+
+ con 
+\begin_inset Formula $a_{k},b_{k},c_{k}\in\mathbb{R}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\left\Vert f-s\right\Vert _{L^{1}}<\frac{\varepsilon}{2}$
+\end_inset
+
+, que existe por el lema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem: random1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Como hemos visto ya en el caso anterior, esta función cumple que 
+\begin_inset Formula 
+\[
+\lim_{\left|n\right|\to0}\left|\hat{s}\!\left(n\right)\right|=0
+\]
+
+\end_inset
+
+por lo que existe cierto 
+\begin_inset Formula $n_{\varepsilon,s}\in\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\left|\hat{s}\!\left(n\right)\right|<\frac{\varepsilon}{2}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $\left|n\right|>n_{\varepsilon,s}$
+\end_inset
+
+.
+ Concluimos entonces que, para 
+\begin_inset Formula $\left|n\right|>n_{\varepsilon,s}$
+\end_inset
+
+, se cumple 
+\begin_inset Formula 
+\begin{multline*}
+\left|\hat{f}\!\left(n\right)\right|=\left|\hat{f}\!\left(n\right)-\hat{s}\!\left(n\right)+\hat{s}\!\left(n\right)\right|\le\left|\hat{f}\!\left(n\right)-\hat{s}\!\left(n\right)\right|+\left|\hat{s}\!\left(n\right)\right|=\\
+=\left|\widehat{\left(f-s\right)}\!\left(n\right)\right|+\left|\hat{s}\!\left(n\right)\right|=\int_{0}^{1}\left|f\!\left(x\right)-s\!\left(x\right)\right|\cancel{\left|e^{-2\pi inx}\right|}\,\text{d}x+\left|\hat{s}\!\left(n\right)\right|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+\end{multline*}
+
+\end_inset
+
+como queríamos ver.
+\end_layout
+
+\begin_layout Standard
+En adelante utilizaremos la siguiente notación 
+\begin_inset Formula 
+\begin{align*}
+S_{M,N}f\!\left(x\right) & =\sum_{n=-N}^{M}\hat{f}\!\left(n\right)e^{2\pi inx} & S_{N}f\!\left(x\right) & =\sum_{n=-N}^{N}\hat{f}\!\left(n\right)e^{2\pi inx}
+\end{align*}
+
+\end_inset
+
+para referirnos a las sumas parciales de las series de Fourier.
+ Veamos por fin el criterio de Dini.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Criterio de Dini (débil)
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $x_{0}\in\mathbb{T}$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+\lim_{M.N\to\infty}\sum_{-N}^{M}\hat{f}\!\left(n\right)e^{2\pi inx_{0}}=f\!\left(x_{0}\right)\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Para otro día si eso.
+\end_layout
+
+\begin_layout Standard
+Este criterio también es válido si 
+\begin_inset Formula $f$
+\end_inset
+
+ cumple condiciones menos estrictas que ser derivable.
+ De hecho, basta garantizar que exista 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $g\in L^{1}\!\left(\left(-\delta,\delta\right)\right),$
+\end_inset
+
+con 
+\begin_inset Formula 
+\[
+g\!\left(t\right)=\frac{f\!\left(x_{0}-t\right)-f\!\left(x_{0}\right)}{t}\cdot\frac{t}{e^{2\pi it}-1}
+\]
+
+\end_inset
+
+que es equivalente a decir que se verifique 
+\begin_inset Formula 
+\[
+\int_{-\delta}^{\delta}\left|\frac{f\!\left(x_{0}+t\right)-f\!\left(x_{0}\right)}{t}\right|\,\text{d}t<\infty
+\]
+
+\end_inset
+
+puesto que 
+\begin_inset Formula $\left|\frac{t}{e^{2\pi it}-1}\right|\approx\left|\frac{1}{2\pi i}\right|$
+\end_inset
+
+ que es una constante y no afecta a la finitud integral.
+\end_layout
+
+\begin_layout Standard
+Una versión más fuerte del criterio de Dini es la siguiente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Criterio de Dini (fuerte)
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ y para 
+\begin_inset Formula $x_{0}\in\mathbb{T}$
+\end_inset
+
+ existen 
+\begin_inset Formula $f\!\left(x_{0}\right)^{\pm}$
+\end_inset
+
+ y 
+\begin_inset Formula $f'\!\left(x_{0}\right)^{\pm}$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+\lim_{M,N\to\infty}\sum_{-N}^{M}\hat{f}\!\left(n\right)e^{2\pi inx_{0}}=\frac{f\!\left(x_{0}\right)^{-}+f\!\left(x_{0}\right)^{+}}{2}\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Para otro día si eso.
+\end_layout
+
+\begin_layout Standard
+Como ocurría en la versión débil, basta con que 
+\begin_inset Formula $f$
+\end_inset
+
+ verifique para cierto 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ que 
+\begin_inset Formula 
+\[
+\int_{0}^{\delta}\left|\frac{f\!\left(x_{0}\pm t\right)-f\!\left(x_{0}^{\pm}\right)}{t}\right|\,\text{d}t<\infty
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Vamos a estudiar la serie de Fourier y la convergencia de 
+\begin_inset Formula $f\!\left(x\right)=x$
+\end_inset
+
+ con 
+\begin_inset Formula $\left|x\right|<\frac{1}{2}$
+\end_inset
+
+.
+ En este ejemplo 
+\begin_inset Formula $\mathbb{T}=\left[-\frac{1}{2},\frac{1}{2}\right)$
+\end_inset
+
+.
+ Calculando sus coeficientes (resolviendo las integrales) tenemos que 
+\begin_inset Formula 
+\[
+\hat{f}\!\left(n\right)=\begin{cases}
+\frac{\left(-1\right)^{n+1}}{2\pi in} & n\ne0\\
+0 & n=0
+\end{cases}
+\]
+
+\end_inset
+
+por lo que, como 
+\begin_inset Formula $x$
+\end_inset
+
+ es claramente 
+\begin_inset Formula $L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ y además derivable, utilizando el criterio de Dini podemos escribir 
+\begin_inset Formula 
+\begin{align*}
+x & =\sum_{n=-\infty}^{+\infty}\frac{\left(-1\right)^{n+1}}{2\pi in}e^{2\pi inx}, & x\in\left(-\frac{1}{2},\frac{1}{2}\right)
+\end{align*}
+
+\end_inset
+
+(notemos que en el sumatorio hay que omitir 
+\begin_inset Formula $n=0$
+\end_inset
+
+ por lo ya visto).
+\end_layout
+
+\begin_layout Standard
+Una duda que nos puede surgir es si una serie de Fourier es convergente
+ en cierto punto si la función de la que proviene es continua en dicho punto.
+ La respuesta nos la da el siguiente teorema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+du Bois-Reymond
+\end_layout
+
+\end_inset
+
+ Existe al menos una función 
+\begin_inset Formula $f\in C\!\left(\mathbb{T}\right)$
+\end_inset
+
+ tal que 
+\begin_inset Formula 
+\[
+\limsup_{N\to\infty}\left|S_{N}f\!\left(0\right)\right|=\infty.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otra duda razonable es qué ocurre si se le exige a la función otra propiedad
+ más fuerte, como que sea 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{T}$
+\end_inset
+
+.
+ El siguiente resultado nos demuestra una vez más que nunca hay que hacer
+ preguntas de las que no se quiere conocer la respuesta.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Kolmogórov
+\end_layout
+
+\end_inset
+
+ Existe al menos una función 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ tal que 
+\begin_inset Formula 
+\[
+\limsup_{N\to\infty}\left|S_{N}f\!\left(0\right)\right|=\infty.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una pequeña victoria es este último resultado del apartado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Carleson
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ o 
+\begin_inset Formula $f\in L^{p}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ con 
+\begin_inset Formula $p>1$
+\end_inset
+
+ entonces en casi todo punto de 
+\begin_inset Formula $\mathbb{T}$
+\end_inset
+
+ se verifica que 
+\begin_inset Formula 
+\[
+\lim_{N\to\infty}S_{N}f\!\left(x\right)=f\!\left(x\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Derivación e integración de series de Fourier
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Proposition
+Si 
+\begin_inset Formula $f\in C^{k}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\widehat{f^{\left(k\right)}}\!\left(n\right)=\left(2\pi in\right)^{k}\hat{f}\!\left(n\right)
+\]
+
+\end_inset
+
+y en particular 
+\begin_inset Formula 
+\[
+f^{\left(k\right)}\!\left(x\right)\sim\sum_{n=-\infty}^{+\infty}\left(2\pi in\right)^{k}\hat{f}\!\left(n\right)e^{2\pi inx}\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Para otro día si eso.
+\end_layout
+
+\begin_layout Standard
+De esta propisición derivan algunos resultados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+Si 
+\begin_inset Formula $f\in C^{k}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\begin{align*}
+\left|\hat{f}\!\left(n\right)\right| & \le\frac{M_{f}}{\left|n\right|^{k}}, & \left|n\right|\ge1\text{.}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Para otro día si eso.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+Si 
+\begin_inset Formula $f\in C^{2}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+f\!\left(x\right)=\sum_{n=-\infty}^{+\infty}\hat{f}\!\left(n\right)e^{2\pi inx}
+\]
+
+\end_inset
+
+para todo 
+\begin_inset Formula $x\in\mathbb{T}$
+\end_inset
+
+ y la convergencia de la serie es uniforme y absoluta.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Para otro día si eso.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:rand1"
+
+\end_inset
+
+Sea 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\int_{\mathbb{T}}f\!\left(x\right)\,\text{d}t=0$
+\end_inset
+
+ y 
+\begin_inset Formula $F\!\left(x\right)=\int_{0}^{x}f\!\left(t\right)\,\text{d}t$
+\end_inset
+
+ su antiderivada.
+ Entonces 
+\begin_inset Formula 
+\begin{align*}
+\hat{F}\!\left(n\right) & =\frac{\hat{f}\!\left(n\right)}{2\pi in}, & n\ne0
+\end{align*}
+
+\end_inset
+
+y además, para 
+\begin_inset Formula $n\ne0$
+\end_inset
+
+, se tiene que
+\begin_inset Formula 
+\[
+F\!\left(x\right)\sim\sum_{n=-\infty}^{+\infty}\frac{\hat{f}\!\left(n\right)}{2\pi in}e^{2\pi inx}+C
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Para otro día si eso.
+\end_layout
+
+\begin_layout Standard
+La constante de integración en la propisición anterior es el 
+\begin_inset Formula $0$
+\end_inset
+
+-coeficiente de 
+\begin_inset Formula $F\!\left(x\right)$
+\end_inset
+
+ y se debe calcular a mano.
+ También se puede probar utilizando el criterio de Dirichlet-Jordan que
+ la fórmula para 
+\begin_inset Formula $F$
+\end_inset
+
+ converge uniformemente en 
+\begin_inset Formula $\mathbb{T}$
+\end_inset
+
+.
+ Notemos también que si 
+\begin_inset Formula $\int_{\mathbb{T}}f\!\left(x\right)\,\text{d}t\ne0$
+\end_inset
+
+ basta aplicar el teorema a 
+\begin_inset Formula $g\!\left(x\right)=f\!\left(x\right)-\hat{f}\!\left(x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Unicidad de las series de Fourier
+\end_layout
+
+\begin_layout Standard
+Hasta ahora nos hemos centrado en obtener desarrollos para funciones sin
+ detenernos en observar si dicho desarrollo era único para cada función.
+ El teorema que veremos a continuación afirma que sí, pero antes debemos
+ conocer un resultado que usaremos en su demostración.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:-tfc-leb"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Teorema fundamental del cálculo de Lebesgue
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f\in L^{1}\!\left(\left(0,1\right)\right)$
+\end_inset
+
+ entonces la función 
+\begin_inset Formula 
+\[
+F\!\left(x\right)=\int_{0}^{x}f\!\left(t\right)\,\text{d}t
+\]
+
+\end_inset
+
+es derivable en casi todo punto.
+ Además, 
+\begin_inset Formula $F'\!\left(x\right)=f\!\left(x\right)$
+\end_inset
+
+ en casi todo punto.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora sí, procedemos con el resultado importante.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+Sean 
+\begin_inset Formula $f,g\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ tales que para cada 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ se verifica 
+\begin_inset Formula $\hat{f}\!\left(n\right)=\hat{g}\!\left(n\right)$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $f\equiv g$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sea 
+\begin_inset Formula $h=f-g$
+\end_inset
+
+ (que sigue siendo una función 
+\begin_inset Formula $L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+.
+ Entonces para cada 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $\hat{h}\!\left(n\right)=0$
+\end_inset
+
+.
+ Veamos que 
+\begin_inset Formula $h\equiv0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Si 
+\begin_inset Formula $h\in C^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces utilizando el criterio de Dini débil llegamos a que 
+\begin_inset Formula 
+\[
+h\!\left(x\right)=\lim_{N\to\infty}\sum_{N=-N}^{N}\hat{h}\!\left(n\right)e^{2\pi inx}=0
+\]
+
+\end_inset
+
+para todo 
+\begin_inset Formula $x\in\mathbb{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Si 
+\begin_inset Formula $h\in C\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces tomamos 
+\begin_inset Formula 
+\[
+H\!\left(x\right)=\int_{0}^{x}h\!\left(t\right)\,\text{d}t
+\]
+
+\end_inset
+
+que es una función de clase 
+\begin_inset Formula $C^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ (notemos que es periódica, ya que 
+\begin_inset Formula $H\!\left(1\right)=\hat{h}\!\left(0\right)=0$
+\end_inset
+
+).
+ Aplicando ahora la proposición 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:rand1"
+
+\end_inset
+
+ tenemos que 
+\begin_inset Formula 
+\[
+\hat{H}\!\left(n\right)=\frac{\hat{h}\!\left(n\right)}{2\pi in}=0
+\]
+
+\end_inset
+
+para todo 
+\begin_inset Formula $n\in\mathbb{Z}^{*}$
+\end_inset
+
+.
+ Aplicando Dini débil tenemos que 
+\begin_inset Formula $H\!\left(x\right)=\hat{H}\!\left(0\right)$
+\end_inset
+
+, luego es una constante y su derivada 
+\begin_inset Formula $h$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+El teorema fundamental del cálculo nos garantiza que 
+\begin_inset Formula $H'\equiv h$
+\end_inset
+
+ por ser 
+\begin_inset Formula $h$
+\end_inset
+
+ continua y 
+\begin_inset Formula $H$
+\end_inset
+
+ su antiderivada.
+\end_layout
+
+\end_inset
+
+ es 0.
+\end_layout
+
+\begin_layout Case
+Si 
+\begin_inset Formula $h\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces basta con seguir un procedimiento análogo al caso anterior, utilizando
+ en este caso el lema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:-tfc-leb"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Por tanto 
+\begin_inset Formula $h\equiv0$
+\end_inset
+
+ y 
+\begin_inset Formula $f\equiv g$
+\end_inset
+
+ como queríamos ver.
+\end_layout
+
+\begin_layout Standard
+Más adelante veremos otra forma de obtener la unicidad mediante el teorema
+ de Féjer.
+ La prueba anterior puede completarse también sin utilizar el lema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:-tfc-leb"
+
+\end_inset
+
+ utilizando el siguiente razonamiento: si 
+\begin_inset Formula $H$
+\end_inset
+
+ es constante entonces 
+\begin_inset Formula 
+\[
+H\!\left(b\right)-H\!\left(a\right)=\int_{a}^{b}h\!\left(t\right)\,\text{d}t=0
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ cualesquiera, luego 
+\begin_inset Formula 
+\[
+\int_{\mathbb{T}}h\!\left(t\right)s\!\left(t\right)\,\text{d}t=0
+\]
+
+\end_inset
+
+para cualquier función simple 
+\begin_inset Formula $s$
+\end_inset
+
+.
+ Tomando una sucesión de funciones simples 
+\begin_inset Formula $\left(s_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ convergente a 
+\begin_inset Formula $\sgn\!\left(h\!\left(t\right)\right)$
+\end_inset
+
+ y aplicando el teorema de la convergencia dominada, nos queda que 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\int_{\mathbb{T}}h\!\left(t\right)s_{n}\!\left(t\right)\,\text{d}t=\int_{\mathbb{T}}\lim_{n\to\infty}h\!\left(t\right)s_{n}\!\left(t\right)\,\text{d}t=\int_{\mathbb{T}}\left|h\!\left(t\right)\right|\,\text{d}t=0\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Series de Fourier en 
+\begin_inset Formula $L^{2}\!\left(\mathbb{T}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Recordemos también el espacio vectorial de funciones 
+\begin_inset Formula 
+\[
+L^{2}\!\left(\mathbb{T}\right)=\left\{ f:\mathbb{T}\to\mathbb{C}:f\text{ es medible y }\int_{\mathbb{T}}\left|f\!\left(x\right)\right|^{2}\,\text{d}x<\infty\right\} 
+\]
+
+\end_inset
+
+que es el objeto de estudio de este apartado.
+ Para ver algunas propiedades de este espacio, debemos primero conocer el
+ siguiente resultado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:-cauch-swrz"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Desigualdad de Cauchy-Schwarz
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f,g\in L^{2}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\int_{\mathbb{T}}\left|f\!\left(x\right)g\!\left(x\right)\right|\,\text{d}x\le\left(\int_{\mathbb{T}}\left|f\!\left(x\right)\right|^{2}\,\text{d}x\right)^{\frac{1}{2}}\left(\int_{\mathbb{T}}\left|g\!\left(x\right)\right|^{2}\,\text{d}x\right)^{\frac{1}{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Recordemos ahora el producto escalar 
+\begin_inset Formula 
+\[
+\left\langle f,g\right\rangle =\int_{\mathbb{T}}f\!\left(x\right)\overline{g\!\left(x\right)}\,\text{d}x
+\]
+
+\end_inset
+
+ con el que se definía la norma 
+\begin_inset Formula 
+\[
+\left\Vert f\right\Vert _{L^{2}}=\sqrt{\int_{\mathbb{T}}\left|f\!\left(x\right)\right|^{2}\,\text{d}x}
+\]
+
+\end_inset
+
+ y se tenían la siguientes propiedades.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Proposition
+El espacio métrico 
+\begin_inset Formula $\left(L^{2}\!\left(\mathbb{T}\right),\left\Vert \cdot\right\Vert _{L^{2}}\right)$
+\end_inset
+
+ es completo.
+ Además, 
+\begin_inset Formula $L^{2}\!\left(\mathbb{T}\right)\subsetneq L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Únicamente tenemos demostración de la úlitma parte.
+ Utilizando el lema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:-cauch-swrz"
+
+\end_inset
+
+ y tomando 
+\begin_inset Formula $g\!\left(x\right)=1$
+\end_inset
+
+ tenemos que 
+\begin_inset Formula 
+\[
+\int_{\mathbb{T}}\left|f\!\left(x\right)\right|\,\text{d}x\le\left(\int_{\mathbb{T}}\left|f\!\left(x\right)\right|^{2}\,\text{d}x\right)^{\frac{1}{2}}
+\]
+
+\end_inset
+
+por lo que si la segunda es finita, la primera también.
+ Para ver que el contenido es estricto, basta ver que la función 
+\begin_inset Formula 
+\begin{align*}
+f\!\left(x\right) & =\left|x\right|^{-\frac{1}{2}}, & \left|x\right|<\frac{1}{2}
+\end{align*}
+
+\end_inset
+
+está en 
+\begin_inset Formula $L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ pero no en 
+\begin_inset Formula $L^{2}\!\left(\mathbb{T}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La teoría sobre series de Fourier en 
+\begin_inset Formula $L^{2}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ es un caso especial de la teoría de bases ortonormales en un espacio de
+ Hilbert, por lo que vamos a introducir también este concepto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Sea 
+\begin_inset Formula $\mathbb{H}$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+-espacio vectorial y 
+\begin_inset Formula $\left\langle \cdot,\cdot\right\rangle :\mathbb{H}\times\mathbb{H}\to\mathbb{R}$
+\end_inset
+
+ una aplicación verificando:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Lineal en la primera variable: 
+\begin_inset Formula $\left\langle \lambda_{1}f_{1}+\lambda_{2}f_{2},g\right\rangle =\lambda_{1}\left\langle f_{1},g\right\rangle +\lambda_{2}\left\langle f_{2},g\right\rangle $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Anti-lineal en la segunda variable: 
+\begin_inset Formula $\left\langle \lambda_{1}f_{1}+\lambda_{2}f_{2},g\right\rangle =\overline{\lambda_{1}}\left\langle f_{1},g\right\rangle +\overline{\lambda_{2}}\left\langle f_{2},g\right\rangle $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Hermítica: 
+\begin_inset Formula $\left\langle f,g\right\rangle =\overline{\left\langle g,f\right\rangle }$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Definida positiva: 
+\begin_inset Formula $\left\langle f,f\right\rangle \ge0$
+\end_inset
+
+ y 
+\begin_inset Formula $\left\langle f,f\right\rangle =0\iff f\equiv0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+Tomando entonces la norma 
+\begin_inset Formula $\left\Vert f\right\Vert =\sqrt{\left\langle f,f\right\rangle }$
+\end_inset
+
+, el espacio métrico 
+\begin_inset Formula $\left(\mathbb{H},\left\Vert \cdot\right\Vert \right)$
+\end_inset
+
+ se llama 
+\series bold
+espacio de Hilbert
+\series default
+ si la norma 
+\begin_inset Formula $\left\Vert \cdot\right\Vert $
+\end_inset
+
+ es completa.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Veamos algunos ejemplos de espacios de Hilbert.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $L^{2}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ con la norma 
+\begin_inset Formula $\left\langle f,g\right\rangle =\int_{\mathbb{T}}f\!\left(x\right)\overline{g\!\left(x\right)}\,\text{d}x$
+\end_inset
+
+ ya hemos dicho que lo es.
+\end_layout
+
+\begin_layout Itemize
+El espacio 
+\begin_inset Formula $\mathbb{C}^{k}$
+\end_inset
+
+ con el producto escalar usual 
+\begin_inset Formula $\left\langle z,w\right\rangle =\sum_{i=1}^{k}z_{i}\overline{w_{i}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+El conjunto 
+\begin_inset Formula $\ell^{2}\!\left(\mathbb{N}\right)=\left\{ \left(a_{n}\right)_{n\in\mathbb{N}}:\sum_{n=1}^{\infty}\left|a_{n}\right|^{2}<\infty\right\} $
+\end_inset
+
+ es un espacio de Hilbert con la norma 
+\begin_inset Formula $\left\langle \left(a_{n}\right),\left(b_{n}\right)\right\rangle =\sum_{n=1}^{\infty}a_{n}\overline{b_{n}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Para resolver algunos problemas en relación a series de Fourier, debemos
+ conocer el siguiente resultado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Proposition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+fórmula de Parseval
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f\in L^{2}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\int_{\mathbb{T}}\left|f\!\left(x\right)\right|^{2}\,\text{d}x=\sum_{n\in\mathbb{Z}}\left|\hat{f}\!\left(n\right)\right|^{2}\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Convolución y series de Fourier
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Dadas dos funciones 
+\begin_inset Formula $K,f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+, se define la 
+\series bold
+convolución
+\series default
+ de ambas como 
+\begin_inset Formula 
+\[
+\left(K*f\right)\!\left(x\right)=\int_{\mathbb{T}}K\!\left(x-y\right)f\!\left(y\right)\,\text{d}y
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $x\in\mathbb{T}$
+\end_inset
+
+, siempre que la integral sea absolutamente convergente (es decir 
+\begin_inset Formula $\int_{\mathbb{T}}\left|K\!\left(x-y\right)f\!\left(y\right)\right|\,\text{d}y<\infty$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta misma definición puede extenderse para dimensiones superiores de orden
+ finito, aunque en este tema sólo consideraremos las unidimensionales en
+ 
+\begin_inset Formula $\mathbb{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+Veamos algunos ejemplos que ya conocemos de convoluciones.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Las sumas parciales de Fourier son convoluciones, ya que 
+\begin_inset Formula 
+\[
+S_{N}f\!\left(x\right)=\sum_{\left|n\right|\le N}\hat{f}\!\left(n\right)e^{2\pi inx}=\int_{\mathbb{T}}D_{n}\!\left(x-y\right)f\!\left(y\right)\,\text{d}y
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $D_{n}\!\left(x\right)=\sum_{\left|n\right|\le N}e^{2\pi inx}$
+\end_inset
+
+ es el llamado 
+\emph on
+núcleo de Dirichlet (de orden N)
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Las soluciones de la ecuación del calor en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ también son convoluciones, pues el problema 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{t}=\Delta u & \left(t,x\right)\in\left(0,\infty\right)\times\mathbb{R}^{n}\\
+u\!\left(0,x\right)=f\!\left(x\right)
+\end{cases}
+\]
+
+\end_inset
+
+tiene como solución la función 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\int_{\mathbb{R}^{n}}W_{t}\!\left(x-y\right)f\!\left(y\right)\,\text{d}y
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $W_{t}\!\left(x\right)=\left(2\pi nt\right)^{-1}e^{-\frac{\left|x\right|^{2}}{4t}}$
+\end_inset
+
+ es el llamado 
+\emph on
+núcleo de Gauss-Weierstrass
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Las soluciones a la ecuación de Laplace en 
+\begin_inset Formula $\mathbb{D}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+u\!\left(r,\theta\right)=\fint_{0}^{2\pi}P_{r}\!\left(\theta-t\right)\varphi\!\left(t\right)\,\text{d}t
+\]
+
+\end_inset
+
+son también convoluciones, siendo 
+\begin_inset Formula $P_{r}\!\left(\theta\right)=\frac{1-r^{2}}{1+r^{2}-2r\cos\theta}$
+\end_inset
+
+ el 
+\emph on
+núcleo de Poisson
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+En general, los promedios sobre bolas también son convoluciones.
+\end_layout
+
+\end_deeper
+\begin_layout Example
+Una interpretación de las convoluciones si 
+\begin_inset Formula $\int_{\mathbb{T}}K\!\left(x\right)\,\text{d}x=1$
+\end_inset
+
+ es que 
+\begin_inset Quotes eld
+\end_inset
+
+promedian
+\begin_inset Quotes erd
+\end_inset
+
+ la función 
+\begin_inset Formula $f$
+\end_inset
+
+ en un entorno de un punto 
+\begin_inset Formula $x$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ponderando
+\begin_inset Quotes erd
+\end_inset
+
+ por el peso de 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Veamos ahora algunas propiedades de este tipo de objetos.
+\end_layout
+
+\begin_layout Example
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Proposition
+La convolución de dos funciones 
+\begin_inset Formula $K,f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ existe en casi todo punto de 
+\begin_inset Formula $\mathbb{T}$
+\end_inset
+
+.
+ Además, 
+\begin_inset Formula 
+\[
+\left\Vert K*f\right\Vert _{L^{1}}\le\left\Vert K\right\Vert _{L^{1}}\cdot\left\Vert f\right\Vert _{L^{1}}\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Llamamos 
+\begin_inset Formula 
+\[
+I\!\left(x\right)=\int_{\mathbb{T}}\left|K\!\left(x-y\right)f\!\left(y\right)\right|\,\text{d}y
+\]
+
+\end_inset
+
+y vamos a probar que para casi todo 
+\begin_inset Formula $x\in\mathbb{T}$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $I\!\left(x\right)<\infty$
+\end_inset
+
+.
+ Dado que 
+\begin_inset Formula $I\!\left(x\right)\ge0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in\mathbb{T}$
+\end_inset
+
+, tenemos que 
+\begin_inset Formula 
+\[
+0\le\int_{\mathbb{T}}I\!\left(x\right)\,\text{d}x=\int_{\mathbb{T}}\left(\int_{\mathbb{T}}\left|K\!\left(x-y\right)\right|\left|f\!\left(y\right)\right|\,\text{d}y\right)\,\text{d}x\stackrel{*}{=}\int_{\mathbb{T}}\left|f\!\left(y\right)\right|\left(\int_{\mathbb{T}}\left|K\!\left(x-y\right)\right|\,\text{d}x\right)\,\text{d}y\stackrel{**}{=}\left\Vert K\right\Vert _{L^{1}}\cdot\left\Vert f\right\Vert _{L^{1}}<\infty
+\]
+
+\end_inset
+
+ donde en 
+\begin_inset Formula $*$
+\end_inset
+
+ hemos utilizado el teorema de Fubini-Tonelli
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Teorema 2.37"
+key "Folland"
+literal "false"
+
+\end_inset
+
+ y en 
+\begin_inset Formula $**$
+\end_inset
+
+ un cambio de variable con 
+\begin_inset Formula $z=x-y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Proposition
+La convolución vista como aplicación 
+\begin_inset Formula $*:L^{1}\!\left(\mathbb{T}\right)\times L^{1}\!\left(\mathbb{T}\right)\to L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ es conmutativa y asociativa.
+ Además, 
+\begin_inset Formula 
+\[
+\widehat{\left(K*f\right)}\!\left(n\right)=\hat{K}\!\left(n\right)\hat{f}\!\left(n\right)
+\]
+
+\end_inset
+
+para todo 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+La conmutatividad se obtiene directamente de la definición tomando el cambio
+ de variable 
+\begin_inset Formula $z=x-y$
+\end_inset
+
+.
+ La asociatividad es un ejercicio, con la indicación de que se use Fubini.
+ La última propiedad podemos verla directamente: 
+\begin_inset Formula 
+\begin{multline*}
+\widehat{\left(K*f\right)}\!\left(n\right)=\int_{\mathbb{T}}\left(K*f\right)\!\left(x\right)e^{-2\pi inx}\,\text{d}x=\int_{\mathbb{T}}\left(\int_{\mathbb{T}}K\!\left(x-y\right)f\!\left(y\right)\,\text{d}y\right)e^{-2\pi inx}\,\text{d}x\stackrel{*}{=}\\
+\stackrel{*}{=}\int_{\mathbb{T}}f\!\left(y\right)\left(\int_{\mathbb{T}}K\!\left(x-y\right)e^{-2\pi inx}\,\text{d}x\right)\,\text{d}y\stackrel{**}{=}\int_{\mathbb{T}}f\!\left(y\right)e^{-2\pi iny}\left(\int_{\mathbb{T}}K\!\left(z\right)e^{-2\pi inz}\,\text{d}z\right)\,\text{d}y=\hat{K}\!\left(n\right)\hat{f}\!\left(n\right)
+\end{multline*}
+
+\end_inset
+
+donde en 
+\begin_inset Formula $*$
+\end_inset
+
+ hemos utilizado el teorema de Fubini y en 
+\begin_inset Formula $**$
+\end_inset
+
+ el cambio de variable 
+\begin_inset Formula $z=x-y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Del resultado anterior se deduce inmediatamente el siguiente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+Si 
+\begin_inset Formula $K,f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+\left(K*f\right)\!\left(x\right)\sim\sum_{n\in\mathbb{Z}}\hat{K}\!\left(n\right)\hat{f}\!\left(n\right)e^{2\pi inx}\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las convoluciones resultan muy útiles en ingeniería como método de tratamiento
+ de señales.
+ Los filtros de paso alto o bajo o los ecualizadores (tanto sus versiones
+ digitales como las analógicas) se construyen utilizándolas.
+\end_layout
+
+\begin_layout Standard
+Volviendo al ámbito matemático, tenemos el siguiente resultado sobre derivación
+ de convoluciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Proposition
+Si 
+\begin_inset Formula $K\in C^{n}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $K*f\in C^{n}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ y además 
+\begin_inset Formula 
+\[
+D^{\left(m\right)}\left(K*f\right)\!\left(x\right)=\left(\left(D^{\left(m\right)}K\right)*f\right)\!\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Esta demostración requiere del teorema de derivación de integrales paramétricas
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Teorema 2.27"
+key "Folland"
+literal "false"
+
+\end_inset
+
+, con el que se obtiene 
+\begin_inset Formula 
+\[
+\frac{\text{d}}{\text{d}x}\left(\int_{\mathbb{T}}K\!\left(x-y\right)f\!\left(y\right)\,\text{d}y\right)=\int_{\mathbb{T}}K'\!\left(x-y\right)f\!\left(y\right)\,\text{d}y
+\]
+
+\end_inset
+
+(el correcto uso de este teorema es un ejercicio).
+\end_layout
+
+\begin_layout Section
+Aproximación de la identidad
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Una sucesión de funciones 
+\begin_inset Formula $L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ reales 
+\begin_inset Formula $\left(K_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ se dice que es una 
+\series bold
+aproximación de la identidad
+\series default
+ si verifica que
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Para cualquier 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $\int_{\mathbb{T}}K_{n}\!\left(x\right)\,\text{d}x=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A=\sup\left\{ \int_{\mathbb{T}}\left|K_{n}\!\left(x\right)\,\text{d}x\right|:n\in\mathbb{N}\right\} <\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para todo 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $\lim_{N\to\infty}\int_{\mathbb{T}\setminus\left(-\delta,\delta\right)}\left|K_{n}\!\left(x\right)\,\text{d}x\right|=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Intuitivamente, las aproximaciones de la identidad convergen a la función
+ delta de Kronecker
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Falta una referencia a esto.
+\end_layout
+
+\end_inset
+
+.
+ Veremos también que las convoluciones 
+\begin_inset Formula $K_{n}*f$
+\end_inset
+
+ convergen a 
+\begin_inset Formula $f$
+\end_inset
+
+ cuando 
+\begin_inset Formula $n\to\infty$
+\end_inset
+
+, lo que motiva el nombre de 
+\begin_inset Quotes eld
+\end_inset
+
+aproximación de la identidad
+\begin_inset Quotes erd
+\end_inset
+
+ que se le ha proporcionado.
+\end_layout
+
+\begin_layout Example
+Los promedios 
+\begin_inset Formula $K_{n}\!\left(x\right)=\frac{1}{2\varepsilon_{n}}\chi_{\left(-\varepsilon_{n},\varepsilon_{n}\right)}\!\left(x\right)$
+\end_inset
+
+, el núcleo de Poisson 
+\begin_inset Formula $K_{n}\!\left(t\right)=P_{r_{n}}\!\left(2\pi t\right)$
+\end_inset
+
+, el núcleo de Gauss-Weierstrass 
+\begin_inset Formula $K_{n}\!\left(x\right)=\frac{1}{\sqrt{4\pi t_{n}}}e^{-\frac{\left|x\right|^{2}}{4t_{n}}}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y el núcleo de Dirichlet 
+\begin_inset Formula $D_{n}\!\left(x\right)=\sum_{\left|m\right|\le n}e^{2\pi imx}$
+\end_inset
+
+ son aproximaciones de la identidad.
+\end_layout
+
+\begin_layout Standard
+A continuación tenemos los resultados principales de esta sección, pero
+ antes (como ya viene siendo habitual) debemos conocer este resultado previo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Si 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\lim_{\left|h\right|\to0}\left\Vert f\!\left(x+h\right)-f\!\left(x\right)\right\Vert _{L^{1}}=0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este lema es también válido para funciones 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+.
+ Además, también se puede adaptar para funciones 
+\begin_inset Formula $L^{p}$
+\end_inset
+
+ (con la norma 
+\begin_inset Formula $L^{p}$
+\end_inset
+
+ también) usando la desigualdad integral de Minkowski
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Teorema 8.14"
+key "Folland"
+literal "false"
+
+\end_inset
+
+.
+ Ahora sí, procedemos con normalidad.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+convergencia
+\end_layout
+
+\end_inset
+
+ Sea 
+\begin_inset Formula $\left(K_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ una aproximación de la identidad.
+ Se verifican:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es una función acotada y continua en 
+\begin_inset Formula $x_{0}\in\mathbb{T}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n\to\infty}\left(K_{n}*f\right)\!\left(x_{0}\right)=f\!\left(x_{0}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f\in C\!\left(\mathbb{T}\right)$
+\end_inset
+
+, entonces para todo 
+\begin_inset Formula $x\in\mathbb{T}$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $\lim_{n\to\infty}\left(K_{n}*f\right)\!\left(x\right)=f\!\left(x\right)$
+\end_inset
+
+ y la convergencia es uniforme.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $K_{n}*f\to f$
+\end_inset
+
+ con la norma 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Para otro día si eso.
+\end_layout
+
+\begin_layout Standard
+La demostración anterior también es válida para aproximaciones de la identidad
+ en dimensiones superiores si se exige en la segunda condición que 
+\begin_inset Formula $f$
+\end_inset
+
+ sea acotada en el abierto en el que esté definida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+Sea 
+\begin_inset Formula $\left(K_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ una aproximación de la identidad tal que cada 
+\begin_inset Formula $K_{n}$
+\end_inset
+
+ es una función par.
+ Entonces para cualquier función acotada 
+\begin_inset Formula $f$
+\end_inset
+
+, la existencia de los puntos 
+\begin_inset Formula $f\!\left(x_{0}^{\pm}\right)$
+\end_inset
+
+ garantiza que 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\left(K_{n}*f\right)\!\left(x_{0}\right)=\frac{f\!\left(x_{0}^{+}\right)+f\!\left(x_{0}^{-}\right)}{2}\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+La demostración de esta propiedad es un ejercicio.
+\end_layout
+
+\begin_layout Part
+Ecuaciones en derivadas parciales (continuación)
+\end_layout
+
+\begin_layout Chapter
+Más sobre ecuaciones en derivadas parciales
+\end_layout
+
+\begin_layout Section
+Ecuaciones diferenciales ordinarias de Sturm-Liouville
+\end_layout
+
+\begin_layout Standard
+Durante el desarrollo de este capítulo, utilizaremos los resultados demostrados
+ en el libro de Peral Alonso 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sección 3.2"
+key "Peral"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A menudo, al resolver ecuaciones en derivadas parciales mediante 
+\begin_inset Quotes eld
+\end_inset
+
+separación de variables
+\begin_inset Quotes erd
+\end_inset
+
+ llegamos a ecuaciones diferenciales ordinarias de orden 2 del tipo 
+\begin_inset Formula 
+\[
+\left(P\right)=\begin{cases}
+a\!\left(t\right)x''\!\left(t\right)+b\!\left(t\right)x'\!\left(t\right)+c\!\left(t\right)x\!\left(t\right)=-\lambda x\!\left(t\right), & t\in\left[a,b\right]\\
+\text{(condiciones de contorno)}
+\end{cases}
+\]
+
+\end_inset
+
+donde debemos determinar:
+\end_layout
+
+\begin_layout Enumerate
+¿Para qué valores de 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ existen soluciones no triviales (es decir, 
+\begin_inset Formula $x$
+\end_inset
+
+ no idénticamente nulas)? Determinábamos que existían 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{n}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\lambda_{n}<\lambda_{n+1}$
+\end_inset
+
+ que verificaban esta condición.
+\end_layout
+
+\begin_layout Enumerate
+¿Qué funciones son invariantes? Es decir, hallar las funciones 
+\begin_inset Formula $\phi_{n}\!\left(t\right)$
+\end_inset
+
+ que verifican 
+\begin_inset Formula $L\phi_{n}\!\left(t\right)=-\lambda_{n}\phi_{n}\!\left(t\right)$
+\end_inset
+
+ (donde 
+\begin_inset Formula $L$
+\end_inset
+
+ es el operador asociado a la ecuación diferencial).
+\end_layout
+
+\begin_layout Enumerate
+¿Son ortogonales estas funciones? Es decir, si se verifica que 
+\begin_inset Formula $\int_{a}^{b}\phi_{n}\!\left(t\right)\phi_{m}\!\left(t\right)\,\text{d}t=$
+\end_inset
+
+ para 
+\begin_inset Formula $m\ne n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+¿Puede cualquier función 
+\begin_inset Formula $f$
+\end_inset
+
+ ser descrita como un desarrollo de la forma 
+\begin_inset Formula 
+\begin{align*}
+f\!\left(t\right) & =\sum_{n=0}^{\infty}\alpha_{n}\phi_{n}\!\left(t\right), & t\in\left[a,b\right]
+\end{align*}
+
+\end_inset
+
+para coeficientes 
+\begin_inset Formula $\left(\alpha_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ adecuados?
+\end_layout
+
+\begin_layout Standard
+Encontrando la respuesta a estas preguntas entontramos un candidato a solución
+ de la ecuación.
+\end_layout
+
+\begin_layout Standard
+Una pregunta natural es si estos 4 pasos son necesarios hacerlos cada vez
+ que pretendamos resolver una ecuación en derivadas parciales o si existe
+ una teoría general sobre ellas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Un 
+\series bold
+operador de Sturm-Liouville
+\series default
+ es un par 
+\begin_inset Formula $\left(L,cc\right)$
+\end_inset
+
+ formado por un operador diferencial 
+\begin_inset Formula $L$
+\end_inset
+
+ de orden 2 y unas condiciones de contorno 
+\begin_inset Formula $cc$
+\end_inset
+
+ fijas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "D'Alembert"
+literal "false"
+
+\end_inset
+
+D'Alembert, J.
+ (1747).
+ 
+\emph on
+Histoire de l'académie royale des sciences et belles lettres de Berlin
+\emph default
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Fletcher-Rossing"
+literal "false"
+
+\end_inset
+
+Fletcher, N.
+ H., Rossing T.D.
+ (1991).
+ 
+\emph on
+The Physics of Musical Instruments
+\emph default
+.
+ Springer-Verlag.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Folland"
+literal "false"
+
+\end_inset
+
+Folland, G.
+ B.
+ (1999).
+ 
+\emph on
+Real Analysis: Modern Techniques and Their Applications
+\emph default
+ (2nd ed.).
+ Wiley.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Peral"
+literal "false"
+
+\end_inset
+
+Peral Alonso, I.
+ (1993).
+ 
+\emph on
+Primer curso de ecuaciones en derivadas parciales
+\emph default
+.
+ Universidad Autónoma de Madrid.
+\end_layout
+
+\end_body
+\end_document
