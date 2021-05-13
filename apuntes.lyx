@@ -68,7 +68,7 @@ theorems-chap
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date false
+\suppress_date true
 \justification true
 \use_refstyle 1
 \use_minted 0
@@ -105,7 +105,7 @@ Ecuaciones en Derivadas Parciales y Series de Fourier
 \end_layout
 
 \begin_layout Author
-Eduardo Gambín Monserrat
+Eduardo Gambín Monserrat y Rubén Gaspar Marco
 \end_layout
 
 \begin_layout Chapter*
@@ -129,9 +129,13 @@ LatexCommand tableofcontents
 Ecuaciones en derivadas parciales
 \end_layout
 
-\begin_layout Section
-Introducción
+\begin_layout Chapter*
+Introducción a las EDPs
 \end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
 
 \begin_layout Definition*
 Llamamos 
@@ -165,10 +169,7 @@ hasta un cierto orden.
 orden
 \series default
  de la EDP.
-\end_layout
-
-\begin_layout Definition*
-Decimos que 
+ Decimos también que 
 \begin_inset Formula $f:\Omega\rightarrow\mathbb{C}$
 \end_inset
 
@@ -177,7 +178,7 @@ Decimos que
 solución clásica
 \series default
  de la EDP si 
-\begin_inset Formula $f\in C^{N}\left(\Omega\right)$
+\begin_inset Formula $f\in C^{N}\!\left(\Omega\right)$
 \end_inset
 
  y cumple la ecuación para todo 
@@ -187,8 +188,13 @@ solución clásica
 .
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-Para ciertos operadores diferenciales definiremos informalmente
+Para ciertos operadores diferenciales tomaremos informalmente
 \begin_inset Foot
 status open
 
@@ -201,15 +207,16 @@ Physicists are satanic people.
  la siguiente notación
 \begin_inset Formula 
 \begin{align*}
-\partial^{\alpha} & \coloneqq\partial_{x_{1}}^{\alpha_{1}}\partial_{x_{2}}^{\alpha_{2}}\cdots\partial_{x_{n}}^{\alpha_{n}}\coloneqq\frac{\partial^{N}}{\partial x_{1}^{\alpha_{1}}\partial x_{2}^{\alpha_{2}}\cdots\partial x_{n}^{\alpha_{n}}}\quad\alpha=\left(\alpha_{1},\alpha_{2},\dots,\alpha_{n}\right)\in\left(\mathbb{N}\cup\left\{ 0\right\} \right)^{n}\\
-\nabla & \coloneqq D^{1}=\left(\partial_{x_{1}},\partial_{x_{2}},\dots,\partial_{x_{n}}\right)\quad\text{(Operador nabla)}\\
-\Delta & \coloneqq\sum_{i=1}^{n}\frac{\partial^{2}}{\partial x_{i}^{2}}=\text{Tr}\left(D^{2}\right)\quad\text{(Operador laplaciano)}\\
-\text{div}\vec{F} & \coloneqq\sum_{i=1}^{n}\partial_{x_{i}}F_{i}\quad\vec{F}=\left(F_{1},F_{2},\dots,F_{n}\right):\Omega\rightarrow\mathbb{C}.
+\partial^{\alpha} & \coloneqq\partial_{x_{1}}^{\alpha_{1}}\partial_{x_{2}}^{\alpha_{2}}\cdots\partial_{x_{n}}^{\alpha_{n}}\coloneqq\frac{\partial^{N}}{\partial x_{1}^{\alpha_{1}}\partial x_{2}^{\alpha_{2}}\cdots\partial x_{n}^{\alpha_{n}}},\ \alpha=\left(\alpha_{1},\alpha_{2},\dots,\alpha_{n}\right)\in\left(\mathbb{N}\cup\left\{ 0\right\} \right)^{n} & \text{(Operador parciales)}\\
+\nabla & \coloneqq D^{1}=\left(\partial_{x_{1}},\partial_{x_{2}},\dots,\partial_{x_{n}}\right) & \text{(Operador nabla)}\\
+\Delta & \coloneqq\sum_{i=1}^{n}\frac{\partial^{2}}{\partial x_{i}^{2}}=\text{Tr}\!\left(D^{2}\right) & \text{(Operador laplaciano)}\\
+\text{div}\,\vec{F} & \coloneqq\sum_{i=1}^{n}\partial_{x_{i}}F_{i}\quad\vec{F}=\left(F_{1},F_{2},\dots,F_{n}\right):\Omega\rightarrow\mathbb{C}. & \text{(Operador divergencia)}
 \end{align*}
 
 \end_inset
 
-
+que utilizaremos a lo largo de estos apuntes (en contra de nuestra voluntad,
+ por supuesto).
 \end_layout
 
 \begin_layout Chapter
@@ -888,7 +895,18 @@ Vamos a suponer que la cuerda está quieta al principio, es decir,
 status open
 
 \begin_layout Plain Layout
-Aquí verndría de lujo un dibujo.
+Se puede observar este efecto en 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.clipartbest.com/clipart-9cpARjxcE
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1686,18 +1704,6 @@ Como última observación, los teoremas de conservación (o decrecimiento)
 
 \begin_layout Section
 La solución de Bernoulli
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Se cree que fue Bernoulli el que en 1753 enunció este tipo de solución,
- aunque su aceptación no fue total hasta el desarrollo de las series de
- Fourier.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1730,8 +1736,20 @@ que es, respectivamente, el producto de una onda estacionaria y otra temporal
 \end_inset
 
  hercios.
- Bernoulli, tras observar las vibraciones de una cuerda real, propuso que
- la solución general del sistema 
+ Bernoulli
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Se cree que fue Bernoulli el que en 1753 enunció este tipo de soluciones,
+ aunque la aceptación de las mismas no fue mayoritario hasta el desarrollo
+ de las series de Fourier.
+\end_layout
+
+\end_inset
+
+, tras observar las vibraciones de una cuerda real, propuso que la solución
+ general del sistema 
 \begin_inset Formula 
 \[
 \begin{cases}
