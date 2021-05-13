@@ -7,6 +7,7 @@
 \textclass book
 \begin_preamble
 \DeclareMathOperator{\sgn}{sgn}
+\renewcommand{\figref}[1]{la figura~\ref{fig:#1}}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -16,13 +17,13 @@ theorems-chap
 \end_modules
 \maintain_unincluded_children false
 \language spanish
-\language_package default
+\language_package auto
 \inputencoding auto
 \fontencoding global
 \font_roman "libertine" "default"
 \font_sans "biolinum" "default"
 \font_typewriter "beramono" "default"
-\font_math "auto" "auto"
+\font_math "libertine-ntxm" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
@@ -276,6 +277,21 @@ Ahora bien, aplicando la tercera hipótesis, la tensión es una constante
 y como también por hipótesis los desplazamientos son únicamente verticales,
  
 \begin_inset Formula $\left\Vert P_{i-1}-P_{i}\right\Vert =\left\Vert P_{i+1}-P_{i}\right\Vert \cong\Delta x$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Notemos que 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ depende directamente del número de partículas que hay, a más partículas,
+ menos distancia.
+\end_layout
+
 \end_inset
 
 , lo que nos dice que 
@@ -1051,17 +1067,46 @@ Más adelante veremos otras demostraciones distintas de la unicidad de esta
 Propiedades de las soluciones
 \end_layout
 
-\begin_layout Enumerate
-Sea 
+\begin_layout Standard
+Aquí tenemos algunas de las propiedades de este tipo de ecuaciones.
+\end_layout
+
+\begin_layout Description
+Es
+\begin_inset space ~
+\end_inset
+
+reversible
+\begin_inset space ~
+\end_inset
+
+en
+\begin_inset space ~
+\end_inset
+
+el
+\begin_inset space ~
+\end_inset
+
+tiempo.
+ Sea 
 \begin_inset Formula $u:\left(0,\infty\right)\times\left[0,L\right]\to\mathbb{R}$
 \end_inset
 
  la solución de la ecuación diferencial 
-\begin_inset Formula $u_{tt}\!\left(t,x\right)-c^{2}u_{xx}\!\left(t,x\right)=0$
+\begin_inset Formula 
+\[
+u_{tt}\!\left(t,x\right)-c^{2}u_{xx}\!\left(t,x\right)=0.
+\]
+
 \end_inset
 
-.
- Si se conocen 
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si se conocen 
 \begin_inset Formula $f,g$
 \end_inset
 
@@ -1085,24 +1130,33 @@ Sea
 \begin_inset Formula $t<0$
 \end_inset
 
- (en este caso se dice que la ecuación diferencial es 
-\series bold
-reversible en el tiempo
-\series default
-).
+.
 \end_layout
 
-\begin_layout Enumerate
-La 
-\series bold
-velocidad de propagación
-\series default
- es finita.
- Si fijado 
+\end_deeper
+\begin_layout Description
+La
+\begin_inset space ~
+\end_inset
+
+velocidad
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+propagación
+\begin_inset space ~
+\end_inset
+
+finita.
+ Dado 
 \begin_inset Formula $t_{0}>0$
 \end_inset
 
- el soporte de 
+, si el soporte de 
 \begin_inset Formula $u\!\left(t_{0},\cdot\right)$
 \end_inset
 
@@ -1139,7 +1193,11 @@ entonces, para cierto
 \begin_inset Formula $x_{0}\in\left[0,L\right]$
 \end_inset
 
-, 
+,
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
 \begin_inset Formula $f\!\left(x_{0}\right)$
 \end_inset
 
@@ -1151,7 +1209,10 @@ entonces, para cierto
 \begin_inset Formula $x=x_{0}\pm ct$
 \end_inset
 
-, 
+.
+\end_layout
+
+\begin_layout Enumerate
 \begin_inset Formula $g\!\left(x_{0}\right)$
 \end_inset
 
@@ -1163,7 +1224,10 @@ entonces, para cierto
 \begin_inset Formula $x\in\left[x_{0}-ct,x_{0}+ct\right]$
 \end_inset
 
- y 
+.
+\end_layout
+
+\begin_layout Enumerate
 \begin_inset Formula $u\!\left(t_{0},x_{0}\right)$
 \end_inset
 
@@ -1186,16 +1250,30 @@ entonces, para cierto
 .
 \end_layout
 
-\begin_layout Enumerate
-El operador 
+\end_deeper
+\begin_layout Description
+El
+\begin_inset space ~
+\end_inset
+
+operador
+\begin_inset space ~
+\end_inset
+
+no
+\begin_inset space ~
+\end_inset
+
+es
+\begin_inset space ~
+\end_inset
+
+regularizante.
+ Es decir, para el operador 
 \begin_inset Formula $\square=\partial_{tt}-c^{2}\partial_{xx}$
 \end_inset
 
- 
-\series bold
-no es regularizante
-\series default
-, es decir, que 
+, la condición 
 \begin_inset Formula $\square u=0$
 \end_inset
 
@@ -1232,29 +1310,475 @@ derivada débil
 .
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Description
 
 \series bold
-Conservación de la energía
+La
+\begin_inset space ~
+\end_inset
+
+energía
+\begin_inset space ~
+\end_inset
+
+se
+\begin_inset space ~
+\end_inset
+
+conserva
 \series default
 .
  En ecuaciones diferenciales se suele llamar 
 \begin_inset Quotes eld
 \end_inset
 
+
+\emph on
 energía
+\emph default
+
 \begin_inset Quotes erd
 \end_inset
 
  a 
 \begin_inset Formula 
 \[
-\int\left(\left|u_{t}\!\left(t,x\right)\right|^{2}+\left|\nabla_{x}\!\left(t,x\right)\right|^{2}\right)\,\text{d}x.
+\int\left(\left|u_{t}\!\left(t,x\right)\right|^{2}+\left|\nabla_{x}\!\left(t,x\right)\right|^{2}\right)\,\text{d}x
+\]
+
+\end_inset
+
+debido al motivo que se expone ahora.
+ Definimos 
+\begin_inset Formula 
+\begin{align*}
+E:\mathbb{R} & \to\mathbb{R}\\
+t & \mapsto E\!\left(t\right)=E_{\text{cin}}\!\left(t\right)+E_{\text{pot}}\!\left(t\right)
+\end{align*}
+
+\end_inset
+
+la función energía sobre la cuerda, que la vamos a modelizar mediante 
+\begin_inset Formula $N$
+\end_inset
+
+ partículas como otras veces.
+ La energía cinética es directamente 
+\begin_inset Formula 
+\[
+E_{\text{cin}}\!\left(t,x_{i}\right)=\frac{mv^{2}}{2}=\frac{\rho}{2}\left(\frac{\partial u}{\partial t}\!\left(t,x_{i}\right)\right)^{2}\Delta x
+\]
+
+\end_inset
+
+mientras que la potencial debemos calcularla utilizando el trabajo.
+ Así, 
+\begin_inset Formula 
+\[
+W=\left\Vert \vec{F}\right\Vert \cdot\text{distancia}=\tau\left(\sqrt{\left(\Delta x\right)^{2}+\left(\Delta u\right)^{2}}-\Delta x\right)
+\]
+
+\end_inset
+
+(esta última expresión es la extensión que experimenta la cuerda).
+ Por tanto, 
+\begin_inset Formula 
+\[
+E_{\text{pot}}\!\left(t,x_{i}\right)=\tau\Delta x\left(\sqrt{1+\left(\frac{\Delta u}{\Delta x}\right)^{2}}-1\right)\overset{\text{Taylor}}{=}\tau\Delta x\left(\cancel{1}+\frac{1}{2}\left(\frac{\Delta u}{\Delta x}\right)^{2}+O\!\left(\left|\frac{\Delta u}{\Delta x}\right|^{4}\right)\cancel{-1}\right)\approx\frac{\tau}{2}\left(\frac{\Delta u}{\Delta x}\right)^{2}\Delta x.
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Ahora que tenemos las fórmulas para 
+\begin_inset Formula $N$
+\end_inset
+
+ partículas, basta sumar y tomar límites para llegar a la expresión de la
+ energía
+\begin_inset Formula 
+\begin{multline*}
+E\!\left(t\right)=\lim_{N\to\infty}\sum_{i=1}^{N}E_{\text{cin}}\!\left(t,x_{i}\right)+E_{\text{pot}}\!\left(t,x_{i}\right)=\lim_{N\to\infty}\sum_{i=1}^{N}\frac{\rho}{2}\left(\frac{\partial u}{\partial t}\!\left(t,x_{i}\right)\right)^{2}\Delta x+\frac{\tau}{2}\left(\frac{\Delta u}{\Delta x}\right)^{2}\Delta x=\\
+=\frac{\rho}{2}\int_{0}^{L}\left\Vert u_{t}\!\left(t,x\right)\right\Vert ^{2}\ \text{d}x+\frac{\tau}{2}\int_{0}^{L}\left\Vert u_{x}\!\left(t,x\right)\right\Vert ^{2}\ \text{d}x=\frac{\rho}{2}\int_{0}^{L}\left\Vert u_{t}\!\left(t,x\right)\right\Vert ^{2}+c^{2}\left\Vert u_{x}\!\left(t,x\right)\right\Vert ^{2}\ \text{d}x
+\end{multline*}
+
+\end_inset
+
+que era precisamente la expresión que predecíamos.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+La cuerda vibrante unidimensional con extremos fijos conserva la energía
+ en el tiempo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sea 
+\begin_inset Formula $u\in C^{2}\!\left(\mathbb{R}\times\left[0,L\right]\right)$
+\end_inset
+
+ la solución de la ecuación 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right), & \left(t,x\right)\in\left(0,\infty\right)\times\left[0,L\right]\\
+u\!\left(t,0\right)=u\!\left(t,L\right)=0, & t>0
+\end{cases}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Fijando 
+\begin_inset Formula $t>0$
+\end_inset
+
+, tenemos que 
+\begin_inset Formula 
+\begin{multline*}
+E'\!\left(t\right)=\frac{\rho}{2}\int_{0}^{L}2u_{t}\!\left(t,x\right)u_{tt}\!\left(t,x\right)+c^{2}2u_{x}\!\left(t,x\right)u_{xt}\!\left(t,x\right)\ \text{d}x\overset{\text{hipótesis}}{=}\\
+\overset{\text{hipótesis}}{=}\frac{\rho}{2}\int_{0}^{L}2u_{t}\!\left(t,x\right)c^{2}u_{xx}\!\left(t,x\right)+c^{2}2u_{x}\!\left(t,x\right)u_{xt}\!\left(t,x\right)\ \text{d}x\\
+=\rho c^{2}\int_{0}^{L}\left(u_{t}\!\left(t,x\right)u_{x}\!\left(t,x\right)\right)_{x}\ \text{d}x=\rho c^{2}\left[u_{t}\!\left(t,x\right)u_{x}\!\left(t,x\right)\right]_{0}^{L}\overset{\text{hipótesis}}{=}0
+\end{multline*}
+
+\end_inset
+
+por lo que 
+\begin_inset Formula $E$
+\end_inset
+
+ debe ser una constante, como afirmábamos.
+\end_layout
+
+\begin_layout Standard
+Este teorema también es cierto con la hipótesis 
+\begin_inset Formula 
+\[
+u_{x}\!\left(t,0\right)=u_{x}\!\left(t,L\right)=0
+\]
+
+\end_inset
+
+para cuerdas con extremos libres en lugar de fijos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Aquí vendría bien un dibujo.
+\end_layout
+
+\end_inset
+
+.
+ Si además se añade rozamiento, entonces la función energía es decreciente
+ (es decir, 
+\begin_inset Formula $E'\!\left(t\right)\le0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in\left(0,\infty\right)$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+unicidad
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $u_{1},u_{2}\in C^{2}\!\left(\mathbb{R}\times\left[0,L\right]\right)$
+\end_inset
+
+ son dos soluciones del sistema 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right), & \left(t,x\right)\in\left(0,\infty\right)\times\left[0,L\right]\\
+u\!\left(t,0\right)=u\!\left(t,L\right)=0, & t>0\\
+u\!\left(0,x\right)=f\!\left(x\right), & x\in\left[0,L\right]\\
+u_{t}\!\left(0,x\right)=g\!\left(x\right), & x\in\left[0,L\right]
+\end{cases}
+\]
+
+\end_inset
+
+entonces 
+\begin_inset Formula $u_{1}\equiv u_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sike.
+\end_layout
+
+\begin_layout Standard
+Como última observación, los teoremas de conservación (o decrecimiento)
+ de la energía suelen implicar la unicidad de las ecuaciones diferenciales
+ (al menos en las estudiadas aquí).
+\end_layout
+
+\begin_layout Section
+La solución de Bernoulli
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Se cree que fue Bernoulli el que en 1753 enunció este tipo de solución,
+ aunque su aceptación no fue total hasta el desarrollo de las series de
+ Fourier.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si se considera el sistema 
+\begin_inset Formula 
+\[
+\begin{cases}
+u\!\left(0,x\right)=\sen\left(\pi x\right), & 0<x<1\\
+u_{t}\!\left(0,x\right)=0, & 0<x<1
+\end{cases}
+\]
+
+\end_inset
+
+(que es en realidad una cuerda vibrante con posición inicial de 
+\emph on
+arco de seno
+\emph default
+) comprobamos con el método de D'Alembert que la solución es 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\sen\!\left(\pi x\right)\cos\!\left(\pi t\right)
+\]
+
+\end_inset
+
+que es, respectivamente, el producto de una onda estacionaria y otra temporal
+ con frecuencia de 
+\begin_inset Formula $0.5$
+\end_inset
+
+ hercios.
+ Bernoulli, tras observar las vibraciones de una cuerda real, propuso que
+ la solución general del sistema 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right), & \left(t,x\right)\in\left(0,\infty\right)\times\left[0,L\right]\\
+u\!\left(t,0\right)=u\!\left(t,L\right)=0, & t>0
+\end{cases}
+\]
+
+\end_inset
+
+debería ser una 
+\emph on
+superposición
+\emph default
+ de ondas estacionarias, como vemos en 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Armónicos"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, por lo que 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\sum_{n=1}^{\infty}\sen\!\left(\frac{n\pi x}{L}\right)T_{n}\!\left(t\right)
+\]
+
+\end_inset
+
+donde el seno representa al armónico 
+\begin_inset Formula $n$
+\end_inset
+
+-ésimo y la función 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ es la amplitud de dicho armónico, que suele estar asociada al timbre de
+ lo que produce la vibración.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/harmonics.svg
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Armónicos"
+
+\end_inset
+
+Armónicos de una cuerda.
+ 
+\series bold
+Fuente:
+\series default
+ 
+\emph on
+Wikipedia/Armónicos
+\emph default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sustituyendo esta solución en la ecuaciñon diferencial, tenemos que 
+\begin_inset Formula 
+\begin{multline*}
+\left(\sen\!\left(\frac{n\pi x}{L}\right)T_{n}\!\left(t\right)\right)_{tt}=c^{2}\left(\sen\!\left(\frac{n\pi x}{L}\right)T_{n}\!\left(t\right)\right)_{xx}\implies\\
+\implies\cancel{\sen\!\left(\frac{n\pi x}{L}\right)}T_{n}''\!\left(t\right)=-c^{2}\left(\frac{n\pi}{L}\right)^{2}\cancel{\sen\!\left(\frac{n\pi x}{L}\right)}T_{n}\!\left(t\right)\implies\\
+\implies T_{n}''\!\left(t\right)=-c^{2}\left(\frac{n\pi}{L}\right)^{2}T_{n}\!\left(t\right)\implies T_{n}\!\left(t\right)=a_{n}\cos\!\left(\frac{n\pi c}{L}t\right)+b_{n}\sen\!\left(\frac{n\pi c}{L}t\right)
+\end{multline*}
+
+\end_inset
+
+por lo que 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\sum_{n=1}^{\infty}\sen\!\left(\frac{n\pi x}{L}\right)\left[a_{n}\cos\!\left(\frac{n\pi c}{L}t\right)+b_{n}\sen\!\left(\frac{n\pi c}{L}t\right)\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Euler criticó esta solución por resultar 
+\begin_inset Quotes eld
+\end_inset
+
+menos general
+\begin_inset Quotes erd
+\end_inset
+
+ y 
+\begin_inset Quotes eld
+\end_inset
+
+menos rigurosa
+\begin_inset Quotes erd
+\end_inset
+
+ que la obtenida por D'Alembert, ya que afirmaba que sólo valdría para posicione
+s iniciales del tipo 
+\begin_inset Formula 
+\[
+u\!\left(0,x\right)=\sum_{n=1}^{\infty}a_{n}\sen\!\left(\frac{n\pi x}{L}\right)
+\]
+
+\end_inset
+
+y no para 
+\begin_inset Quotes eld
+\end_inset
+
+curvas arbitrarias
+\begin_inset Quotes erd
+\end_inset
+
+, ya que, por ejemplo, las funciones con picos, las constates a trozos o
+ las no periódicas en general nunca podrían desarrollarse en series de senos.
+ Sin embargo, Fourier postularía la estructura 
+\begin_inset Quotes eld
+\end_inset
+
+armónica
+\begin_inset Quotes erd
+\end_inset
+
+ de cualquier función arbitraria.
+\end_layout
+
+\begin_layout Standard
+En teoría musical, la solución 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\sum_{n=1}^{\infty}a_{n}\sen\!\left(\frac{n\pi x}{L}\right)\sen\!\left(\frac{n\pi c}{L}t\right)
+\]
+
+\end_inset
+
+ se interpreta, respectivamente, como el producto de la amplitud del armónico
+ por una vibración temporal con frecuencia 
+\begin_inset Formula $f_{n}=\frac{nc}{2L}$
+\end_inset
+
+ hercios.
+ Ajustando la cuerda convenientemente (su longitud, su densidad o su tensión)
+ se puede producir la frecuencia que queramos y por tanto cualquier nota
+ musical deseada.
 \end_layout
 
 \begin_layout Chapter
