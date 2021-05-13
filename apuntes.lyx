@@ -101,7 +101,7 @@ theorems-chap
 \begin_body
 
 \begin_layout Title
-Ecuaciones en derivadas parciales
+Ecuaciones en Derivadas Parciales y Series de Fourier
 \end_layout
 
 \begin_layout Author
@@ -127,6 +127,89 @@ LatexCommand tableofcontents
 
 \begin_layout Part
 Ecuaciones en derivadas parciales
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Definition*
+Llamamos 
+\series bold
+EDP
+\series default
+ (Ecuación en Derivadas Parciales) a cualquier ecuación que relacione una
+ variable independiente 
+\begin_inset Formula $x\in\Omega\subset\mathbb{R}^{n}$
+\end_inset
+
+, una función incógnita 
+\begin_inset Formula $u:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ y sus derivadas parciales 
+\begin_inset Formula 
+\[
+D^{N}u\coloneqq\left(\frac{\partial^{N}u}{\partial x_{1}^{\alpha_{1}}\partial x_{2}^{\alpha_{2}}\cdots\partial x_{n}^{\alpha_{n}}}\right)_{\sum_{i=1}^{n}\alpha_{i}=N}
+\]
+
+\end_inset
+
+hasta un cierto orden.
+ A 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+ se le suele llamar 
+\series bold
+orden
+\series default
+ de la EDP.
+\end_layout
+
+\begin_layout Definition*
+Decimos que 
+\begin_inset Formula $f:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ es 
+\series bold
+solución clásica
+\series default
+ de la EDP si 
+\begin_inset Formula $f\in C^{N}\left(\Omega\right)$
+\end_inset
+
+ y cumple la ecuación para todo 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para ciertos operadores diferenciales definiremos informalmente
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Physicists are satanic people.
+\end_layout
+
+\end_inset
+
+ la siguiente notación
+\begin_inset Formula 
+\begin{align*}
+\partial^{\alpha} & \coloneqq\partial_{x_{1}}^{\alpha_{1}}\partial_{x_{2}}^{\alpha_{2}}\cdots\partial_{x_{n}}^{\alpha_{n}}\coloneqq\frac{\partial^{N}}{\partial x_{1}^{\alpha_{1}}\partial x_{2}^{\alpha_{2}}\cdots\partial x_{n}^{\alpha_{n}}}\quad\alpha=\left(\alpha_{1},\alpha_{2},\dots,\alpha_{n}\right)\in\left(\mathbb{N}\cup\left\{ 0\right\} \right)^{n}\\
+\nabla & \coloneqq D^{1}=\left(\partial_{x_{1}},\partial_{x_{2}},\dots,\partial_{x_{n}}\right)\quad\text{(Operador nabla)}\\
+\Delta & \coloneqq\sum_{i=1}^{n}\frac{\partial^{2}}{\partial x_{i}^{2}}=\text{Tr}\left(D^{2}\right)\quad\text{(Operador laplaciano)}\\
+\text{div}\vec{F} & \coloneqq\sum_{i=1}^{n}\partial_{x_{i}}F_{i}\quad\vec{F}=\left(F_{1},F_{2},\dots,F_{n}\right):\Omega\rightarrow\mathbb{C}.
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
