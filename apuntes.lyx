@@ -688,7 +688,7 @@ http://laplace.us.es/wiki/index.php?title=Archivo:Onda_viajera_suma.gif&limit=50
 \end_inset
 
 .
- Llegamos así al siguiente resultado.
+ Esto motiva el siguiente resultado de existencia y unicidad.
 \end_layout
 
 \begin_layout Standard
@@ -715,7 +715,7 @@ Si
 \end_inset
 
 , entonces 
-\begin_inset Formula $u\!\left(t,x\right)=F\!\left(x-ct\right)+G\!\left(x+ct\right)$
+\begin_inset Formula $u\!\left(t,x\right)\coloneqq F\!\left(x-ct\right)+G\!\left(x+ct\right)$
 \end_inset
 
  verifica la ecuación 
@@ -730,15 +730,15 @@ Si
 \begin_inset Formula $u\in C^{2}\!\left(\mathbb{R}\times\mathbb{R}\right)$
 \end_inset
 
- entonces existen funciones 
-\begin_inset Formula $F,G\in C^{2}\!\left(\mathbb{R}\right)$
-\end_inset
-
- tales que la ecuación 
+ y cumple 
 \begin_inset Formula $u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right)$
 \end_inset
 
- tiene como solución 
+, entonces existen funciones 
+\begin_inset Formula $F,G\in C^{2}\!\left(\mathbb{R}\right)$
+\end_inset
+
+ tales que 
 \begin_inset Formula $u\!\left(t,x\right)=F\!\left(x-ct\right)+G\!\left(x+ct\right)$
 \end_inset
 
@@ -757,42 +757,96 @@ Veamos cada una.
 
 \begin_deeper
 \begin_layout Enumerate
-Es un ejercicio.
-\end_layout
-
-\begin_layout Enumerate
-Nope.
-\end_layout
-
-\end_deeper
-\begin_layout Proof
-Ahora que hemos descubierto una solución general de esta ecuación diferencial,
- debemos imponer las condiciones iniciales, es decir, las igualdades 
-\begin_inset Formula 
-\[
-\begin{cases}
-u\!\left(0,x\right)=f\!\left(x\right) & \text{posición inicial}\\
-u_{t}\!\left(0,x\right)=g\!\left(x\right) & \text{velocidad inicial}
-\end{cases}
-\]
-
+\begin_inset Formula $u_{tt}\!\left(t,x\right)=c^{2}F^{\prime}{}^{\prime}\!\left(x-ct\right)+c^{2}G{}^{\prime}{}^{\prime}\!\left(x+ct\right)$
 \end_inset
 
-que nos llevan (tras algunos cálculos) a la expresión 
-\begin_inset Formula 
-\[
-u\!\left(t,x\right)=\frac{f\!\left(x-ct\right)+f\!\left(x+ct\right)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}g\!\left(s\right)\text{d}s
-\]
-
+ y 
+\begin_inset Formula $u_{xx}\!\left(t,x\right)=F^{\prime}{}^{\prime}\!\left(x-ct\right)+G{}^{\prime}{}^{\prime}\!\left(x+ct\right)$
 \end_inset
 
-que es la llamada 
-\series bold
-fórmula de D'Alembert
-\series default
 .
 \end_layout
 
+\begin_layout Enumerate
+Supongamos 
+\begin_inset Formula $u_{tt}=c^{2}u_{xx}$
+\end_inset
+
+.
+ Haciendo un cambio de variable biyectivo
+\begin_inset Formula 
+\begin{flalign*}
+h\coloneqq\left(\xi,\eta\right):\mathbb{R}\times\mathbb{R} & \rightarrow\mathbb{R}\times\mathbb{R} & h^{-1}:\mathbb{R}\times\mathbb{R} & \rightarrow\mathbb{R}\times\mathbb{R}\\
+\left(t,x\right) & \mapsto\left(x-ct,x+ct\right) & \left(\xi,\eta\right) & \mapsto\left(\frac{\eta-\xi}{2c},\frac{\eta+\xi}{2}\right)
+\end{flalign*}
+
+\end_inset
+
+y tomando 
+\begin_inset Formula $v\coloneqq u\circ h^{-1}$
+\end_inset
+
+ podemos escribir las parciales de 
+\begin_inset Formula $u$
+\end_inset
+
+ como
+\begin_inset Formula 
+\begin{align*}
+u_{t} & =\left(v\circ h\right)_{t}=v_{\xi}\xi_{t}+v_{\eta}\eta_{t}=-cv_{\xi}+cv_{\eta}\\
+u_{tt} & =c^{2}v_{\xi\xi}-c^{2}v_{\xi\eta}-c^{2}v_{\eta\xi}+c^{2}v_{\eta\eta}\\
+u_{x} & =\left(v\circ h\right)_{x}=v_{\xi}\xi_{x}+v_{\eta}\eta_{x}=v_{\xi}+v_{\eta}\\
+u_{xx} & =v_{\xi\xi}+v_{\xi\eta}+v_{\eta\eta}.
+\end{align*}
+
+\end_inset
+
+Así, sustituyendo en la EDP tenemos
+\begin_inset Formula 
+\[
+0=u_{tt}-c^{2}u_{xx}=c^{2}v_{\xi\xi}-c^{2}v_{\xi\eta}-c^{2}v_{\eta\xi}+c^{2}v_{\eta\eta}-c^{2}\left(v_{\xi\xi}+v_{\xi\eta}+v_{\eta\eta}\right)=-4c^{2}v_{\xi\eta}\iff v_{\xi\eta}=0.
+\]
+
+\end_inset
+
+Integrando dos veces para recuperar 
+\begin_inset Formula $v$
+\end_inset
+
+, tenemos
+\begin_inset Formula 
+\[
+v_{\xi\eta}=0\overset{\int d\eta}{\longrightarrow}v_{\xi}=C(\xi)\overset{\int d\xi}{\longrightarrow}v=F(\xi)+G(\eta),
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $F\coloneqq\int C(\xi)\,d\xi$
+\end_inset
+
+, 
+\begin_inset Formula $C$
+\end_inset
+
+ y 
+\begin_inset Formula $G$
+\end_inset
+
+ han aparecido como resultado de agrupar las constantes de integración correspon
+dientes.
+ Finalmente, deshaciendo el cambio de variable, obtenemos que efectivamente
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\left(v\circ h\right)\!\left(t,x\right)=F(x-ct)+G(x+ct).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Flex Color Box
 status open
@@ -802,7 +856,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-solución de la ec.
+Solución de la ec.
  de la cuerda vibrante en 
 \begin_inset Formula $\mathbb{R}$
 \end_inset
@@ -851,6 +905,60 @@ u\!\left(t,x\right)=\frac{f\!\left(x-ct\right)+f\!\left(x+ct\right)}{2}+\frac{1}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Proof
+Con el lema anterior hemos descubierto una solución general de esta ecuación
+ diferencial.
+ Ahora debemos imponer las condiciones iniciales con las que esperamos determina
+r 
+\begin_inset Formula $F$
+\end_inset
+
+ y 
+\begin_inset Formula $G$
+\end_inset
+
+, es decir, las igualdades 
+\begin_inset Formula 
+\[
+\begin{cases}
+u\!\left(0,x\right)=f\!\left(x\right) & \text{(posición inicial)}\\
+u_{t}\!\left(0,x\right)=g\!\left(x\right) & \text{(velocidad inicial)}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Por la primera, 
+\begin_inset Formula $F(x)+G(x)=u\!\left(0,x\right)=f\!\left(x\right)$
+\end_inset
+
+ y por la segunda 
+\begin_inset Formula $-cF^{\prime}(x)+cG^{\prime}(x)=u_{t}\!\left(0,x\right)=g\!\left(x\right)$
+\end_inset
+
+.
+ De estas dos identidades obtenemos
+\begin_inset Formula 
+\begin{multline*}
+cf^{\prime}\!\left(x\right)+g\!\left(x\right)=2cG^{\prime}(x)\implies\\
+\implies G(x)=\frac{1}{2c}\int_{0}^{x}cf^{\prime}\!\left(s\right)+g\!\left(s\right)\,ds=\frac{f\!\left(x\right)-f\!\left(0\right)}{2}+\frac{1}{2c}\int_{0}^{x}g\!\left(s\right)\,ds\implies\\
+\implies F(x)=f\!\left(x\right)-\frac{f\!\left(x\right)-f\!\left(0\right)}{2}-\frac{1}{2c}\int_{0}^{x}g\!\left(s\right)\,ds=\frac{f\!\left(x\right)+f\!\left(0\right)}{2}-\frac{1}{2c}\int_{0}^{x}g\!\left(s\right)\,ds\implies\\
+\implies u\!\left(t,x\right)=F(x-ct)+G(x+ct)=\frac{f\!\left(x-ct\right)+f\!\left(x+ct\right)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}g\!\left(s\right)\,ds
+\end{multline*}
+
+\end_inset
+
+que es la llamada 
+\series bold
+fórmula de D'Alembert
+\series default
+.
 \end_layout
 
 \begin_layout Section
