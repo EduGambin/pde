@@ -675,7 +675,7 @@ http://laplace.us.es/wiki/index.php?title=Archivo:Onda_viajera_suma.gif&limit=50
 
 \end_inset
 
-, por lo que se suele escribir 
+, que se suelen describir como 
 \begin_inset Formula $u\!\left(t,x\right)=F\!\left(x-ct\right)$
 \end_inset
 
@@ -968,9 +968,53 @@ La cuerda vibrante en un intervalo
 \begin_layout Standard
 En la sección anterior hemos visto que la fórmula de D'Alembert junto a
  las condiciones iniciales nos proporcionan una solución general para el
- problema de la cuerda vibrante.
- Sin embargo, para poder utilizar esta fórmula, las condiciones iniciales
- 
+ problema de la cuerda vibrante infinita.
+ El objetivo de esta sección es adaptar la fórmula al problema de una cuera
+ finita con extremos fijos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Si intentamos imaginar lo que le ocurre a una onda una vez choca contra
+ uno de los extremos de la cuerda, podemos (o no) darnos cuenta de que la
+ onda se refleja al llegar a estos puntos.
+ Se puede observar este efecto en 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.youtube.com/watch?v=1PsGZq5sLrw
+\end_layout
+
+\end_inset
+
+ o ver una representación digital en 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.clipartbest.com/clipart-9cpARjxcE
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ Sin embargo, para poder utilizar esta fórmula para valores 
+\begin_inset Formula $x+ct>L$
+\end_inset
+
+ o 
+\begin_inset Formula $x-ct<0$
+\end_inset
+
+, las condiciones iniciales 
 \begin_inset Formula $f$
 \end_inset
 
@@ -991,44 +1035,58 @@ En la sección anterior hemos visto que la fórmula de D'Alembert junto a
 \end_layout
 
 \begin_layout Standard
-Vamos a suponer que la cuerda está quieta al principio, es decir, 
-\begin_inset Formula $g\equiv0$
-\end_inset
-
-.
- Si intentamos imaginar lo que le ocurre a una onda una vez choca contra
- uno de los extremos de la cuerda, podemos (o no) darnos cuenta de que la
- onda se refleja al llegar a estos puntos
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Se puede observar este efecto en 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://www.clipartbest.com/clipart-9cpARjxcE
-\end_layout
-
+La primera condición de contorno nos dice que debe valer, para cualquier
+ 
+\begin_inset Formula $t\geq0$
 \end_inset
 
 
-\end_layout
+\begin_inset Formula 
+\[
+u\!\left(t,0\right)=\frac{f\!\left(-ct\right)+f\!\left(+ct\right)}{2}+\frac{1}{2c}\int_{-ct}^{+ct}g\!\left(s\right)\text{d}s,
+\]
 
 \end_inset
 
-.
- Por tanto, la extensión natural de 
+de donde surje naturalmente la necesidad de que las extensiones de 
 \begin_inset Formula $f$
 \end_inset
 
- es una función impar y 
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ sean impares (para que además funcionen para 
+\begin_inset Formula $f\equiv0$
+\end_inset
+
+ ó 
+\begin_inset Formula $g\equiv0$
+\end_inset
+
+).
+ Por otro lado, la segunda condición de contorno determina
+\begin_inset Formula 
+\[
+u\!\left(t,L\right)=\frac{f\!\left(L-ct\right)+f\!\left(L+ct\right)}{2}+\frac{1}{2c}\int_{L-ct}^{L+ct}g\!\left(s\right)\text{d}s,
+\]
+
+\end_inset
+
+que podemos cumplir aprovechando la imparidad si exigimos que las extensiones
+ sean 
 \begin_inset Formula $2L$
 \end_inset
 
--periódica.
+-periódicas (podemos ver 
+\begin_inset Formula $L-ct$
+\end_inset
+
+ como 
+\begin_inset Formula $-(L+ct)$
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
