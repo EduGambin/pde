@@ -7,6 +7,7 @@
 \textclass book
 \begin_preamble
 \DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\supp}{supp}
 \renewcommand{\figref}[1]{la figura~\ref{fig:#1}}
 \end_preamble
 \use_default_options true
@@ -208,7 +209,7 @@ Physicists are satanic people.
 \begin_inset Formula 
 \begin{align*}
 \partial^{\alpha} & \coloneqq\partial_{x_{1}}^{\alpha_{1}}\partial_{x_{2}}^{\alpha_{2}}\cdots\partial_{x_{n}}^{\alpha_{n}}\coloneqq\frac{\partial^{N}}{\partial x_{1}^{\alpha_{1}}\partial x_{2}^{\alpha_{2}}\cdots\partial x_{n}^{\alpha_{n}}},\ \alpha=\left(\alpha_{1},\alpha_{2},\dots,\alpha_{n}\right)\in\left(\mathbb{N}\cup\left\{ 0\right\} \right)^{n} & \text{(Operador parciales)}\\
-\nabla & \coloneqq D^{1}=\left(\partial_{x_{1}},\partial_{x_{2}},\dots,\partial_{x_{n}}\right) & \text{(Operador nabla)}\\
+\nabla & \coloneqq D^{1}=\left(\partial_{x_{1}},\partial_{x_{2}},\dots,\partial_{x_{n}}\right) & \text{(Operador nabla o gradiente)}\\
 \Delta & \coloneqq\sum_{i=1}^{n}\frac{\partial^{2}}{\partial x_{i}^{2}}=\text{Tr}\!\left(D^{2}\right) & \text{(Operador laplaciano)}\\
 \text{div}\,\vec{F} & \coloneqq\sum_{i=1}^{n}\partial_{x_{i}}F_{i}\quad\vec{F}=\left(F_{1},F_{2},\dots,F_{n}\right):\Omega\rightarrow\mathbb{C}. & \text{(Operador divergencia)}
 \end{align*}
@@ -1707,7 +1708,7 @@ el
 
 tiempo.
  Sea 
-\begin_inset Formula $u:\left(0,\infty\right)\times\left[0,L\right]\to\mathbb{R}$
+\begin_inset Formula $u:\mathbb{R}\times\left[0,L\right]\to\mathbb{R}$
 \end_inset
 
  la solución de la ecuación diferencial 
@@ -1794,7 +1795,25 @@ finita.
 \end_inset
 
 .
- De hecho, si 
+ Esto es, (según el modelo) si la cuerda está en reposo fuera del intervalo
+ 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+, lo seguirá estando fuera del intervalo 
+\begin_inset Formula $\left[a-cT,b+cT\right]$
+\end_inset
+
+ transcurridos 
+\begin_inset Formula $T$
+\end_inset
+
+ segundos (o la unidad de tiempo que se esté usando).
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+De hecho, si 
 \begin_inset Formula $u$
 \end_inset
 
@@ -1813,8 +1832,7 @@ entonces, para cierto
 ,
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 \begin_inset Formula $f\!\left(x_{0}\right)$
 \end_inset
 
@@ -1829,7 +1847,7 @@ entonces, para cierto
 .
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 \begin_inset Formula $g\!\left(x_{0}\right)$
 \end_inset
 
@@ -1844,7 +1862,7 @@ entonces, para cierto
 .
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 \begin_inset Formula $u\!\left(t_{0},x_{0}\right)$
 \end_inset
 
@@ -1887,7 +1905,7 @@ es
 
 regularizante.
  Es decir, para el operador 
-\begin_inset Formula $\square=\partial_{tt}-c^{2}\partial_{xx}$
+\begin_inset Formula $\square\coloneqq\partial_{tt}-c^{2}\partial_{xx}$
 \end_inset
 
 , la condición 
@@ -1903,7 +1921,8 @@ regularizante.
 \end_inset
 
 .
- De hecho, la fórmula de D'Alembert exige que existan soluciones de 
+ De hecho, la fórmula de D'Alembert sugiere la existencia de soluciones
+ de 
 \begin_inset Formula $\square u=0$
 \end_inset
 
@@ -1945,90 +1964,84 @@ se
 conserva
 \series default
 .
- En ecuaciones diferenciales se suele llamar 
-\begin_inset Quotes eld
-\end_inset
+ La energía mecánica de nuestro sistema se mantiene constante.
+ Para que darle a esta propiedad algún valor, el resto de sección se la
+ dedicaremos a definir y probar esta afirmación.
+\end_layout
 
+\begin_layout Standard
+\begin_inset Note Comment
+status open
 
-\emph on
+\begin_layout Plain Layout
+En ecuaciones diferenciales se suele llamar 
+\series bold
 energía
-\emph default
-
-\begin_inset Quotes erd
-\end_inset
-
+\series default
  a 
 \begin_inset Formula 
 \[
-\int\left(\left|u_{t}\!\left(t,x\right)\right|^{2}+\left|\nabla_{x}\!\left(t,x\right)\right|^{2}\right)\,\text{d}x
+\int\left(\left|u_{t}\!\left(t,x\right)\right|^{2}+\left|\nabla_{x}u\!\left(t,x\right)\right|^{2}\right)\,\text{d}x
 \]
 
 \end_inset
 
-debido al motivo que se expone ahora.
- Definimos 
-\begin_inset Formula 
-\begin{align*}
-E:\mathbb{R} & \to\mathbb{R}\\
-t & \mapsto E\!\left(t\right)=E_{\text{cin}}\!\left(t\right)+E_{\text{pot}}\!\left(t\right)
-\end{align*}
-
-\end_inset
-
-la función energía sobre la cuerda, que la vamos a modelizar mediante 
-\begin_inset Formula $N$
-\end_inset
-
- partículas como otras veces.
- La energía cinética es directamente 
-\begin_inset Formula 
-\[
-E_{\text{cin}}\!\left(t,x_{i}\right)=\frac{mv^{2}}{2}=\frac{\rho}{2}\left(\frac{\partial u}{\partial t}\!\left(t,x_{i}\right)\right)^{2}\Delta x
-\]
-
-\end_inset
-
-mientras que la potencial debemos calcularla utilizando el trabajo.
- Así, 
-\begin_inset Formula 
-\[
-W=\left\Vert \vec{F}\right\Vert \cdot\text{distancia}=\tau\left(\sqrt{\left(\Delta x\right)^{2}+\left(\Delta u\right)^{2}}-\Delta x\right)
-\]
-
-\end_inset
-
-(esta última expresión es la extensión que experimenta la cuerda).
- Por tanto, 
-\begin_inset Formula 
-\[
-E_{\text{pot}}\!\left(t,x_{i}\right)=\tau\Delta x\left(\sqrt{1+\left(\frac{\Delta u}{\Delta x}\right)^{2}}-1\right)\overset{\text{Taylor}}{=}\tau\Delta x\left(\cancel{1}+\frac{1}{2}\left(\frac{\Delta u}{\Delta x}\right)^{2}+O\!\left(\left|\frac{\Delta u}{\Delta x}\right|^{4}\right)\cancel{-1}\right)\approx\frac{\tau}{2}\left(\frac{\Delta u}{\Delta x}\right)^{2}\Delta x.
-\]
+debido al motivo que se expone a continuación.
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
-\begin_deeper
 \begin_layout Standard
-Ahora que tenemos las fórmulas para 
+Si volvemos al modelo de la cuerda de 
 \begin_inset Formula $N$
 \end_inset
 
- partículas, basta sumar y tomar límites para llegar a la expresión de la
- energía
+ partículas, podemos definir la energía cinética de nuestro sistema como
+ la suma de las energías cinéticas de cada partícula, y esta última la describir
+emos naturalmente como
+\begin_inset Formula 
+\[
+E_{\text{cin}}\!\left(t,x_{i}\right)\coloneqq\frac{mv^{2}}{2}=\frac{\rho\Delta x}{2}\left(\frac{\partial u}{\partial t}\!\left(t,x_{i}\right)\right)^{2}.
+\]
+
+\end_inset
+
+Por otro lado, la energía potencial la calcularemos sumando el trabajo realizado
+ por la tensión en cada partícula.
+ Y este último lo modelizamos como la fuerza (tensión) por la extensión
+ que provoca esta fuerza:
 \begin_inset Formula 
 \begin{multline*}
-E\!\left(t\right)=\lim_{N\to\infty}\sum_{i=1}^{N}E_{\text{cin}}\!\left(t,x_{i}\right)+E_{\text{pot}}\!\left(t,x_{i}\right)=\lim_{N\to\infty}\sum_{i=1}^{N}\frac{\rho}{2}\left(\frac{\partial u}{\partial t}\!\left(t,x_{i}\right)\right)^{2}\Delta x+\frac{\tau}{2}\left(\frac{\Delta u}{\Delta x}\right)^{2}\Delta x=\\
-=\frac{\rho}{2}\int_{0}^{L}\left\Vert u_{t}\!\left(t,x\right)\right\Vert ^{2}\ \text{d}x+\frac{\tau}{2}\int_{0}^{L}\left\Vert u_{x}\!\left(t,x\right)\right\Vert ^{2}\ \text{d}x=\frac{\rho}{2}\int_{0}^{L}\left\Vert u_{t}\!\left(t,x\right)\right\Vert ^{2}+c^{2}\left\Vert u_{x}\!\left(t,x\right)\right\Vert ^{2}\ \text{d}x
+E_{\text{pot}}\!\left(t,x_{i}\right)\coloneqq W_{i}\coloneqq\left\Vert \vec{F}\right\Vert \cdot\text{distancia}=\tau\left(\sqrt{\left(\Delta x\right)^{2}+\left(\Delta u\right)^{2}}-\Delta x\right)=\\
+=\tau\Delta x\left(\sqrt{1+\left(\frac{\Delta u}{\Delta x}\right)^{2}}-1\right)\overset{\text{Taylor}}{=}\tau\Delta x\left(\cancel{1}+\frac{1}{2}\left(\frac{\Delta u}{\Delta x}\right)^{2}+O\!\left(\left|\frac{\Delta u}{\Delta x}\right|^{4}\right)\cancel{-1}\right)\approx\frac{\tau}{2}\left(\frac{\Delta u}{\Delta x}\right)^{2}\Delta x.
 \end{multline*}
 
 \end_inset
 
-que era precisamente la expresión que predecíamos.
+
 \end_layout
 
-\end_deeper
+\begin_layout Standard
+Si definimos la energía mecánica 
+\begin_inset Formula $E:\mathbb{R}\to\mathbb{R}$
+\end_inset
+
+ como la suma de la energía cinética y la energía potencial de todas las
+ partículas tenemos
+\begin_inset Formula 
+\begin{multline*}
+E\!\left(t\right)=\lim_{N\to\infty}\sum_{i=1}^{N}\left(E_{\text{cin}}\!\left(t,x_{i}\right)+E_{\text{pot}}\!\left(t,x_{i}\right)\right)=\lim_{N\to\infty}\left(\sum_{i=1}^{N}\frac{\rho\Delta x}{2}\left(\frac{\partial u}{\partial t}\!\left(t,x_{i}\right)\right)^{2}+\frac{\tau}{2}\left(\frac{\Delta u}{\Delta x}\right)^{2}\Delta x\right)=\\
+=\frac{\rho}{2}\int_{0}^{L}u_{t}\!\left(t,x\right)^{2}\,\text{d}x+\frac{\tau}{2}\int_{0}^{L}u_{x}\!\left(t,x\right)^{2}\,\text{d}x=\frac{\rho}{2}\int_{0}^{L}\left(u_{t}\!\left(t,x\right)^{2}+c^{2}u_{x}\!\left(t,x\right)^{2}\right)\,\text{d}x.
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Flex Color Box
 status open
@@ -2070,9 +2083,9 @@ Fijando
 , tenemos que 
 \begin_inset Formula 
 \begin{multline*}
-E'\!\left(t\right)=\frac{\rho}{2}\int_{0}^{L}2u_{t}\!\left(t,x\right)u_{tt}\!\left(t,x\right)+c^{2}2u_{x}\!\left(t,x\right)u_{xt}\!\left(t,x\right)\ \text{d}x\overset{\text{hipótesis}}{=}\\
-\overset{\text{hipótesis}}{=}\frac{\rho}{2}\int_{0}^{L}2u_{t}\!\left(t,x\right)c^{2}u_{xx}\!\left(t,x\right)+c^{2}2u_{x}\!\left(t,x\right)u_{xt}\!\left(t,x\right)\ \text{d}x\\
-=\rho c^{2}\int_{0}^{L}\left(u_{t}\!\left(t,x\right)u_{x}\!\left(t,x\right)\right)_{x}\ \text{d}x=\rho c^{2}\left[u_{t}\!\left(t,x\right)u_{x}\!\left(t,x\right)\right]_{0}^{L}\overset{\text{hipótesis}}{=}0
+E'\!\left(t\right)=\frac{\partial}{\partial t}\left(\frac{\rho}{2}\int_{0}^{L}\left(u_{t}^{2}+c^{2}u_{x}^{2}\right)\,\text{d}x\right)\overset{\text{Leibniz integral rule}}{=}\frac{\rho}{2}\int_{0}^{L}\left(2u_{t}u_{tt}+c^{2}2u_{x}u_{xt}\right)\,\text{d}x=\\
+=\frac{\rho}{2}\int_{0}^{L}\left(2u_{t}c^{2}u_{xx}+c^{2}2u_{x}u_{tx}\right)\,\text{d}x=\rho c^{2}\int_{0}^{L}\left(u_{t}u_{x}\right)_{x}\,\text{d}x=\rho c^{2}\left[u_{t}u_{x}\right]_{0}^{L}=\\
+=\rho c^{2}\left(u_{t}\!\left(t,L\right)u_{x}\!\left(t,L\right)-u_{t}\!\left(t,0\right)u_{x}\!\left(t,0\right)\right)=\rho c^{2}\left(\frac{\partial}{\partial t}\cancel{u\!\left(t,L\right)}u_{x}\!\left(t,L\right)-\frac{\partial}{\partial t}\cancel{u\!\left(t,0\right)}u_{x}\!\left(t,0\right)\right)=0
 \end{multline*}
 
 \end_inset
@@ -2084,7 +2097,21 @@ por lo que
  debe ser una constante, como afirmábamos.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Remark*
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
 Este teorema también es cierto con la hipótesis 
 \begin_inset Formula 
 \[
@@ -2094,7 +2121,7 @@ u_{x}\!\left(t,0\right)=u_{x}\!\left(t,L\right)=0
 \end_inset
 
 para cuerdas con extremos libres en lugar de fijos
-\begin_inset Foot
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
@@ -2104,7 +2131,17 @@ Aquí vendría bien un dibujo.
 \end_inset
 
 .
- Si además se añade rozamiento, entonces la función energía es decreciente
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $E(0)=\frac{\rho}{2}\int_{0}^{L}\left(g^{2}+c^{2}f^{\prime}^{2}\right)\,\text{d}x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si además se añade rozamiento, entonces la función energía es decreciente
  (es decir, 
 \begin_inset Formula $E'\!\left(t\right)\le0$
 \end_inset
@@ -2114,6 +2151,14 @@ Aquí vendría bien un dibujo.
 \end_inset
 
 ).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2138,7 +2183,7 @@ unicidad
 \begin_inset Formula 
 \[
 \begin{cases}
-u_{tt}\!\left(t,x\right)=c^{2}u_{xx}\!\left(t,x\right), & \left(t,x\right)\in\left(0,\infty\right)\times\left[0,L\right]\\
+u_{tt}=c^{2}u_{xx}-\mu u_{t}+F(t,x) & \left(t,x\right)\in\left(0,\infty\right)\times\left[0,L\right]\\
 u\!\left(t,0\right)=u\!\left(t,L\right)=0, & t>0\\
 u\!\left(0,x\right)=f\!\left(x\right), & x\in\left[0,L\right]\\
 u_{t}\!\left(0,x\right)=g\!\left(x\right), & x\in\left[0,L\right]
@@ -2160,7 +2205,38 @@ entonces
 \end_layout
 
 \begin_layout Proof
-Sike.
+\begin_inset Formula $v\coloneqq u_{1}-u_{2}\in C\left(\mathbb{R}\times\left[0,L\right]\right)$
+\end_inset
+
+ satisface
+\begin_inset Formula 
+\[
+\begin{cases}
+v_{tt}=c^{2}v_{xx}-\mu v_{t} & \left(t,x\right)\in\left(0,\infty\right)\times\left[0,L\right]\\
+v\!\left(t,0\right)=v\!\left(t,L\right)=0, & t>0\\
+v\!\left(0,x\right)=v_{t}\!\left(0,x\right)=0, & x\in\left[0,L\right],
+\end{cases}
+\]
+
+\end_inset
+
+por lo que la energía, que es decreciente y nula en 
+\begin_inset Formula $t=0$
+\end_inset
+
+, es constantemente nula y por tanto, 
+\begin_inset Formula $v_{t}\equiv v_{x}\equiv0$
+\end_inset
+
+, siendo 
+\begin_inset Formula $v$
+\end_inset
+
+ constantemente igual a cero, pues 
+\begin_inset Formula $v\!\left(0,x\right)=0$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
