@@ -1037,7 +1037,7 @@ http://www.clipartbest.com/clipart-9cpARjxcE
 \begin_layout Standard
 La primera condición de contorno nos dice que debe valer, para cualquier
  
-\begin_inset Formula $t\geq0$
+\begin_inset Formula $t\in\mathbb{R}$
 \end_inset
 
 
@@ -1099,6 +1099,17 @@ Dada
 \end_inset
 
 , la función 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+En realidad son tildes, no barras.
+ aaaaaaaa.
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
 \bar{f}\!\left(x\right)=\begin{cases}
@@ -1128,6 +1139,10 @@ extensión impar y
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 Así pues, el candidato a solución es la función 
 \begin_inset Formula 
 \begin{align*}
@@ -1192,13 +1207,22 @@ u\!\left(t,L\right)=\frac{\bar{f}\!\left(L-ct\right)+\bar{f}\!\left(L+ct\right)}
 .
 \end_layout
 
-\begin_layout Standard
-Para poder concluir definitivamente que 
-\begin_inset Formula $u\!\left(t,x\right)$
 \end_inset
 
- es la solución que buscamos, basta dar alguna hipótesis que nos garantice
- que 
+
+\end_layout
+
+\begin_layout Standard
+Para poder concluir definitivamente que 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\frac{\bar{f}\!\left(x-ct\right)+\bar{f}\!\left(x+ct\right)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}\bar{g}\!\left(s\right)\,\text{d}s,\left(t,x\right)\in\left(0,\infty\right)\times\left[0,L\right]
+\]
+
+\end_inset
+
+es una solución a nuestro problema.
+ Falta dar alguna hipótesis que nos garantice que 
 \begin_inset Formula $\bar{f}$
 \end_inset
 
@@ -1243,7 +1267,11 @@ f\!\left(0^{+}\right)=f\!\left(L^{-}\right)=0
 \begin_inset Formula $\bar{f}\in C^{2}\!\left(\mathbb{R}\right)$
 \end_inset
 
- si y sólo si 
+ si y sólo si es 
+\begin_inset Formula $C^{1}\!\left(\mathbb{R}\right)$
+\end_inset
+
+ y
 \begin_inset Formula 
 \[
 f''\!\left(0^{+}\right)=f''\!\left(L^{-}\right)=0.
@@ -1260,7 +1288,87 @@ f''\!\left(0^{+}\right)=f''\!\left(L^{-}\right)=0.
 \end_layout
 
 \begin_layout Proof
-Es un ejercicio.
+Por ser 
+\begin_inset Formula $\bar{f}$
+\end_inset
+
+ 
+\begin_inset Formula $2L$
+\end_inset
+
+-periódica e impar, su continuidad viene determinada por la continuidad
+ en 
+\begin_inset Formula $\left[0,L\right]$
+\end_inset
+
+ (donde podemos ver 
+\begin_inset Formula $\bar{f}$
+\end_inset
+
+ como 
+\begin_inset Formula $f$
+\end_inset
+
+) y la de sus extremos a la izquierda y derecha del intervalo.
+ Así, fijándonos únicamente en la continuidad en estos extremos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\bar{f}(0^{-})=-\bar{f}(0^{+})\iff f(0^{+})=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\bar{f}(L^{+})=\bar{f}(-L^{+})=-\bar{f}(L^{-})\iff f(L^{-})=0.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Por otro lado, para una extensión impar 
+\begin_inset Formula $\bar{f}$
+\end_inset
+
+ de una función 
+\begin_inset Formula $f\in C^{1}$
+\end_inset
+
+, es lo mismo ser continua que ser 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+, pues su derivada es una extensión par de la derivada de 
+\begin_inset Formula $f$
+\end_inset
+
+ y estaríamos en la misma situación del principio, solo que ahora no necesitamos
+ hipótesis pues los signos negativos desaparecen:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\bar{f}{}^{\prime}(0^{-})=\bar{f}{}^{\prime}(0^{+}).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\bar{f}(L^{+})=\bar{f}(-L^{+})=\bar{f}(L^{-}).$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Si derivamos una segunda vez nos encontramos con una función impar y deberemos
+ seguir el primer argumento.
 \end_layout
 
 \begin_layout Standard
@@ -1277,7 +1385,7 @@ Sea
 \end_inset
 
  tal que 
-\begin_inset Formula $g\!\left(0\right)=g\!\left(L\right)$
+\begin_inset Formula $g\!\left(0\right)=g\!\left(L\right)=0$
 \end_inset
 
 .
@@ -1294,7 +1402,32 @@ Sea
 \end_layout
 
 \begin_layout Proof
-Es un ejercicio.
+Como 
+\begin_inset Formula $\int_{0}^{x}\bar{g}\!\left(s\right)\,\text{d}s$
+\end_inset
+
+ es una primitiva de 
+\begin_inset Formula $\bar{g}$
+\end_inset
+
+, es de clase 
+\begin_inset Formula $C^{2}$
+\end_inset
+
+ si, y solo si, su derivada 
+\begin_inset Formula $\bar{g}$
+\end_inset
+
+ es de clase 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+ si, y solo si 
+\begin_inset Formula $g\!\left(0\right)=g\!\left(L\right)=0$
+\end_inset
+
+.
+ En este último paso hemos utilizado el lema anterior.
 \end_layout
 
 \begin_layout Standard
@@ -1371,9 +1504,177 @@ u\!\left(t,x\right)=\frac{\bar{f}\!\left(x-ct\right)+\bar{f}\!\left(x+ct\right)}
 \end_layout
 
 \begin_layout Proof
-Sike.
+Procedemos como cualquier prueba de existencia y unicidad:
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+Existencia.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Por los lemas de esta sección, 
+\begin_inset Formula $u\in C^{2}\left(\mathbb{R}\times\mathbb{R}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Por el lema de D'Alembert, 
+\begin_inset Formula $u$
+\end_inset
+
+ cumple 
+\begin_inset Formula $u_{tt}=c^{2}u_{xx}$
+\end_inset
+
+ por ser suma de ondas viajeras 
+\begin_inset Formula $F(x-ct)$
+\end_inset
+
+ y 
+\begin_inset Formula $G(x+ct)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Las condiciones de contorno 
+\begin_inset Formula $\forall t\in\mathbb{R},u\!\left(t,0\right)=u\!\left(t,L\right)=0$
+\end_inset
+
+ se cumplen, pues para ello hemos construído las extensiones impares y 
+\begin_inset Formula $2L$
+\end_inset
+
+-periódicas.
+\end_layout
+
+\begin_layout Itemize
+Por último 
+\begin_inset Formula 
+\[
+\forall x\in\left[0,L\right],u\!\left(0,x\right)=\frac{\bar{f}\!\left(x\right)+\bar{f}\!\left(x\right)}{2}+\frac{1}{2c}\cancel{\int_{x}^{x}\bar{g}\!\left(s\right)\,\text{d}s}=\bar{f}\!\left(x\right)=f\!\left(x\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline*}
+\forall x\in\left[0,L\right],u_{t}\!\left(0,x\right)=\frac{\cancel{-c\bar{f}{}^{\prime}\!\left(x\right)+c\bar{f}{}^{\prime}\!\left(x\right)}}{2}+\frac{\partial}{\partial t}\left(\frac{1}{2c}\int_{x-ct}^{x+ct}\bar{g}\!\left(s\right)\,\text{d}s\right)\rvert_{t=0}=\\
+\frac{1}{2c}\frac{\partial}{\partial t}\left(\int_{0}^{x+ct}\bar{g}\!\left(s\right)\,\text{d}s-\int_{0}^{x-ct}\bar{g}\!\left(s\right)\,\text{d}s\right)\rvert_{t=0}=\frac{1}{2c}\left(c\bar{g}\!\left(x\right)+c\bar{g}\!\left(x\right)\right)=\bar{g}\!\left(x\right)=g\!\left(x\right)
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Unicidad.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Supongamos que 
+\begin_inset Formula $v\in C^{2}\left(\mathbb{R}\times\left[0,L\right]\right)$
+\end_inset
+
+ es solución de la EDP.
+ Si extendemos 
+\begin_inset Formula $v$
+\end_inset
+
+ en su segunda coordenada, de manera que 
+\begin_inset Formula $\bar{v}\in C^{2}\left(\mathbb{R}\times\mathbb{R}\right)$
+\end_inset
+
+ sea impar y 
+\begin_inset Formula $2L$
+\end_inset
+
+-periódica en 
+\begin_inset Formula $x$
+\end_inset
+
+, tendremos una solución 
+\begin_inset Formula $C^{2}$
+\end_inset
+
+ del problema de la cuerda vibrante en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ con condiciones iniciales 
+\begin_inset Formula $\bar{v}\!\left(0,x\right)=\bar{f}\!\left(x\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $\bar{v}_{t}\!\left(0,x\right)=\bar{g}\!\left(x\right)$
+\end_inset
+
+, cuya unicidad ya demostramos y restringiendo el dominio de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $\left[0,L\right]$
+\end_inset
+
+ ya lo tendremos.
+ Así, lo único restante por probar es que efectivamente esta extensión 
+\begin_inset Formula $\bar{v}$
+\end_inset
+
+ es de clase 
+\begin_inset Formula $C^{2}$
+\end_inset
+
+, pero utilizando de nuevo los lemas de esta sección tenemos que es 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+ por ser 
+\begin_inset Formula $v\!\left(t,0\right)=v\!\left(t,L\right)=0$
+\end_inset
+
+ y de clase 
+\begin_inset Formula $C^{2}$
+\end_inset
+
+ por ser
+\begin_inset Formula 
+\begin{multline*}
+v_{xx}\!\left(t,x\right)=\frac{1}{c^{2}}v_{tt}\!\left(t,x\right)=\frac{1}{c^{2}}\left(\frac{c^{2}\bar{f}{}^{\prime}{}^{\prime}\!\left(x-ct\right)+c^{2}\bar{f}{}^{\prime}{}^{\prime}\!\left(x+ct\right)}{2}+\frac{1}{2c}\left(c^{2}\bar{g}{}^{\prime}\!\left(x+ct\right)-c^{2}\bar{g}{}^{\prime}\!\left(x-ct\right)\right)\right)=\\
+=\frac{\bar{f}{}^{\prime}{}^{\prime}\!\left(x-ct\right)+\bar{f}{}^{\prime}{}^{\prime}\!\left(x+ct\right)}{2}+\frac{1}{2c}\left(\bar{g}{}^{\prime}\!\left(x+ct\right)-\bar{g}{}^{\prime}\!\left(x-ct\right)\right),
+\end{multline*}
+
+\end_inset
+
+y por tanto, utilizando que la derivación conserva la periodicidad e invierte
+ la paridad,
+\begin_inset Formula 
+\begin{align*}
+v_{xx}\!\left(t,0\right)=\frac{1}{c^{2}}v_{tt}\!\left(t,0\right) & =\frac{\bar{f}{}^{\prime}{}^{\prime}\!\left(-ct\right)+\bar{f}{}^{\prime}{}^{\prime}\!\left(ct\right)}{2}+\frac{1}{2c}\left(\bar{g}{}^{\prime}\!\left(ct\right)-\bar{g}{}^{\prime}\!\left(-ct\right)\right)=0\\
+v_{xx}\!\left(t,L\right)=\frac{1}{c^{2}}v_{tt}\!\left(t,L\right) & =\frac{\bar{f}{}^{\prime}{}^{\prime}\!\left(-L-ct\right)+\bar{f}{}^{\prime}{}^{\prime}\!\left(L+ct\right)}{2}+\frac{1}{2c}\left(\bar{g}{}^{\prime}\!\left(L+ct\right)-\bar{g}{}^{\prime}\!\left(-L-ct\right)\right)=0,
+\end{align*}
+
+\end_inset
+
+cumpliendo las condiciones del lema que nos garantiza que 
+\begin_inset Formula $\bar{v}\in C^{2}\left(\mathbb{R}\times\mathbb{R}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Standard
 Más adelante veremos otras demostraciones distintas de la unicidad de esta
  función.
