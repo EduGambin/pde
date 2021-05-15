@@ -2478,8 +2478,441 @@ u\!\left(t,x\right)=\sum_{n=1}^{\infty}a_{n}\sen\!\left(\frac{n\pi x}{L}\right)\
 La ecuación del calor
 \end_layout
 
+\begin_layout Section
+Formulación física
+\end_layout
+
 \begin_layout Standard
-Sike.
+Nos planteamos en este capítulo encontrar una EDP que modelice la propagación
+ del calor en un cuerpo 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{n}$
+\end_inset
+
+ (que en una dimensión es una varilla, en dos una lámina y en tres un sólido).
+ La función 
+\begin_inset Formula $u$
+\end_inset
+
+ que intentamos determinar va a medir la temperatura en cierto punto tras
+ 
+\begin_inset Formula $t$
+\end_inset
+
+ segundos transcurridos a partir de cierta temperatura inicial y ciertas
+ condiciones de contorno
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Nos referimos a lo que ocurre en los 
+\begin_inset Quotes eld
+\end_inset
+
+bordes
+\begin_inset Quotes erd
+\end_inset
+
+ del objeto sobre el que se propaga el calor.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por motivos de tiempo, no podemos incluir la formulación física del problema
+ (aunque nos gustaría).
+\end_layout
+
+\begin_layout Standard
+Llegamos a la ecuación 
+\begin_inset Formula 
+\[
+\kappa\Delta u=\sigma\frac{\partial u}{\partial t}\!\left(t,x\right),\ t>0,\ x\in\Omega
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ es la conductividad térmica y 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ el calor específico.
+ Tomando 
+\begin_inset Formula $\alpha=\frac{\kappa}{\sigma}$
+\end_inset
+
+ (difusividad térmica) y añadiendo temperatura inicial y condiciones de
+ contorno, tenemos 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{t}=\alpha\Delta u, & t>0,\ x\in\Omega\\
+u\!\left(0,x\right)=f\!\left(x\right), & x\in\Omega\\
+u\!\left(t,x\right)=\varphi\!\left(t,x\right), & x\in\partial\Omega
+\end{cases}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la justificación física se ha utilizado el siguiente lema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Plain Layout
+Si 
+\begin_inset Formula $f\in C\!\left(\Omega\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{B_{r}\!\left(x_{0}\right)}\subset\Omega$
+\end_inset
+
+ entonces se verifica 
+\begin_inset Formula 
+\[
+\lim_{r\to0}\fint_{B_{r}\!\left(x_{0}\right)}f\!\left(x\right)\ \text{d}x=f\!\left(x_{0}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Not yet.
+\end_layout
+
+\begin_layout Standard
+También se cumple esta propiedad para condiciones menos estrictas, como
+ que 
+\begin_inset Formula $f\in L^{1}\!\left(\Omega\right)$
+\end_inset
+
+ (hay que usar en la demostración el teorema de diferenciación de Lebesgue).
+\end_layout
+
+\begin_layout Section
+Resolución por separación de variables (dimensión uno)
+\end_layout
+
+\begin_layout Standard
+Si asumimos que la solución es de la forma 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\alpha T\!\left(t\right)X\!\left(x\right)
+\]
+
+\end_inset
+
+donde ninguna de estas funciones es idénticamente nula, llegamos a una solución
+ del tipo 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\sum_{n=1}^{\infty}B_{n}e^{-\alpha\left(\frac{n\pi}{L}\right)^{2}t}\sen\!\left(\frac{n\pi x}{L}\right)
+\]
+
+\end_inset
+
+a la que podemos aplicarle condiciones de contorno.
+\end_layout
+
+\begin_layout Subsection
+Varilla con extremos nulos
+\end_layout
+
+\begin_layout Standard
+Vamos a necesitar el siguiente lema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Dados 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+ enteros no negativos, se verifica 
+\begin_inset Formula 
+\[
+\int_{0}^{L}\sen\!\left(\frac{n\pi x}{L}\right)\sen\!\left(\frac{m\pi x}{L}\right)\ \text{d}x=\begin{cases}
+0, & \text{si }n\ne m\\
+\frac{L}{2}, & \text{si }n=m
+\end{cases}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora partimos del sistema 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{t}=\alpha\Delta u, & t>0,\ x\in\Omega\\
+u\!\left(0,x\right)=f\!\left(x\right), & x\in\Omega\\
+u\!\left(t,0\right)=\varphi\!\left(t,L\right)=0
+\end{cases}
+\]
+
+\end_inset
+
+que nos conduce hasta la expresión 
+\begin_inset Formula 
+\[
+B_{m}=\frac{2}{L}\int_{0}^{L}f\!\left(x\right)\sen\!\left(\frac{m\pi x}{L}\right)\ \text{d}x.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para continuar necesitamos dos lemas más.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Sean 
+\begin_inset Formula $f_{n}\in C^{1}\!\left(\left[a,b\right]\right)$
+\end_inset
+
+ tales que las series 
+\begin_inset Formula $\sum_{n=1}^{\infty}f_{n}\!\left(x\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{n=1}^{\infty}f_{n}'\!\left(x\right)$
+\end_inset
+
+ converjan uniformemente en 
+\begin_inset Formula $x\in\left[a,b\right]$
+\end_inset
+
+.
+ Entonces, la función 
+\begin_inset Formula $F\!\left(x\right)=\sum_{n=1}^{\infty}f_{n}\!\left(x\right)$
+\end_inset
+
+ es de clase 
+\begin_inset Formula $C^{1}\!\left(\left[a,b\right]\right)$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+F'\!\left(x\right)=\left(\sum_{n=1}^{\infty}f_{n}\!\left(x\right)\right)'=\sum_{n=1}^{\infty}f_{n}'\!\left(x\right),\ x\in\left[a,b\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+prueba M de Weierstrass
+\end_layout
+
+\end_inset
+
+ Sean 
+\begin_inset Formula $f_{n}\in C\!\left(\Omega\right)$
+\end_inset
+
+ tales que 
+\begin_inset Formula 
+\[
+\sup\left\{ \left|f_{n}\!\left(x\right)\right|:x\in\Omega\right\} \le M_{n}\ y\ \sum_{n=1}^{\infty}M_{n}<\infty.
+\]
+
+\end_inset
+
+Entonces la serie 
+\begin_inset Formula $F\!\left(x\right)=\sum_{n=1}^{\infty}f_{n}\!\left(x\right)$
+\end_inset
+
+ converge uniforme y absolutamente para todo 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+.
+ En particular, 
+\begin_inset Formula $F\in C\!\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora vamos con el teorema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ec.
+ del calor en 
+\begin_inset Formula $\left[0,L\right]$
+\end_inset
+
+ con extremos nulos
+\end_layout
+
+\end_inset
+
+ Sea 
+\begin_inset Formula $f\in C\!\left(\left[0,L\right]\right)$
+\end_inset
+
+ tal que 
+\begin_inset Formula 
+\[
+f\!\left(x\right)=\sum_{n=1}^{\infty}b_{n}\sen\!\left(\frac{n\pi x}{L}\right)
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\sum_{n=1}^{\infty}\left|b_{n}\right|<\infty$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\sum_{n=1}^{\infty}b_{n}e^{-\alpha\left(\frac{n\pi}{L}\right)^{2}t}\sen\!\left(\frac{n\pi x}{L}\right),\ t\ge0,\ x\in\left[0,L\right]
+\]
+
+\end_inset
+
+es una función 
+\begin_inset Formula $C^{\infty}\!\left(\left(0,\infty\right)\times\left[0,L\right]\right)\cap C^{\infty}\!\left(\left[0,\infty\right)\times\left[0,L\right]\right)$
+\end_inset
+
+ y cumple la EDP 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{t}=\alpha u_{xx}, & x\in\left(0,L\right),\ t>0\\
+u\!\left(0,x\right)=f\!\left(x\right)\\
+u\!\left(t,0\right)=u\!\left(t,L\right)=0
+\end{cases}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Not yet.
+\end_layout
+
+\begin_layout Standard
+Algunos comentarios sobre este teorema:
+\end_layout
+
+\begin_layout Enumerate
+La condición 
+\begin_inset Formula $\sum_{n=1}^{\infty}\left|b_{n}\right|<\infty$
+\end_inset
+
+ no se puede rebajar (de hecho, veremos que toda 
+\begin_inset Formula $f\in C^{1}\!\left(\left[0,L\right]\right)$
+\end_inset
+
+ (con 
+\begin_inset Formula $f\!\left(0\right)=f\!\left(1\right)=0$
+\end_inset
+
+ la cumple).
+\end_layout
+
+\begin_layout Enumerate
+Más adelante veremos la unicidad de estas soluciones.
+\end_layout
+
+\begin_layout Enumerate
+El teorema no se aplica a 
+\begin_inset Formula $f\!\left(x\right)\equiv1$
+\end_inset
+
+, pues en ese caso 
+\begin_inset Formula $\sum_{n=1}^{\infty}\left|b_{n}\right|=\infty$
+\end_inset
+
+ (ya que 
+\begin_inset Formula $u$
+\end_inset
+
+ no es de clase 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ en los extremos de la varilla).
 \end_layout
 
 \begin_layout Chapter
