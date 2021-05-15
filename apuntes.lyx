@@ -2134,7 +2134,7 @@ Aquí vendría bien un dibujo.
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $E(0)=\frac{\rho}{2}\int_{0}^{L}\left(g^{2}+c^{2}f^{\prime}^{2}\right)\,\text{d}x$
+\begin_inset Formula $E(0)=\frac{\rho}{2}\int_{0}^{L}\left(g^{2}+c^{2}f^{\prime}{}^{2}\right)\,\text{d}x$
 \end_inset
 
 .
@@ -2250,7 +2250,12 @@ La solución de Bernoulli
 \end_layout
 
 \begin_layout Standard
-Si se considera el sistema 
+Si se considera el problema de la cuerda vibrante con con posición inicial
+ un 
+\emph on
+arco de seno
+\emph default
+
 \begin_inset Formula 
 \[
 \begin{cases}
@@ -2261,11 +2266,7 @@ u_{t}\!\left(0,x\right)=0, & 0<x<1
 
 \end_inset
 
-(que es en realidad una cuerda vibrante con posición inicial de 
-\emph on
-arco de seno
-\emph default
-) comprobamos con el método de D'Alembert que la solución es 
+comprobamos con el método de D'Alembert que la solución es 
 \begin_inset Formula 
 \[
 u\!\left(t,x\right)=\sen\!\left(\pi x\right)\cos\!\left(\pi t\right)
@@ -2386,7 +2387,8 @@ Wikipedia/Armónicos
 \end_layout
 
 \begin_layout Standard
-Sustituyendo esta solución en la ecuaciñon diferencial, tenemos que 
+Sustituyendo un sumando genérico en la ecuación diferencial, tenemos que
+ 
 \begin_inset Formula 
 \begin{multline*}
 \left(\sen\!\left(\frac{n\pi x}{L}\right)T_{n}\!\left(t\right)\right)_{tt}=c^{2}\left(\sen\!\left(\frac{n\pi x}{L}\right)T_{n}\!\left(t\right)\right)_{xx}\implies\\
@@ -2396,7 +2398,11 @@ Sustituyendo esta solución en la ecuaciñon diferencial, tenemos que
 
 \end_inset
 
-por lo que 
+por lo que, para ser solución, 
+\begin_inset Formula $u$
+\end_inset
+
+ debe ser
 \begin_inset Formula 
 \[
 u\!\left(t,x\right)=\sum_{n=1}^{\infty}\sen\!\left(\frac{n\pi x}{L}\right)\left[a_{n}\cos\!\left(\frac{n\pi c}{L}t\right)+b_{n}\sen\!\left(\frac{n\pi c}{L}t\right)\right].
@@ -2463,7 +2469,7 @@ u\!\left(t,x\right)=\sum_{n=1}^{\infty}a_{n}\sen\!\left(\frac{n\pi x}{L}\right)\
 
 \end_inset
 
- se interpreta, respectivamente, como el producto de la amplitud del armónico
+se interpreta como el producto de, respectivamente, la amplitud del armónico
  por una vibración temporal con frecuencia 
 \begin_inset Formula $f_{n}=\frac{nc}{2L}$
 \end_inset
