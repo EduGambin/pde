@@ -4,8 +4,7 @@ Estos apuntes están basados en las notas de clase del profesor Gustavo Garrigó
 ## Desarrollo actual
 Actualmente, el desarrollo del trabajo está como sigue:
 - Hay que redactar una introducción.
-- El tema 1 necesita revisión y terminar de escribir algunas demostraciones.
-- Los temas 2 y 3 está por escribir aún.
-- Los temas 4, 5 y 6 están incompletos, falta terminar de escribirlos.
+- El tema 3 está por escribir aún.
+- Los temas 2, 4, 5 y 6 están incompletos, falta terminar de escribirlos.
 
 También sería conveniente introducir en ciertos sitios imágenes que hagan un poco más fácil entender los conceptos, pero esto es secundario.
