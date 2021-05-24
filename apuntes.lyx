@@ -7654,26 +7654,1219 @@ status open
 \begin_layout Definition
 Un 
 \series bold
-operador de Sturm-Liouville
+operador de Sturm-Liouville regular
 \series default
  es un par 
 \begin_inset Formula $\left(L,cc\right)$
 \end_inset
 
- formado por un operador diferencial 
+ formado por:
+\end_layout
+
+\begin_layout Enumerate
+Un operador diferencial 
 \begin_inset Formula $L$
 \end_inset
 
- de orden 2 y unas condiciones de contorno 
+ de orden 2 
+\begin_inset Formula 
+\[
+Lx\!\left(t\right)=-\left[a\!\left(t\right)x''\!\left(t\right)+b\!\left(t\right)x'\!\left(t\right)+c\!\left(t\right)x\!\left(t\right)\right],\quad t\in\left[a,b\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Unas condiciones de contorno 
 \begin_inset Formula $cc$
 \end_inset
 
- fijas.
+ fijas
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O bien 
+\begin_inset Formula $a_{1}x\!\left(a\right)+a_{2}x'\!\left(a\right)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{1}x\!\left(b\right)+b_{2}x'\!\left(b\right)=0$
+\end_inset
+
+ (condiciones separadas).
+\end_layout
+
+\begin_layout Itemize
+O bien 
+\begin_inset Formula $x\!\left(a\right)=x\!\left(b\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $x'\!\left(a\right)=x'\!\left(b\right)$
+\end_inset
+
+ (condiciones periódicas).
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Decimos que 
+\begin_inset Formula $\lambda\in\sigma\!\left(L,cc\right)$
+\end_inset
+
+ si existe 
+\begin_inset Formula $\phi$
+\end_inset
+
+ no idénticamente nula tal que 
+\begin_inset Formula 
+\[
+L\phi\!\left(t\right)=\lambda\phi\!\left(t\right)\quad\text{y}\quad\phi\in cc.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+En ese caso decimos que 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ es un 
+\series bold
+autovalor
+\series default
+ de 
+\begin_inset Formula $\left(L,cc\right)$
+\end_inset
+
+ y que 
+\begin_inset Formula $\phi$
+\end_inset
+
+ es su 
+\series bold
+autofunción
+\series default
+ asociada.
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+Sea 
+\begin_inset Formula $\left(L,cc\right)$
+\end_inset
+
+ un operador de SL regular.
+ Entonces se cumple:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\sigma\!\left(L,cc\right)=\left\{ \lambda_{n}\right\} _{n\in\mathbb{N}}$
+\end_inset
+
+ donde 
+\begin_inset Formula $\lambda_{1}<\cdots<\lambda_{n}\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si las condiciones de contorno son separadas, entonces todos los autovalores
+ son simples.
+ Si son periódicas solo sabemos que la dimensión el subespacio propio es
+ finita.
+\end_layout
+
+\begin_layout Enumerate
+Existe un peso 
+\begin_inset Formula $w\!\left(t\right)>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\left\{ \phi_{n}\right\} _{n\in\mathbb{N}}$
+\end_inset
+
+ es una base ortonormal en 
+\begin_inset Formula $L^{2}\!\left(\left[a,b\right],w\!\left(t\right)\,\text{d}t\right)$
+\end_inset
+
+ y en particular 
+\begin_inset Formula 
+\[
+\left\langle \phi_{n}\phi_{m}\right\rangle _{w}=\int_{a}^{b}\phi_{n}\!\left(t\right)\phi_{m}\!\left(t\right)w\!\left(t\right)\,\text{d}t=0,\quad n\ne m.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Toda 
+\begin_inset Formula $f\in C^{2}\!\left(\left[a,b\right]\right)\cap cc$
+\end_inset
+
+ se puede escribir como 
+\begin_inset Formula 
+\[
+f\!\left(t\right)=\sum_{n=1}^{\infty}\left\langle f,\phi_{n}\right\rangle _{w}\phi_{n}\!\left(t\right),\quad t\in\left[a,b\right]
+\]
+
+\end_inset
+
+con convergencia uniforme 
+\begin_inset Formula $\forall t\in\left[a,b\right]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se cumplen algunas propiedades más que asemejan 
+\begin_inset Formula $\left\{ \phi_{n}\right\} _{n\in\mathbb{N}}$
+\end_inset
+
+ a un sistema trigonométrico:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\phi_{n}$
+\end_inset
+
+ tiene exactamente 
+\begin_inset Formula $\left(n-1\right)$
+\end_inset
+
+ ceros en 
+\begin_inset Formula $\left(a,b\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Teorema de equiconvergencia
+\emph default
+: Si 
+\begin_inset Formula $f\in L^{1}\!\left(\left[a,b\right]\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\bar{S}_{n}f\!\left(t\right)=\sum_{n=1}^{N}\left\langle f,\phi_{m}\right\rangle _{w}\phi_{n}\!\left(t\right)
+\]
+
+\end_inset
+
+cumple los mismos teoremas de convergencia que las series de Fourier usuales.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Fórmula variacional de Rayleigh
+\emph default
+
+\begin_inset Formula 
+\[
+\lambda_{n}=\min\left\{ \left\langle L\phi,\phi\right\rangle _{w}:\phi\in C^{2}\cap cc,\quad\left\Vert \phi\right\Vert _{L_{w}^{2}}=1,\quad\phi\perp\left\{ \phi_{1},\dots,\phi_{n-1}\right\} \right\} 
+\]
+
+\end_inset
+
+que permite aproximar 
+\begin_inset Formula $\lambda_{n}$
+\end_inset
+
+ numéricamente.
+\end_layout
+
+\begin_layout Standard
+En algunos problemas de EDPs aparecen operadores SL singulares
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a\!\left(t_{0}\right)=0$
+\end_inset
+
+ o bien 
+\begin_inset Formula $b\!\left(t\right),c\!\left(t\right)\to\infty$
+\end_inset
+
+ en 
+\begin_inset Formula $t=t_{0}\in\left[a,b\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ no sea compacto 
+\begin_inset Formula $\implies$
+\end_inset
+
+
+\begin_inset Formula $\left[0,\infty\right)$
+\end_inset
+
+ ó 
+\begin_inset Formula $\left(-\infty,\infty\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En muchos casos el teorema es cierto con modificaciones meores.
+\end_layout
+
+\begin_layout Example
+Ecuación de Bessel 
+\begin_inset Formula 
+\[
+-Lx\!\left(t\right)=x''\!\left(t\right)+\frac{1}{t}x'\!\left(t\right)-\frac{v^{2}}{t^{2}}x\!\left(t\right),\quad t\in\left[0,1\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\implies b\!\left(t\right)=\frac{1}{t}$
+\end_inset
+
+, 
+\begin_inset Formula $c\!\left(t\right)=-\frac{v^{2}}{t^{2}}$
+\end_inset
+
+ tienen un polo en 
+\begin_inset Formula $t=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+Para el operador de Bessel, veremos que el problema de autovalores 
+\begin_inset Formula 
+\[
+\begin{cases}
+Lx\!\left(t\right)=\lambda x\!\left(t\right), & t\in\left[0,1\right]\\
+\exists x\!\left(0^{+}\right), & x\!\left(1\right)=0
+\end{cases}
+\]
+
+\end_inset
+
+tiene como solución 
+\begin_inset Formula 
+\[
+\phi_{n}\!\left(t\right)=J_{r}\!\left(\lambda_{n}t\right)\quad\text{con}\quad\left\{ \lambda_{n}\right\} _{n=1}^{\infty}=Z\!\left(J_{r}\right)
+\]
+
+\end_inset
+
+y además para tener 
+\begin_inset Formula 
+\[
+\left\langle \phi_{n}\phi_{m}\right\rangle _{w}=0
+\]
+
+\end_inset
+
+ se debe usar el peso 
+\begin_inset Formula 
+\[
+w\!\left(t\right)=\frac{1}{a\!\left(t\right)}e^{\int\frac{b\!\left(s\right)}{a\!\left(s\right)}\,\text{d}s}=e^{\log t}=t.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Membrana vibrante rectangular
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{tt}=c^{2}\Delta u, & t>0,\quad\left(x,y\right)\in R\\
+u\left(t,\cdot\right)\equiv0 & \text{en }\partial R\text{ cond contorno}\\
+u\left(0,\cdot\right)=f & u_{t}\left(0,\cdot\right)=g\text{ pos/vel inicial}
+\end{cases}
+\]
+
+\end_inset
+
+La solución es de la forma 
+\begin_inset Formula 
+\[
+u\!\left(t,x,y\right)=\sum_{n=1}^{\infty}\sum_{m=1}^{\infty}\left[A_{n,m}\cos\left(c\rho_{n,m}t\right)+B_{n,m}\sen\left(c\rho_{n,m}t\right)\right]\sen\left(\frac{n\pi x}{L_{1}}\right)\sen\left(\frac{m\pi y}{L2}\right)
+\]
+
+\end_inset
+
+y los coeficientes se calculan con las condiciones iniciales 
+\begin_inset Formula 
+\begin{align*}
+A_{n,m} & =\frac{4}{L_{1}L_{2}}\int_{0}^{L_{1}}\int_{0}^{L_{2}}f\!\left(x,y\right)\sen\left(\frac{n\pi x}{L_{1}}\right)\sen\left(\frac{m\pi y}{L2}\right)\text{d}x\,\text{d}y\\
+B_{n,m} & =\frac{1}{c\rho_{n,m}}\frac{4}{L_{1}L_{2}}\int_{0}^{L_{1}}\int_{0}^{L_{2}}g\!\left(x,y\right)\sen\left(\frac{n\pi x}{L_{1}}\right)\sen\left(\frac{m\pi y}{L2}\right)\text{d}x\,\text{d}y
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Interpretación
+\end_layout
+
+\begin_layout Itemize
+Modos de vibración espacial: 
+\begin_inset Formula $V_{n,m}\!\left(x,y\right)=\sen\left(\frac{n\pi x}{L_{1}}\right)\sen\left(\frac{m\pi y}{L2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Frecuencias de vibración temporal: 
+\begin_inset Formula $\frac{c}{2\pi}\rho_{n,m}=\frac{c}{2\pi}\sqrt{\left(\frac{n\pi}{L_{1}}\right)^{2}+\left(\frac{m\pi}{L_{2}}\right)^{2}}$
+\end_inset
+
+ en hercios.
+\end_layout
+
+\begin_layout Section
+Funciones de Bessel
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $v\in\mathbb{N}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+z^{2}f''\!\left(z\right)+zf'\!\left(z\right)+\left(z^{2}-v^{2}\right)f\!\left(z\right)=0,\quad z>0
+\]
+
+\end_inset
+
+tiene como soluciones 
+\begin_inset Formula 
+\[
+f\!\left(z\right)=AJ_{v}\!\left(z\right)+BY_{v}\!\left(z\right)
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $J_{v}{\cal H}\!\left(\mathbb{C}\right)$
+\end_inset
+
+ es una función de Bessel de primera especie y 
+\begin_inset Formula $Y_{v}$
+\end_inset
+
+ de segunda dada por 
+\begin_inset Formula 
+\begin{align*}
+J_{v}\!\left(z\right) & =\sum_{j=0}^{\infty}\frac{\left(-1\right)^{j}}{j!\left(v+j\right)!}\left(\frac{z}{2}\right)^{v+2j} & Y_{v}\!\left(z\right)\to\infty\text{ si }z\to0^{+}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Se tiene 
+\begin_inset Formula 
+\[
+zJ'_{v}\!\left(z\right)=vJ_{v}\!\left(z\right)-zJ_{v+1}\!\left(z\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Se tiene 
+\begin_inset Formula 
+\[
+2\int_{0}^{1}J_{v}\!\left(\lambda r\right)^{2}r\,\text{d}r=\left(1-\frac{v^{2}}{\lambda^{2}}\right)J_{v}\!\left(\lambda\right)^{2}+J_{v}'\!\left(\lambda\right)^{2}
+\]
+
+\end_inset
+
+y en particular si 
+\begin_inset Formula $J_{v}\!\left(\lambda\right)=0$
+\end_inset
+
+ se tiene 
+\begin_inset Formula 
+\[
+\int_{0}^{1}J_{v}\!\left(\lambda r\right)^{2}r\,\text{d}r=\frac{J_{v+1}\!\left(\lambda\right)^{2}}{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Gamma\!\left(x\right)=\int_{0}^{\infty}e^{-t}t^{x-1}\,\text{d}t,\quad x>0\qquad\text{\textbf{Función Gamma}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+fórmula de Sonine
+\end_layout
+
+\end_inset
+
+ Se tiene 
+\begin_inset Formula 
+\[
+\int_{0}^{1}\left(1-r^{2}\right)^{\mu}J_{v}\!\left(\lambda r\right)r^{v+1}\,\text{d}r=\frac{2^{\mu}\Gamma\!\left(\mu+1\right)}{\lambda^{\mu+1}}J_{v+\mu+1}\!\left(\lambda\right),\qquad\mu,v>-1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+En general 
+\begin_inset Formula $J_{v}$
+\end_inset
+
+ no tiene expresión explícita salvo en los casos 
+\begin_inset Formula $v=\frac{1}{2}+\mathbb{Z}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+J_{-\frac{1}{2}}\!\left(x\right)=\sqrt{\frac{2}{\pi}}\frac{\cos x}{\sqrt{x}},\qquad J_{\frac{1}{2}}\!\left(x\right)=\sqrt{\frac{2}{\pi}}\frac{\sen x}{\sqrt{x}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+Se tiene 
+\begin_inset Formula 
+\[
+J_{v}\!\left(x\right)=\sqrt{\frac{2}{\pi}}\frac{\sen\!\left(x-\frac{\pi}{2}v+\frac{\pi}{4}\right)}{\sqrt{x}}+{\cal O}\!\left(\frac{1}{x^{\frac{3}{2}}}\right)
+\]
+
+\end_inset
+
+si 
+\begin_inset Formula $x\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+\begin_inset Formula ${\cal Z}_{+}\!\left(J_{n}\right)=\left\{ \lambda_{1}<\lambda_{2}<\cdots\right\} $
+\end_inset
+
+ con 
+\begin_inset Formula $\lambda_{m}\ne\infty$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Denotaremos 
+\begin_inset Formula ${\cal Z}_{+}\!\left(J_{n}\right)=\left\{ S_{m}^{\left(n\right)}\right\} _{m\in\mathbb{N}}$
+\end_inset
+
+ y puede probarse que 
+\begin_inset Formula 
+\[
+S_{m}^{\left(n\right)}=\left(m+\frac{n}{2}-\frac{1}{4}\right)\pi+{\cal O}\!\left(\frac{1}{m}\right)
+\]
+
+\end_inset
+
+si 
+\begin_inset Formula $m\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ fijo consideramos el problemas SL singular 
+\begin_inset Formula 
+\[
+\begin{cases}
+R''\!\left(r\right)+\frac{1}{r}R'\!\left(r\right)-\frac{n^{2}}{r^{2}}R\!\left(r\right)=-\lambda^{2}R\!\left(r\right), & 0<r<1\\
+\text{(CC) }R\!\left(1\right)=0\text{ y }\exists R\!\left(0^{+}\right)
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Solución general 
+\begin_inset Formula $R\!\left(r\right)=AJ_{n}\!\left(\lambda r\right)+BY_{n}\!\left(\lambda r\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+CC 
+\begin_inset Formula $\implies B=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda\in\left\{ s_{n,1}<s_{n,2}<\cdots\right\} ={\cal Z}_{+}\!\left(J_{n}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Autofunciones: 
+\begin_inset Formula $\left\{ \phi_{m}\!\left(r\right)=J_{n}\!\left(s_{n,m}r\right),\ m=1,2,\dots\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+El sistema 
+\begin_inset Formula $\left\{ \phi_{n}\!\left(r\right)\right\} _{n\in\mathbb{N}}$
+\end_inset
+
+ es una base ortogonal de 
+\begin_inset Formula $L_{r}^{2}\!\left(0,1\right)$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+f\!\left(r\right)=L_{r-}^{2}\sum_{m=1}^{\infty}a_{m}\!\left(f\right)J_{n}\!\left(s_{n,m}r\right),\qquad a_{m}\!\left(f\right)=\frac{\int_{0}^{1}f\!\left(r\right)J_{n}\!\left(s_{n,m}r\right)r\,\text{d}r}{J_{n+1}^{2}\!\left(s_{n,m}\right)/2}
+\]
+
+\end_inset
+
+Además si 
+\begin_inset Formula $f\in C^{2}\left[0,1\right]$
+\end_inset
+
+ con 
+\begin_inset Formula $f(1)=0$
+\end_inset
+
+ (y 
+\begin_inset Formula $f(0)=0$
+\end_inset
+
+ si 
+\begin_inset Formula $n\ne0$
+\end_inset
+
+), entonces la convergencia es uniforme para 
+\begin_inset Formula $0<r<1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Membrana circular
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{tt}=c^{2}\Delta u, & t>0,\quad\left(x,y\right)\in D\\
+u\left(t,\cdot\right)\equiv0 & \text{en }\partial D\text{ cond contorno}\\
+u\left(0,\cdot\right)=f & u_{t}\left(0,\cdot\right)=g\text{ pos/vel inicial}
+\end{cases}
+\]
+
+\end_inset
+
+Busco soluciones de la forma 
+\begin_inset Formula $u\!\left(t,x,y\right)=T\!\left(t\right)V\!\left(x,y\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+\begin_inset Formula $v_{tt}=c^{2}\Delta v$
+\end_inset
+
+ en 
+\begin_inset Formula $D_{R}\!\left(0\right)$
+\end_inset
+
+ 
+\begin_inset Formula $\iff$
+\end_inset
+
+ 
+\begin_inset Formula $u\!\left(t,x\right)=v\!\left(t,Rx\right)$
+\end_inset
+
+ es solución de 
+\begin_inset Formula $u_{tt}=\frac{c^{2}}{R^{2}}\Delta u$
+\end_inset
+
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problema de autovalores de 
+\begin_inset Formula $-\Delta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{d}$
+\end_inset
+
+ acotado con 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ regular.
+ Determinar 
+\begin_inset Formula $\lambda\in\mathbb{C}$
+\end_inset
+
+ tales que 
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{l}
+-\Delta u=\lambda u\text{ en }\Omega\\
+\left(a_{1}u+a_{2}\nabla u\cdot\vec{n}\right)|_{\partial\Omega}=0
+\end{array}\right.
+\]
+
+\end_inset
+
+tenga una solución 
+\begin_inset Formula $u\in C^{2}\!\left(\Omega\right)\cap C^{1}\!\left(\overline{\Omega}\right)\setminus\left\{ 0\right\} $
+\end_inset
+
+.
+ Es decir, 
+\begin_inset Formula $\lambda\in\sigma\left(-\Delta,\Omega,CC\right)$
+\end_inset
+
+.
+ Tipicamente se consideran las CC 
+\begin_inset Formula 
+\[
+u|_{\partial\Omega}=0\text{ ó }\nabla u\vec{n}|_{\partial\Omega}=0\text{ ó }\left(\nabla u\vec{n}+\gamma u\right)|_{\partial\Omega}=0,\qquad\gamma>0\qquad\left(*\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+general
+\end_layout
+
+\end_inset
+
+ Sea 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{d}$
+\end_inset
+
+ acotado con 
+\begin_inset Formula $\partial\Omega\in C^{\infty}$
+\end_inset
+
+.
+ Consideramos 
+\begin_inset Formula $-\Delta u=\lambda u$
+\end_inset
+
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ con CC como en 
+\begin_inset Formula $\left(*\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Existen infinitos autovalores 
+\begin_inset Formula $\sigma\!\left(-\Delta,CC\right)=\left\{ \lambda_{n}\right\} _{n\in\mathbb{N}}$
+\end_inset
+
+ y se cumple 
+\begin_inset Formula $0\le\lambda_{1}\le\lambda_{2}\le\cdots\to\infty$
+\end_inset
+
+.
+ Además 
+\begin_inset Formula $0\in\sigma\!\left(-\Delta,CC\right)\iff CC=C_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Multiplicidad: 
+\begin_inset Formula $\dim E_{\lambda}=\dim\left\{ \phi:-\Delta\phi=\lambda\phi\right\} <\infty$
+\end_inset
+
+ para todo valor propio.
+\end_layout
+
+\begin_layout Enumerate
+Ortogonalidad: 
+\begin_inset Formula $E_{\lambda}\perp E_{\mu}$
+\end_inset
+
+ si 
+\begin_inset Formula $\lambda\ne\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\exists\left\{ \phi_{n}\right\} _{n\in\mathbb{N}}\subset C^{\infty}\!\left(\bar{\Omega}\right)$
+\end_inset
+
+ que forma una base ortonormal de autovectores en 
+\begin_inset Formula $L^{2}\!\left(\Omega\right)$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+f=L^{2}\text{-}\sum_{n=1}^{\infty}\left\langle f,\phi_{n}\right\rangle \phi_{n},\qquad\forall f\in L^{2}\!\left(\Omega\right)
+\]
+
+\end_inset
+
+y además si 
+\begin_inset Formula $f\in C^{\infty}\!\left(\bar{\Omega}\right)\cap CC$
+\end_inset
+
+ la convergencia es uniforme en todo 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Fórmula Rayleigh: 
+\begin_inset Formula 
+\[
+\lambda_{n}=\min\left\{ \int_{\Omega}\left|\nabla\phi\right|^{2}:\phi\in C^{2}\!\left(\Omega\right)\cap C^{1}\!\left(\bar{\Omega}\right),\quad\left\Vert \phi\right\Vert =1,\quad\phi|_{\partial\Omega}\equiv0,\quad\phi\perp\left\{ \phi_{1},\dots,\phi_{n-1}\right\} \right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Corollary
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ec.
+ calor en 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ Sea 
+\begin_inset Formula $f\in C^{\infty}\!\left(\bar{\Omega}\right)$
+\end_inset
+
+.
+ Entonces la EDP 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{t}=\kappa\Delta u, & \left(t,x\right)\in\left(0,\infty\right)\times\Omega\\
+u\!\left(0,\cdot\right)=f, & u\!\left(t,\cdot\right)\in CC
+\end{cases}
+\]
+
+\end_inset
+
+tiene como solución clásica 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\sum_{n=1}^{\infty}e^{-\kappa\lambda_{n}t}\left\langle f,\phi_{n}\right\rangle \phi_{n}\!\left(x\right),\qquad t>0,\ x\in\Omega.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Corollary
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ec.
+ ondas en 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ Sea 
+\begin_inset Formula $f,g\in C^{\infty}\!\left(\bar{\Omega}\right)$
+\end_inset
+
+.
+ Entonces la EDP 
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{tt}=c^{2}\Delta u, & \left(t,x\right)\in\mathbb{R}\times\Omega\\
+u\!\left(0,\cdot\right)=f,\quad u_{t}\!\left(0,\cdot\right)=g, & u\!\left(t,\cdot\right)\in CC
+\end{cases}
+\]
+
+\end_inset
+
+tiene como solución clásica 
+\begin_inset Formula 
+\[
+u\!\left(t,x\right)=\sum_{n=1}^{\infty}\left(\left\langle f,\phi_{n}\right\rangle \cos\!\left(ct\sqrt{\lambda_{n}}\right)+\frac{\left\langle g,\phi_{n}\right\rangle }{c\sqrt{\lambda_{n}}}\sen\!\left(ct\sqrt{\lambda_{n}}\right)\right)\phi_{n}\!\left(x\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Si 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{d}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\lambda_{n}\approx\frac{c_{d}n^{2/d}}{\left|\Omega\right|^{2/d}}$
+\end_inset
+
+ si 
+\begin_inset Formula $n\to\infty$
+\end_inset
+
+, con 
+\begin_inset Formula $c_{d}=\left(2\pi\right)^{2}/\left|B_{1}\negmedspace\left(0\right)\right|^{2/d}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+La función de Weierstrass
+\end_layout
+
+\begin_layout Theorem
+Dado 
+\begin_inset Formula $\alpha\in\left(0,1\right)$
+\end_inset
+
+ se define 
+\begin_inset Formula $W_{\alpha}\!\left(x\right)=\sum_{n=0}^{\infty}\frac{e^{2\pi i2^{n}x}}{2^{n\alpha}}$
+\end_inset
+
+ para 
+\begin_inset Formula $x\in\mathbb{R}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $W_{\alpha}\in C\!\left(\mathbb{T}\right)$
+\end_inset
+
+ y no es derivable en ningún punto.
+ De hecho, 
+\begin_inset Formula $W_{\alpha}\in C^{\alpha}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ pero 
+\begin_inset Formula $W_{\alpha}\notin C^{\alpha+\varepsilon}\!\left(\mathbb{R}\right)$
+\end_inset
+
+ para ningún 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+Si 
+\begin_inset Formula $0<\alpha<1$
+\end_inset
+
+ entonces 
+\begin_inset Formula $W_{\alpha}\in C^{\alpha}\!\left(\mathbb{T}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+Sea 
+\begin_inset Formula $g\in C^{\beta}\!\left(x_{0}\right)$
+\end_inset
+
+ acotada, con 
+\begin_inset Formula $0<\beta<1$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\left|\left(\Delta_{k}*g\right)\!\left(x_{0}\right)\right|\le C_{g}2^{-k\beta}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $k=1,2,\dots$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark
+Si 
+\begin_inset Formula $g$
+\end_inset
+
+ es lipschitziana en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $\beta=1$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\left|\left(\Delta_{k}*g\right)\!\left(x_{0}\right)\right|\le C_{g}\frac{\log N}{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+Si 
+\begin_inset Formula $g\in C\!\left(\mathbb{T}\right)$
+\end_inset
+
+ y existe 
+\begin_inset Formula $g'\!\left(x_{0}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\lim_{k}\left(\psi_{k}*g\right)'\left(x_{0}\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Función de Riemann
+\end_layout
+
+\begin_layout Standard
+Es 
+\begin_inset Formula $R\!\left(x\right)=\sum_{n=1}^{\infty}\frac{1}{n^{2}}e^{in^{2}x}$
+\end_inset
+
+ para 
+\begin_inset Formula $x\in\mathbb{R}$
+\end_inset
+
+ y se demostró que era derivable en 
+\begin_inset Formula $\pi\frac{p}{q}$
+\end_inset
+
+ con 
+\begin_inset Formula $p,q\in2\mathbb{Z}^{+}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Bibliography
