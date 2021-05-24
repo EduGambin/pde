@@ -6129,19 +6129,19 @@ status open
 
 \begin_layout Proposition
 La convolución vista como aplicación 
-\begin_inset Formula $*:L^{1}\!\left(\mathbb{T}\right)\times L^{1}\!\left(\mathbb{T}\right)\to L^{1}\!\left(\mathbb{T}\right)$
-\end_inset
-
- es conmutativa y asociativa.
- Además, 
 \begin_inset Formula 
 \[
-\widehat{\left(K*f\right)}\!\left(n\right)=\hat{K}\!\left(n\right)\hat{f}\!\left(n\right)
+*:L^{1}\!\left(\mathbb{T}\right)\times L^{1}\!\left(\mathbb{T}\right)\to L^{1}\!\left(\mathbb{T}\right)
 \]
 
 \end_inset
 
-para todo 
+ es conmutativa y asociativa.
+ Además, 
+\begin_inset Formula $\widehat{\left(K*f\right)}\!\left(n\right)=\hat{K}\!\left(n\right)\hat{f}\!\left(n\right)$
+\end_inset
+
+ para todo 
 \begin_inset Formula $n\in\mathbb{Z}$
 \end_inset
 
@@ -6232,7 +6232,7 @@ status open
 
 \begin_layout Proposition
 Si 
-\begin_inset Formula $K\in C^{n}\!\left(\mathbb{T}\right)$
+\begin_inset Formula $K\in C^{N}\!\left(\mathbb{T}\right)$
 \end_inset
 
  y 
@@ -6240,7 +6240,7 @@ Si
 \end_inset
 
  entonces 
-\begin_inset Formula $K*f\in C^{n}\!\left(\mathbb{T}\right)$
+\begin_inset Formula $K*f\in C^{N}\!\left(\mathbb{T}\right)$
 \end_inset
 
  y además 
@@ -6251,7 +6251,11 @@ D^{\left(m\right)}\left(K*f\right)\!\left(x\right)=\left(\left(D^{\left(m\right)
 
 \end_inset
 
+para todo 
+\begin_inset Formula $0\le m\le M$
+\end_inset
 
+.
 \end_layout
 
 \end_inset
@@ -6345,7 +6349,7 @@ Para todo
 \begin_layout Standard
 Intuitivamente, las aproximaciones de la identidad convergen a la función
  delta de Kronecker
-\begin_inset Foot
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
@@ -6416,11 +6420,19 @@ Si
 \begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
 \end_inset
 
- entonces 
-\begin_inset Formula $\lim_{\left|h\right|\to0}\left\Vert f\!\left(x+h\right)-f\!\left(x\right)\right\Vert _{L^{1}}=0$
+ entonces para 
+\begin_inset Formula $x\in\mathbb{T}$
 \end_inset
 
-.
+
+\begin_inset Formula 
+\[
+\lim_{\left|h\right|\to0}\left\Vert f\!\left(x+h\right)-f\!\left(x\right)\right\Vert _{L^{1}}=0.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6468,7 +6480,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-convergencia
+convergencia de aproximaciones de la identidad
 \end_layout
 
 \end_inset
@@ -6589,6 +6601,922 @@ Sea
 
 \begin_layout Proof
 La demostración de esta propiedad es un ejercicio.
+\end_layout
+
+\begin_layout Section
+Núcleo de Dirichlet
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+núcleo de Dirichlet
+\series default
+ viene dado por 
+\begin_inset Formula 
+\[
+D_{N}\!\left(x\right)=\sum_{\left|n\right|\le N}e^{2\pi inx}=\frac{\sen\!\left(\left(2N+1\right)\pi x\right)}{\sen\!\left(\pi x\right)}
+\]
+
+\end_inset
+
+con las siguientes propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\int_{\mathbb{T}}D_{N}\!\left(x\right)\,\text{d}x=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $D_{N}\!\left(x\right)=D_{N}\!\left(-x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $D_{N}\!\left(0\right)=2N+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $D_{N}\!\left(x\right)=0\iff x\in\left\{ \frac{\pm1}{2N+1},\dots,\frac{\pm N}{2N+1}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\int_{\mathbb{T}}\left|D_{N}\!\left(x\right)\right|\,\text{d}x\approx\log\!\left(N+1\right)\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Se tiene 
+\begin_inset Formula 
+\[
+L_{N}\coloneqq\int_{\mathbb{T}}\left|D_{N}\!\left(x\right)\right|\,\text{d}x\ge\frac{4}{\pi^{2}}\log\!\left(N+1\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Se tiene 
+\begin_inset Formula 
+\[
+\int_{0}^{a}D_{N}\!\left(x\right)\,\text{d}x=\frac{1}{\pi}\int_{0}^{\left(2N+1\right)\pi a}\frac{\sen x}{x}\,\text{d}x+{\cal O}\!\left(\frac{1}{N}\right)
+\]
+
+\end_inset
+
+uniformemente en 
+\begin_inset Formula $\left|a\right|\le\frac{1}{2}$
+\end_inset
+
+.
+ En particular 
+\begin_inset Formula 
+\[
+\sup_{N\ge1}\sup_{\left|a\right|,\left|b\right|\le\frac{1}{2}}\left|\int_{a}^{b}D_{N}\!\left(x\right)\,\text{d}x\right|<\infty.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+criterio de Dirichlet-Jordan
+\end_layout
+
+\end_inset
+
+ Sea 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+.
+ Se verifiacn:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es creciente (o decreciente) en un entorno de 
+\begin_inset Formula $a$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+\exists\lim_{N}S_{N}f\!\left(a\right)=\frac{f\!\left(a^{-}\right)+f\!\left(a^{+}\right)}{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es creciente (o decreciente) en un entorno de 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ y 
+\begin_inset Formula $C\!\left[a,b\right]$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\lim_{N}S_{N}f\!\left(x\right)=f\!\left(x\right)\text{ uniformemente }\forall x\in\left[a,b\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+El fenómeno de Gibbs
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+criterio de Dirichlet-Jordan
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f\in C^{1}\!\left(\mathbb{T}\setminus\left\{ a\right\} \right)$
+\end_inset
+
+ y presenta una discontinuidad de salto en 
+\begin_inset Formula $a$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\lim_{N}S_{N}f\!\left(a\pm\frac{1}{2N+1}\right)=f\!\left(a^{\pm}\right)\pm0.09\left[f\!\left(a^{+}\right)-f\!\left(a^{-}\right)\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sumabilidad de Cesàro y núcleo de Fejér
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Decimos que una serie 
+\begin_inset Formula $\sum_{n=1}^{\infty}a_{n}$
+\end_inset
+
+ converge a 
+\begin_inset Formula $S$
+\end_inset
+
+ 
+\series bold
+en media
+\series default
+ (o 
+\series bold
+en sentido de Cesàro
+\series default
+) si 
+\begin_inset Formula 
+\[
+\sigma_{N}\coloneqq\frac{S_{0}+\cdots+S_{N-1}}{N}\to S.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Si una serie converge a cierto 
+\begin_inset Formula $S$
+\end_inset
+
+, también lo hace en sentido de Cesàro a ese mismo 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sigma_{N}=\frac{S_{0}+\cdots+S_{N-1}}{N}=\sum_{n=0}^{N}\frac{N-n}{N}a_{n}=\sum_{n=0}^{\infty}\left(1-\frac{n}{N}\right)a_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Hay más métodos clásicos de sumación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Si 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ se define 
+\begin_inset Formula 
+\[
+\sigma_{N}f\!\left(x\right)=\frac{S_{0}f\!\left(x\right)+\cdots+S_{N-1}f\!\left(x\right)}{N}
+\]
+
+\end_inset
+
+y como 
+\begin_inset Formula $S_{n}f=D_{n}*f$
+\end_inset
+
+, se tiene
+\begin_inset Formula 
+\[
+\sigma_{N}f=\left(\frac{D_{0}+\cdots+D_{N-1}}{N}\right)*f=F_{n}*f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Se define el 
+\begin_inset Formula $N$
+\end_inset
+
+-ésimo núcleo de Fejér como 
+\begin_inset Formula 
+\[
+F_{N}\!\left(x\right)=\frac{D_{0}\!\left(x\right)+\cdots+D_{N-1}\!\left(x\right)}{N}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Vean
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $F_{N}\!\left(x\right)=\frac{1}{N}\left(\frac{\sen N\pi x}{\sen\pi x}\right)^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\left\{ F_{N}\!\left(x\right)\right\} _{N\ge1}$
+\end_inset
+
+ es una aproximación de la identidad en 
+\begin_inset Formula $L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $F_{N}\ge0$
+\end_inset
+
+ y 
+\begin_inset Formula $F_{N}\!\left(x\right)=F_{N}\!\left(-x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\int_{\mathbb{T}}F_{N}\!\left(x\right)\,\text{d}x=\int_{\mathbb{T}}\left|F_{N}\!\left(x\right)\right|\,\text{d}x=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $F_{N}\!\left(0\right)=N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $F_{N}\!\left(x\right)=0\iff x=\pm\frac{j}{N}$
+\end_inset
+
+ donde 
+\begin_inset Formula $j=1,\dots,\frac{N}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Decaimiento: 
+\begin_inset Formula 
+\[
+F_{N}\!\left(x\right)=\frac{1}{N}\left(\frac{\sen N\pi x}{\sen\pi x}\right)^{2}\lesssim\min\left\{ N,\frac{1}{N\left|x\right|^{2}}\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Coeficientes de Fourier: 
+\begin_inset Formula $\widehat{F_{N}}\!\left(n\right)=\left(1-\frac{\left|n\right|}{N}\right)_{+}$
+\end_inset
+
+ para 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+.
+ De hecho, 
+\begin_inset Formula 
+\[
+\sigma_{N}f\!\left(x\right)=\sum_{\left|n\right|<N}\left(1-\frac{\left|n\right|}{N}\right)_{+}\hat{f}\!\left(n\right)e^{2\pi inx}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Fejér
+\end_layout
+
+\end_inset
+
+ Varios:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ y existen 
+\begin_inset Formula $f\!\left(a^{\pm}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\lim_{N}\sigma_{N}f\!\left(a\right)=\frac{f\!\left(a^{-}\right)+f\!\left(a^{+}\right)}{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f\in C\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\lim_{N}\sigma_{N}f\!\left(x\right)=f\!\left(x\right)\text{ uniformemente }\forall x\in\mathbb{T}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\lim_{N}\left\Vert \sigma_{N}f-f\right\Vert _{L^{1}}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+unicidad de las series de Fourier
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f\in L^{1}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ es tal que 
+\begin_inset Formula $\hat{f}\!\left(n\right)=0$
+\end_inset
+
+ para cada 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f\equiv0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+eliminación del fenómeno de Gibbs
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $M_{1}\le f\!\left(x\right)\le M_{2}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $M_{1}\le\sigma_{N}f\!\left(x\right)\le M_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+El conjunto 
+\begin_inset Formula ${\cal T}=\text{span}\left\{ e^{2\pi inx}\right\} _{n\in\mathbb{Z}}$
+\end_inset
+
+ es denso en 
+\begin_inset Formula $C\!\left(\mathbb{T}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Weierstrass
+\end_layout
+
+\end_inset
+
+ El conjunto 
+\begin_inset Formula ${\cal P}=\text{span}\left\{ x^{n}\right\} _{n\ge0}$
+\end_inset
+
+ de los polinomios es denso en 
+\begin_inset Formula $C\!\left(\left[a,b\right]\right)$
+\end_inset
+
+.
+ Es decir, si 
+\begin_inset Formula $C\!\left(\left[a,b\right]\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ entonces existe un polinomio 
+\begin_inset Formula $P\!\left(x\right)$
+\end_inset
+
+ tal que 
+\begin_inset Formula 
+\[
+\sup_{x\in\left[a,b\right]}\left|f\!\left(x\right)-P\!\left(x\right)\right|<\varepsilon.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aplicación de la teoría de series de Fourier
+\end_layout
+
+\begin_layout Subsection
+La desigualdad isoperimétrica
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+Sea 
+\begin_inset Formula $\Gamma\subset\mathbb{R}^{2}$
+\end_inset
+
+ una curva cerrada simple 
+\begin_inset Quotes eld
+\end_inset
+
+regular
+\begin_inset Quotes erd
+\end_inset
+
+ con 
+\begin_inset Formula $L\!\left(\Gamma\right)=L$
+\end_inset
+
+.
+ Entonces el área que encierra cumple 
+\begin_inset Formula 
+\[
+A\le\frac{L^{2}}{4\pi}
+\]
+
+\end_inset
+
+y la igualdad se da si y solo si 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ es una circunferencia.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fórmula de Green en 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+A\!\left(\Omega\right)=\int_{\Omega}\text{d}x\,\text{d}y=\frac{1}{2}\left|\int_{\partial\Omega}\left(-y\,\text{d}x+x\,\text{d}y\right)\right|.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Sobolev
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f\in W^{1}\!\left(L^{1}\!\left(\mathbb{R}^{d}\right)\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\left\Vert f\right\Vert _{L^{\frac{d}{d-1}}}\le C_{d}\int_{\mathbb{R}^{d}}\left|\nabla f\right|
+\]
+
+\end_inset
+
+donde puede tomarse 
+\begin_inset Formula $C_{d}=\left(\alpha_{d}\right)^{\frac{1}{d}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+La desigualdad de Weierstrass
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Weierstrass
+\end_layout
+
+\end_inset
+
+ Sea 
+\begin_inset Formula $\alpha\in\left(0,1\right)$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+W_{\alpha}\!\left(x\right)=\sum_{n=0}^{\infty}\frac{e^{2\pi i2^{n}x}}{2^{n\alpha}},\quad x\in\mathbb{T}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Entonces 
+\begin_inset Formula $W_{\alpha}\in C\!\left(\mathbb{T}\right)$
+\end_inset
+
+ pero no es derivable en ningún punto.
+ En verdad 
+\begin_inset Formula $W_{\alpha}\in C^{\alpha}\!\left(\mathbb{T}\right)$
+\end_inset
+
+ pero 
+\begin_inset Formula $W_{\alpha}\notin C^{\alpha+\varepsilon}\!\left(\mathbb{T}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Si 
+\begin_inset Formula $g$
+\end_inset
+
+ acotada cumple 
+\begin_inset Formula $g\in\text{Lip}_{\beta}\!\left(x_{0}\right)$
+\end_inset
+
+ con 
+\begin_inset Formula $\beta\in\left(0,1\right)$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\left|\left(\Delta_{k}*g\right)\!\left(x_{0}\right)\right|\le C_{g}2^{-k\beta}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Teorema de equidistribución de Weyl
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+equidistribución de Weyl
+\end_layout
+
+\end_inset
+
+ Si 
+\begin_inset Formula $\gamma\notin\mathbb{Q}$
+\end_inset
+
+ y si 
+\begin_inset Formula $J=\left(a,b\right)\subset\mathbb{T}$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\[
+\lim_{N}\frac{\left|\left\{ n=1,\dots,N:\left\langle n\gamma\right\rangle \in J\right\} \right|}{N}=\left|J\right|.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Part
