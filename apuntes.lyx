@@ -218,6 +218,41 @@ Physicists are satanic people.
 
 que utilizaremos a lo largo de estos apuntes (en contra de nuestra voluntad,
  por supuesto).
+ También usaremos a menudo, para una función 
+\begin_inset Formula $f$
+\end_inset
+
+ de variables 
+\begin_inset Formula $x_{1},x_{2},\dots,x_{n}$
+\end_inset
+
+, la notación 
+\begin_inset Formula $f_{x_{i_{1}}x_{i_{2}}\cdots x_{i_{k}}}\coloneqq\partial_{x_{i_{1}}}\partial_{x_{i_{2}}}\cdots\partial_{x_{i_{k}}}f$
+\end_inset
+
+, donde los 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+ pueden ser iguales.
+ También se usa, porque a la gente le gusta lo breve, la notación análoga
+ 
+\begin_inset Formula $\partial_{x_{i_{1}}x_{i_{2}}\cdots x_{i_{k}}}\coloneqq\partial_{x_{i_{1}}}\partial_{x_{i_{2}}}\cdots\partial_{x_{i_{k}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+Sea 
+\begin_inset Formula $u:\Omega\subset\mathbb{R}^{n}\rightarrow\mathbb{C}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{div}\left(\nabla u\right)=\Delta u$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Chapter
@@ -524,7 +559,7 @@ status open
 
 \begin_layout Plain Layout
 Descomponiendo en unidades básicas, 
-\begin_inset Formula $\dfrac{\text{N}}{\text{kg}/\text{m}}=\dfrac{\text{kg}\cdot\text{m}/\text{s}^{2}}{\text{kg}/\text{m}}=\dfrac{\text{m}}{\text{s}}$
+\begin_inset Formula $\dfrac{\text{N}}{\text{kg}/\text{m}}=\dfrac{\text{kg}\cdot\text{m}/\text{s}^{2}}{\text{kg}/\text{m}}=\left(\dfrac{\text{m}}{\text{s}}\right)^{2}$
 \end_inset
 
 .
@@ -701,7 +736,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-lema de D'Alembert
+Lema de D'Alembert
 \end_layout
 
 \end_inset
@@ -1440,7 +1475,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-solución a la ec.
+Solución a la ec.
  de la cuerda vibrante en 
 \begin_inset Formula $\left[0,L\right]$
 \end_inset
@@ -2926,7 +2961,1184 @@ La ecuación de Laplace
 \end_layout
 
 \begin_layout Standard
-Sike.
+Recordamos que denotamos por 
+\begin_inset Formula $\Delta\coloneqq\sum_{i=1}^{n}\partial_{x_{i}}^{2}$
+\end_inset
+
+ el operador 
+\series bold
+laplaciano
+\series default
+ en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Decimos que 
+\begin_inset Formula $u:\Omega\subset\mathbb{R}^{n}\rightarrow\mathbb{C}$
+\end_inset
+
+ es 
+\series bold
+armónica
+\series default
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ (abierto), denotado 
+\begin_inset Formula $u\in{\cal H}\left(\Omega\right)$
+\end_inset
+
+, cuando 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\Delta u=\sum_{i=1}^{n}\frac{\partial^{2}u}{\partial x_{i}^{2}}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $F\in{\cal H}\left(\Omega\right)\implies u\coloneqq\text{Re}F,v\coloneqq\text{Im}F\in{\cal H}\left(\Omega\right)$
+\end_inset
+
+, pues estas satisfacen (por ser 
+\begin_inset Formula $F$
+\end_inset
+
+ holomorfa) las ecuaciones de 
+\emph on
+Cauchy-Riemann
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{x}=v_{y}\\
+u_{y}=-v_{x},
+\end{cases}
+\]
+
+\end_inset
+
+por lo que 
+\begin_inset Formula $\Delta u=u_{xx}+u_{yy}=v_{yx}-v_{xy}=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Interpretación física
+\end_layout
+
+\begin_layout Subsection
+Problema del calor estacionario
+\end_layout
+
+\begin_layout Standard
+Para el problema de propagación del calor en 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{n}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{cases}
+u_{t}=\Delta u, & t>0,\ x\in\Omega\\
+u\!\left(0,x\right)=f\!\left(x\right), & x\in\Omega\\
+u\!\left(t,x\right)=\varphi\!\left(t,x\right), & x\in\partial\Omega,
+\end{cases}
+\]
+
+\end_inset
+
+¿cuál será la temperatura en equilibrio 
+\begin_inset Formula $\bar{u}:\Omega\rightarrow\mathbb{R}$
+\end_inset
+
+ cuando 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+? Se puede probar que debe cumplir
+\begin_inset Formula 
+\[
+\begin{cases}
+\Delta\bar{u}(x)=0, & x\in\Omega\\
+\bar{u}\!\left(x\right)=\bar{\varphi}\!\left(x\right), & x\in\partial\Omega.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tres problemas clásicos sobre la ecuación de Laplace
+\end_layout
+
+\begin_layout Subsubsection
+Problema de Dirichlet
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{n},\varphi\in C\left(\partial\Omega\right)$
+\end_inset
+
+, hallar 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)\cap C\left(\overline{\Omega}\right)$
+\end_inset
+
+ tal que
+\begin_inset Formula 
+\[
+\begin{cases}
+\Delta u(x)=0, & x\in\Omega\\
+u\!\left(x\right)=\varphi\!\left(x\right), & x\in\partial\Omega.
+\end{cases}
+\]
+
+\end_inset
+
+Equivale a encontrar la temperatura de equilibrio en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, cuando se fija la temperatura 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ en el borde.
+\end_layout
+
+\begin_layout Subsubsection
+Problema de Neumann
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{n},\varphi\in C\left(\partial\Omega\right)$
+\end_inset
+
+, hallar 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)\cap C\left(\overline{\Omega}\right)$
+\end_inset
+
+ tal que
+\begin_inset Formula 
+\[
+\begin{cases}
+\Delta u(x)=0, & x\in\Omega\\
+\left(\nabla u\cdot\vec{n}\right)(x)=\varphi\!\left(x\right), & x\in\partial\Omega.
+\end{cases}
+\]
+
+\end_inset
+
+Equivale a encontrar la temperatura de equilibrio en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, cuando se fija un flujo de calor entrante 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Problema de Robin
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{n},\varphi\in C\left(\partial\Omega\right)$
+\end_inset
+
+, hallar 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)\cap C\left(\overline{\Omega}\right)$
+\end_inset
+
+ tal que
+\begin_inset Formula 
+\[
+\begin{cases}
+\Delta u(x)=0, & x\in\Omega\\
+\left(\nabla u\cdot\vec{n}+\gamma u\right)(x)=\varphi\!\left(x\right), & x\in\partial\Omega.
+\end{cases}
+\]
+
+\end_inset
+
+Equivale a añadir al anterior una proporcionalidad de escape térmico
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+invent
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Ecuación de Poisson
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{n},\rho\in C\left(\Omega\right)$
+\end_inset
+
+, hallar 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)\cap C\left(\overline{\Omega}\right)$
+\end_inset
+
+ tal que
+\begin_inset Formula 
+\[
+\begin{cases}
+\Delta u(x)=\rho(x), & x\in\Omega\\
+u(x)=0, & x\in\partial\Omega.
+\end{cases}
+\]
+
+\end_inset
+
+Versión no homogénea del problema de Dirichlet.
+\end_layout
+
+\begin_layout Subsection
+Potencial electrostático
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f:\Omega\subset\mathbb{R}^{3}\rightarrow\mathbb{R}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f(x,y,z)$
+\end_inset
+
+ es la densidad de cargas eléctricas en el punto 
+\begin_inset Formula $\left(x,y,z\right)$
+\end_inset
+
+(?) y 
+\begin_inset Formula $\vec{E}:\Omega\rightarrow\mathbb{R}^{3}$
+\end_inset
+
+ el campo eléctrico generado por 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ ¿Podemos determinar 
+\begin_inset Formula $\vec{E}$
+\end_inset
+
+ a partir de 
+\begin_inset Formula $f$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+La ley de Gauss dice que, para una bola 
+\begin_inset Formula $B$
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+El flujo neto de 
+\begin_inset Formula $\vec{E}$
+\end_inset
+
+ saliente a través de 
+\begin_inset Formula $\partial B$
+\end_inset
+
+ es proporcional a la carga total dentro de 
+\begin_inset Formula $B$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Esto es,
+\begin_inset Formula 
+\[
+\int_{\partial B}\vec{E}\cdot\vec{n}=\frac{1}{\epsilon_{0}}\int_{B}f.
+\]
+
+\end_inset
+
+Usando el teorema de la divergencia, 
+\begin_inset Formula $\int_{B}\text{div}\vec{E}=\int_{\partial B}\vec{E}\cdot\vec{n}$
+\end_inset
+
+ y por tanto
+\begin_inset Formula 
+\begin{equation}
+\text{div}\vec{E}=\frac{1}{\epsilon_{0}}f.\label{eq:1-ley-Maxwell}
+\end{equation}
+
+\end_inset
+
+Además, si añadimos la hipótesis que enuncia que los campos electrostáticos
+ son conservativos, es decir, que
+\begin_inset Formula 
+\[
+W_{P\rightarrow Q}=\int_{p}^{Q}\vec{E}
+\]
+
+\end_inset
+
+solo depende del trayecto, entonces 
+\begin_inset Formula $\exists\bar{V}:\Omega\rightarrow\mathbb{R}:\vec{E}=-\nabla\bar{V}$
+\end_inset
+
+ y a 
+\begin_inset Formula $V$
+\end_inset
+
+ lo llamamos potencial electrostático.
+ Así
+\begin_inset Formula 
+\[
+\text{div}\vec{E}=\text{div}\left(-\nabla\bar{V}\right)=-\Delta\bar{V},
+\]
+
+\end_inset
+
+y nuestro problema consiste en resolver la ecuación de Poisson
+\begin_inset Formula 
+\[
+\begin{cases}
+\Delta\bar{V}=-\frac{1}{\epsilon_{0}}f, & x\in\Omega\\
+\bar{V}=0, & x\in\partial\Omega.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Resolución del problema de Dirichlet en el disco plano
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\mathbb{D}\coloneqq\left\{ \left(x,y\right)\in\mathbb{R}^{2}:x^{2}+y^{2}=1\right\} $
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $\varphi\in C\left(\partial\mathbb{D}\right)$
+\end_inset
+
+, busco 
+\begin_inset Formula $u\in C^{2}\left(\mathbb{D}\right)\cap C\left(\overline{\mathbb{D}}\right)$
+\end_inset
+
+ tal que
+\begin_inset Formula 
+\[
+\begin{cases}
+\Delta u=0, & \left(x,y\right)\in\mathbb{D}\\
+u=\varphi, & \left(x,y\right)\in\partial\Omega.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Para coordenadas polares
+\begin_inset FormulaMacro
+\newcommand{\t}{\theta}
+\end_inset
+
+ dadas por el cambio
+\begin_inset Formula 
+\begin{flalign*}
+h:(0,1)\times(0,2\pi) & \rightarrow\mathbb{R}\times\mathbb{R}\\
+\left(r,\theta\right) & \mapsto\left(r\cos\theta,r\sen\theta\right),
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+el laplaciano toma la forma
+\begin_inset Formula 
+\[
+\Delta=\partial_{xx}+\partial_{yy}=\partial_{rr}+\frac{1}{r}\partial_{r}+\frac{1}{r^{2}}\partial_{\theta\theta}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Definimos 
+\begin_inset Formula $v\coloneqq u\circ h$
+\end_inset
+
+, para la que se cumple
+\begin_inset Formula 
+\begin{align*}
+v_{r} & =\left(u\circ h\right)_{r}=u_{x}x_{r}+u_{y}y_{r}=u_{x}\cos\theta+u_{y}\sen\theta\\
+v_{rr} & =u_{xx}\cos^{2}\theta+2u_{xy}\cos\theta\sen\theta+u_{yy}\sen^{2}\theta\\
+v_{\theta} & =\left(u\circ h\right)_{\t}=u_{x}x_{\t}+u_{y}y_{\t}=-u_{x}r\sen\theta+u_{y}r\cos\theta\\
+v_{\t\t} & =\left(u_{xx}x_{\t}+u_{xy}y_{\t}\right)x_{\t}+u_{x}x_{\t\t}+\left(u_{yx}x_{\t}+u_{yy}y_{\t}\right)y_{\t}+u_{y}y_{\t\t}=\\
+ & =u_{xx}x_{\t}^{2}+2u_{xy}y_{\t}x_{\t}+u_{x}x_{\t\t}+u_{yy}y_{\t}^{2}+u_{y}y_{\t\t}=\\
+ & =r^{2}\left(u_{xx}\sen^{2}\t-2u_{xy}\cos\t\sen\t+u_{yy}\cos^{2}\t\right)+\\
+ & -r\left(u_{x}\cos\t+u_{y}\sen\t\right),
+\end{align*}
+
+\end_inset
+
+por lo que 
+\begin_inset Formula 
+\begin{multline*}
+u_{xx}+u_{yy}=u_{xx}\cos^{2}\t+u_{xx}\sen^{2}\t+u_{yy}\cos^{2}\t+u_{yy}\sen^{2}\t=\\
+=\left(v_{rr}-\cancel{2u_{xy}\cos\theta\sen\theta}\right)+\left(\frac{1}{r^{2}}v_{\t\t}-\left(-\cancel{2u_{xy}\cos\t\sen\t}-\frac{1}{r}\left(u_{x}\cos\t+u_{y}\sen\t\right)\right)\right)=\\
+=v_{rr}+\frac{1}{r^{2}}v_{\t\t}+\frac{1}{r}v_{r}.
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Apoyándonos en este lema, ahora buscamos, dada 
+\begin_inset Formula $\varphi\in C\left([0,2\pi]\right)$
+\end_inset
+
+, soluciones de
+\begin_inset Formula 
+\[
+\begin{cases}
+v_{rr}+\frac{1}{r}v_{r}+\frac{1}{r^{2}}v_{\t\t}=0, & \left(r,\t\right)\in(0,1)\times(0,2\pi)\\
+v(1,\t)=\varphi(\t), & \t\in[0,2\pi].
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Supongo que en realidad buscamos, dada 
+\begin_inset Formula $\varphi\in C\left([0,2\pi]\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{cases}
+v_{rr}+\frac{1}{r}v_{r}+\frac{1}{r^{2}}v_{\t\t}=0, & \left(r,\t\right)\in(0,1)\times[0,2\pi]\\
+v(r,0)=v(r,2\pi) & r\in(0,1)\\
+v_{\t}(r,0)=v_{\t}(r,2\pi) & r\in(0,1)\\
+\exists\lim_{r\rightarrow0^{+}}v(r,\t) & \left(r,\t\right)\in(0,1)\times[0,2\pi]\\
+v(1,\t)=\varphi(\t), & \t\in[0,2\pi].
+\end{cases}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aplicando separación de variables, busco una solución del tipo
+\begin_inset Formula 
+\[
+v(r,\t)=R(r)\Theta(\t),
+\]
+
+\end_inset
+
+por lo que si 
+\begin_inset Formula $v(r,\t)\neq0$
+\end_inset
+
+ debe valer
+\begin_inset Formula 
+\begin{gather*}
+0=v_{rr}+\frac{1}{r}v_{r}+\frac{1}{r^{2}}v_{\t\t}=R^{\prime}{}^{\prime}\Theta+\frac{1}{r}R{}^{\prime}\Theta+\frac{1}{r^{2}}R\Theta{}^{\prime}{}^{\prime}\\
+R^{\prime}{}^{\prime}\Theta+\frac{1}{r}R{}^{\prime}\Theta=-\frac{1}{r^{2}}R\Theta{}^{\prime}{}^{\prime}\\
+r^{2}\frac{R^{\prime}{}^{\prime}}{R}+r\frac{R^{\prime}}{R}=-\frac{\Theta{}^{\prime}{}^{\prime}}{\Theta}=\rho,
+\end{gather*}
+
+\end_inset
+
+con 
+\begin_inset Formula $\rho$
+\end_inset
+
+ constante.
+ Obtenemos dos EDO:
+\begin_inset Formula 
+\[
+\begin{cases}
+r^{2}R{}^{\prime}{}^{\prime}+rR{}^{\prime}=\rho R\\
+\exists\lim_{r\rightarrow0^{+}}R
+\end{cases}\qquad\begin{cases}
+\Theta^{\prime}{}^{\prime}=-\rho\Theta\\
+\Theta(0)=\Theta(2\pi)\\
+\Theta{}^{\prime}(0)=\Theta{}^{\prime}(2\pi)
+\end{cases}
+\]
+
+\end_inset
+
+Resolvemos la segunda EDO:
+\end_layout
+
+\begin_layout Itemize
+Caso 
+\begin_inset Formula $\rho=-\lambda^{2}<0$
+\end_inset
+
+.
+ Las soluciones de 
+\begin_inset Formula $\Theta^{\prime}{}^{\prime}=\lambda^{2}\Theta$
+\end_inset
+
+ son 
+\begin_inset Formula $\Theta=A\cosh\lambda\t+B\senh\lambda\t$
+\end_inset
+
+, pero esta solución no es periódica a no ser que 
+\begin_inset Formula $A=B=0$
+\end_inset
+
+, pero no nos interesa la solución trivial.
+\end_layout
+
+\begin_layout Itemize
+Caso 
+\begin_inset Formula $\rho=0$
+\end_inset
+
+.
+ La solución de 
+\begin_inset Formula $\Theta^{\prime}{}^{\prime}=0$
+\end_inset
+
+ es 
+\begin_inset Formula $\Theta=A\t+B$
+\end_inset
+
+, pero para que esta solución sea periódica debe valer 
+\begin_inset Formula $A=0$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\Theta_{0}=B\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Caso 
+\begin_inset Formula $\rho=\lambda^{2}>0$
+\end_inset
+
+.
+ La solución de 
+\begin_inset Formula $\Theta^{\prime}{}^{\prime}=-\lambda^{2}\Theta$
+\end_inset
+
+ es 
+\begin_inset Formula $\Theta=A\cos\lambda\t+B\sen\lambda\t$
+\end_inset
+
+, y por las demas condiciones,
+\begin_inset Formula 
+\begin{align*}
+\Theta(0)=\Theta(2\pi) & \rightarrow A=A\cos2\pi\lambda+B\sen2\pi\lambda\\
+\Theta{}^{\prime}(0)=\Theta{}^{\prime}(2\pi) & \rightarrow\cancel{\lambda}B=-\cancel{\lambda}A\sen2\pi\lambda+\cancel{\lambda}B\cos2\pi\lambda,
+\end{align*}
+
+\end_inset
+
+equivalente al sistema lineal 
+\begin_inset Formula 
+\[
+\begin{cases}
+A\left(1-\cos2\pi\lambda\right)-B\sen2\pi\lambda\\
+A\sen2\pi\lambda+B\left(1-\cos2\pi\lambda\right),
+\end{cases}
+\]
+
+\end_inset
+
+que tendrá más soluciones aparte de la trivial si, y solo si, el determinante
+ es no nulo: 
+\begin_inset Formula 
+\[
+\left(1-\cos2\pi\lambda\right)^{2}+\left(\sen2\pi\lambda\right)^{2}=0\iff\begin{cases}
+\cos2\pi\lambda=1\\
+\sen2\pi\lambda=0
+\end{cases}\iff\lambda=n\in\mathbb{Z}.
+\]
+
+\end_inset
+
+En conclusión, 
+\begin_inset Formula $\rho=n^{2}>0$
+\end_inset
+
+ y 
+\begin_inset Formula $\Theta_{n}(\t)=A_{n}\cos n\t+B_{n}\sen n\t$
+\end_inset
+
+, donde podemos obviar los 
+\begin_inset Formula $n<0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ahora resolvemos la primera EDO con la info anterior:
+\end_layout
+
+\begin_layout Itemize
+Caso 
+\begin_inset Formula $n=0$
+\end_inset
+
+: La solución de 
+\begin_inset Formula $r^{2}R^{\prime}{}^{\prime}+rR{}^{\prime}=0\overset{r\neq0}{\iff}\left(rR^{\prime}\right){}^{\prime}=rR^{\prime}{}^{\prime}+R{}^{\prime}=0$
+\end_inset
+
+ debe cumplir 
+\begin_inset Formula $rR^{\prime}=a\in\mathbb{R}$
+\end_inset
+
+ y por tanto
+\begin_inset Formula 
+\[
+R^{\prime}=\frac{a}{r}\overset{\int\,dr}{\rightarrow}R=a\text{log}r+b.
+\]
+
+\end_inset
+
+Y como queremos que exista 
+\begin_inset Formula $\lim_{r\rightarrow0^{+}}R=\lim_{r\rightarrow0^{+}}a\text{log}r+b$
+\end_inset
+
+, debe ser 
+\begin_inset Formula $a=0$
+\end_inset
+
+ y 
+\begin_inset Formula $R_{0}=b\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Caso 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+: Vemos que, por compatibilidad del 
+\begin_inset Quotes eld
+\end_inset
+
+grado
+\begin_inset Quotes erd
+\end_inset
+
+ en 
+\begin_inset Formula $r$
+\end_inset
+
+ de la igualdad 
+\begin_inset Formula $r^{2}R^{\prime}{}^{\prime}+rR{}^{\prime}=n^{2}R$
+\end_inset
+
+, este debe disminuir en una unidad con la derivación de 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Así, buscando soluciones del tipo 
+\begin_inset Formula $r^{\gamma}$
+\end_inset
+
+ tenemos
+\begin_inset Formula 
+\[
+\gamma(\gamma-1)r^{\gamma}+\gamma r^{\gamma}=n^{2}r^{\gamma}\iff\gamma^{2}-\gamma+\gamma=n^{2}\iff\gamma=\pm n.
+\]
+
+\end_inset
+
+Y como queremos que exista 
+\begin_inset Formula $\lim_{r\rightarrow0^{+}}R=\lim_{r\rightarrow0^{+}}A_{n}r^{-n}+B_{n}r^{n}$
+\end_inset
+
+, debe ser 
+\begin_inset Formula $A_{n}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $R_{n}=B_{n}r^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En conclusión, el candidato a solución general es
+\begin_inset Formula 
+\[
+v(r,\t)=A_{0}+\sum_{n>0}r^{n}\left(A_{n}\cos n\t+B_{n}\sen n\t\right),
+\]
+
+\end_inset
+
+de donde el valor en la frontera debe ser de la forma
+\begin_inset Formula 
+\[
+\varphi(\t)=v(1,\t)=A_{0}+\sum_{n>0}\left(A_{n}\cos n\t+B_{n}\sen n\t\right).
+\]
+
+\end_inset
+
+Usando ortogonalidad,
+\begin_inset Formula 
+\[
+A_{0}=\frac{1}{2\pi}\int_{0}^{2\pi}\varphi(\t)\,d\t\quad A_{n}=\frac{1}{\pi}\int_{0}^{2\pi}\varphi(\t)\cos n\t\,d\t\quad B_{n}=\frac{1}{\pi}\int_{0}^{2\pi}\varphi(\t)\sen n\t\,d\t.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+El núcleo de Poisson
+\end_layout
+
+\begin_layout Standard
+Nos interesa escribir la solución de la ecuación de Laplace en forma integral
+ utilizando un núcleo 
+\begin_inset Formula $P$
+\end_inset
+
+ (denominado 
+\series bold
+núcleo de Poisson
+\series default
+), algo como
+\begin_inset Formula 
+\[
+v(r,\t)=\frac{1}{2\pi}\int_{0}^{2\pi}\varphi(\vartheta)P(r,\t-\vartheta)\,d\vartheta.
+\]
+
+\end_inset
+
+Para ello, trataremos de escribir la solución 
+\begin_inset Formula $v(r,\t)=A_{0}+\sum_{n>0}r^{n}\left(A_{n}\cos n\t+B_{n}\sen n\t\right)$
+\end_inset
+
+ en forma compleja.
+ Esto es
+\begin_inset Formula 
+\begin{multline*}
+v(r,\t)=A_{0}+\sum_{n>0}r^{n}\left(A_{n}\frac{e^{in\t}+e^{-in\t}}{2}+B_{n}\frac{e^{in\t}-e^{-in\t}}{2i}\right)=\\
+=A_{0}+\sum_{n>0}r^{n}\left(\frac{A_{n}-iB_{n}}{2}e^{in\t}+\frac{A_{n}+iB_{n}}{2}e^{-in\t}\right)=\alpha_{0}+\sum_{n>0}r^{n}\left(\alpha_{n}e^{in\t}+\alpha_{-n}e^{-in\t}\right)=\\
+=\sum_{n\in\mathbb{Z}}r^{|n|}\alpha_{n}e^{in\t}.
+\end{multline*}
+
+\end_inset
+
+En este caso, el valor en la frontera lo escribiremos como
+\begin_inset Formula 
+\[
+\varphi(\t)=v(1,\t)=\sum_{n\in\mathbb{Z}}\alpha_{n}e^{in\t}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para determinar 
+\begin_inset Formula $\alpha_{n}$
+\end_inset
+
+, usamos ortogonalidad resultando en
+\begin_inset Formula 
+\[
+\alpha_{n}=\sum_{m\in\mathbb{Z}}\alpha_{m}\frac{1}{2\pi}\int_{0}^{2\pi}e^{im\t}e^{-in\t}\,d\t=\frac{1}{2\pi}\int_{0}^{2\pi}\varphi(\t)e^{-in\t}\,d\t=\fint_{0}^{2\pi}\varphi(\t)e^{-in\t}\,d\t.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, ya tenemos una forma integral, pues
+\begin_inset Formula 
+\begin{multline*}
+v(r,\t)=\sum_{n\in\mathbb{Z}}r^{|n|}\left(\fint_{0}^{2\pi}\varphi(\vartheta)e^{-in\vartheta}\,d\vartheta\right)e^{in\t}=\fint_{0}^{2\pi}\left(\sum_{n\in\mathbb{Z}}r^{|n|}\varphi(\vartheta)e^{-in\vartheta}e^{in\t}\right)\,d\vartheta=\fint_{0}^{2\pi}\left(\sum_{n\in\mathbb{Z}}r^{|n|}\varphi(\vartheta)e^{-in\vartheta}e^{in\t}\right)\,d\vartheta=\\
+=\fint_{0}^{2\pi}\varphi(\vartheta)\left(\sum_{n\in\mathbb{Z}}r^{|n|}e^{in(\t-\vartheta)}\right)\,d\vartheta=\fint_{0}^{2\pi}\varphi(\vartheta)P(r,\t-\vartheta)\,d\vartheta.
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Definition
+Llamamos 
+\series bold
+núcleo de Poisson
+\series default
+ en 
+\begin_inset Formula $\mathbb{D}$
+\end_inset
+
+ a la función
+\begin_inset Formula 
+\[
+P(r,\t)\coloneqq\sum_{n\in\mathbb{Z}}r^{|n|}e^{in\t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Lemma
+Para 
+\begin_inset Formula $r,\t$
+\end_inset
+
+ tal que 
+\begin_inset Formula $re^{i\t}\in\mathbb{D}$
+\end_inset
+
+, se cumple
+\begin_inset Formula 
+\[
+P(r,\t)=\frac{1-r^{2}}{1+r^{2}-2r\cos\t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Separamos en dos geométricas complejas.
+\end_layout
+
+\begin_layout Subsection
+Propiedades del núcleo de Poisson
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(r,\t)>0$
+\end_inset
+
+ en el disco.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(r,\t)$
+\end_inset
+
+ es 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ en el disco.
+ Va a ser solución regularizante porque su núcleo es regularizante y yo
+ soy adivino.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Delta P=\left(\partial_{rr}+\frac{1}{r}\partial_{r}+\frac{1}{r^{2}}\partial_{\t\t}\right)P=0$
+\end_inset
+
+, pues
+\begin_inset Formula 
+\[
+P(r,\t)=\dots=\text{Re}\left(\frac{1+z}{1-z}\right)\in{\cal H}\left(\mathbb{D}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\fint_{0}^{2\pi}P(r,\t)\,d\t=\sum_{n\in\mathbb{Z}}r^{|n|}\fint_{0}^{2\pi}e^{in\t}\,d\t=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\lim_{r\rightarrow1^{-}}P(r,\t)=\begin{cases}
+0 & \t\in(0,2\pi)\\
+\infty & \t=0
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Cuando 
+\begin_inset Formula $r\rightarrow1^{-}$
+\end_inset
+
+, 
+\begin_inset Formula $P$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+se aproxima
+\begin_inset Quotes erd
+\end_inset
+
+ a una delta de Dirac.
+ Además, es la solución 
+\begin_inset Quotes eld
+\end_inset
+
+formal
+\begin_inset Quotes erd
+\end_inset
+
+ de
+\begin_inset Formula 
+\[
+\begin{cases}
+\Delta u=0, & \left(x,y\right)\in\mathbb{D}\\
+u=\delta_{(1,0)}, & \left(x,y\right)\in\partial\Omega.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Theorem
+Sea 
+\begin_inset Formula $\varphi\in C\left(\partial\mathbb{D}\right)$
+\end_inset
+
+.
+ Entonces
+\begin_inset Formula 
+\[
+v(r,\t)\coloneqq\fint_{0}^{2\pi}\varphi(\vartheta)P(r,\t-\vartheta)\,d\vartheta
+\]
+
+\end_inset
+
+cumple
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $v\in C^{\infty}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Delta v=0$
+\end_inset
+
+ en el disco
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\lim_{\left(r,\t\right)\rightarrow\left(1,\t_{0}\right)}\varphi\left(r,\t\right)=\varphi\left(1,\t_{0}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Theorem
+Así, si 
+\begin_inset Formula $v\vert_{\partial\mathbb{D}}\coloneqq\varphi$
+\end_inset
+
+, entonces 
+\begin_inset Formula $v\in C\left(\mathbb{D}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Corollary
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Principio del máximo y del mínimo]
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\min\varphi\leq v(r,\t)\leq\max\varphi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{multline*}
+\text{div}\left(u\nabla u\right)=\text{div}\left(u\partial_{x_{1}}u,u\partial_{x_{2}}u,\dots,u\partial_{x_{n}}u\right)=\sum_{i=1}^{n}\partial_{x_{i}}\left(u\partial_{x_{i}}u\right)=\sum_{i=1}^{n}\left(\left(\partial_{x_{i}}u\right)^{2}+\left(u\partial_{x_{i}}^{2}u\right)\right)=\\
+=\left|\nabla u\right|^{2}+u\sum_{i=1}^{n}\partial_{x_{i}}^{2}u=\left|\nabla u\right|^{2}+u\Delta u
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Part
@@ -3954,7 +5166,7 @@ Para otro día si eso.
 \end_layout
 
 \begin_layout Standard
-La constante de integración en la propisición anterior es el 
+La constante de integración en la proposición anterior es el 
 \begin_inset Formula $0$
 \end_inset
 
@@ -3982,6 +5194,42 @@ La constante de integración en la propisición anterior es el
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+G(x)=\int_{0}^{x}\left(f-\hat{f}_{0}\right)=F-\hat{f}_{0}x
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{G}(n)=\int Fe^{-2\pi inx}-\int\hat{f}_{0}xe^{-2\pi inx}=\frac{\hat{f}-\hat{f}_{0}}{2\pi in}-\hat{f}_{0}\frac{1}{-2\pi in}=\frac{\hat{f}}{2\pi in}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{G}(0)=\int F-\int\hat{f}_{0}x=\int F-\hat{f}_{0}\int x=\int F-\frac{1}{2}\hat{f}_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -4481,7 +5729,7 @@ Anti-lineal en la segunda variable:
 \end_layout
 
 \begin_layout Enumerate
-Hermítica: 
+Hermítica o auto-adjunta: 
 \begin_inset Formula $\left\langle f,g\right\rangle =\overline{\left\langle g,f\right\rangle }$
 \end_inset
 
